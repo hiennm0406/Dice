@@ -65,7 +65,7 @@ public class BattleManager : LocalSingleton<BattleManager>
                         }
                     }
                     int x = pos[Random.Range(0, pos.Count)];
-                    _unit.MoveUnit(new Vector2Int(x, 8));
+                    _unit.MoveUnit(new Vector2Int(x, 8), false);
 
                     // init unit stat
                     _unit.UnitStat.CopyStat(_e.BaseStat);
@@ -74,6 +74,7 @@ public class BattleManager : LocalSingleton<BattleManager>
                 }
             }
         }
+        Stage = GAMESTAGE.UNITMOVE;
     }
 
     public void RollDice()
