@@ -1,0 +1,132 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58c6078eaeddb2541961e4d4b0cf2ef8, type: 3}
+  m_Name: UnitData
+  m_EditorClassIdentifier: 
+  ListEnemy:
+  - UnitId: 0
+    UnitName: Farmer
+    ImageUnit: {fileID: 0}
+    Prefab: {fileID: 5431998823819661621, guid: 14d1f5bfee8649b48961273f8f74c2ef, type: 3}
+    Skills: 
+    BaseStat:
+      Power: 2
+      HP: 5
+      Moving: 1
+      AtkRange: 1
+      Luck: 0
+      CritRate: 10
+      CritDmg: 150
+  - UnitId: 1
+    UnitName: Pikeman
+    ImageUnit: {fileID: 0}
+    Prefab: {fileID: 5431998823819661621, guid: 14d1f5bfee8649b48961273f8f74c2ef, type: 3}
+    Skills: 
+    BaseStat:
+      Power: 5
+      HP: 12
+      Moving: 1
+      AtkRange: 2
+      Luck: 0
+      CritRate: 10
+      CritDmg: 150
+  - UnitId: 2
+    UnitName: Rogue
+    ImageUnit: {fileID: 0}
+    Prefab: {fileID: 5431998823819661621, guid: 14d1f5bfee8649b48961273f8f74c2ef, type: 3}
+    Skills: 
+    BaseStat:
+      Power: 3
+      HP: 6
+      Moving: 1
+      AtkRange: 1
+      Luck: 0
+      CritRate: 30
+      CritDmg: 150
+  - UnitId: 3
+    UnitName: Archer
+    ImageUnit: {fileID: 0}
+    Prefab: {fileID: 5431998823819661621, guid: 14d1f5bfee8649b48961273f8f74c2ef, type: 3}
+    Skills: 
+    BaseStat:
+      Power: 4
+      HP: 8
+      Moving: 1
+      AtkRange: 100
+      Luck: 0
+      CritRate: 10
+      CritDmg: 150
+  - UnitId: 4
+    UnitName: Cavalry
+    ImageUnit: {fileID: 0}
+    Prefab: {fileID: 0}
+    Skills: 
+    BaseStat:
+      Power: 10
+      HP: 15
+      Moving: 2
+      AtkRange: 1
+      Luck: 0
+      CritRate: 10
+      CritDmg: 150
+  - UnitId: 5
+    UnitName: Butcher
+    ImageUnit: {fileID: 0}
+    Prefab: {fileID: 0}
+    Skills: 
+    BaseStat:
+      Power: 5
+      HP: 25
+      Moving: 1
+      AtkRange: 1
+      Luck: 0
+      CritRate: 10
+      CritDmg: 150
+  - UnitId: 6
+    UnitName: Swordman
+    ImageUnit: {fileID: 0}
+    Prefab: {fileID: 0}
+    Skills: 
+    BaseStat:
+      Power: 9
+      HP: 30
+      Moving: 1
+      AtkRange: 1
+      Luck: 0
+      CritRate: 10
+      CritDmg: 150
+  - UnitId: 7
+    UnitName: Monk
+    ImageUnit: {fileID: 0}
+    Prefab: {fileID: 0}
+    Skills: 
+    BaseStat:
+      Power: 7
+      HP: 10
+      Moving: 1
+      AtkRange: 1
+      Luck: 0
+      CritRate: 10
+      CritDmg: 150
+  - UnitId: 8
+    UnitName: Knight
+    ImageUnit: {fileID: 0}
+    Prefab: {fileID: 0}
+    Skills: 
+    BaseStat:
+      Power: 15
+      HP: 25
+      Moving: 2
+      AtkRange: 2
+      Luck: 0
+      CritRate: 10
+      CritDmg: 150
