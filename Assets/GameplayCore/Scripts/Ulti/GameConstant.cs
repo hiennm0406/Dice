@@ -19,7 +19,8 @@ public class GameConstant
 
     public class GameLayer
     {
-        public const int TARGET = 10;
+        public const int DICE = 3;
+        public const int FLOOR = 6;
     }
 
     public class Ads
