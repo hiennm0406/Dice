@@ -1,4 +1,5 @@
 using Newtonsoft.Json;
+using Sirenix.OdinInspector;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -46,8 +47,14 @@ public class LevelCampainData : SingletonScriptableObject<LevelCampainData>
 public class LevelCampain
 {
     public int lv;
+    [HorizontalGroup("Power")]
     public float PowerFactor;
+    [HorizontalGroup("Power")]
+    public float PowerFactorInWay;
+    [HorizontalGroup("HP")]
     public float HpFactor;
+    [HorizontalGroup("HP")]
+    public float HpFactorInWay;
     public List<string> LevelInfo;
     public List<EnemyWay> enemyWays = new List<EnemyWay>();
 }

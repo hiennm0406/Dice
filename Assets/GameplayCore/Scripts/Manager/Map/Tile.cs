@@ -6,6 +6,7 @@ public class Tile : MonoBehaviour
 {
     public int Row;
     public int Col;
+    public bool free;
     public UnitController unitController;
     public void Start()
     {

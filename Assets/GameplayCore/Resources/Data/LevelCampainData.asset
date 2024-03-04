@@ -15,18 +15,20 @@ MonoBehaviour:
   levelCampains:
   - lv: 1
     PowerFactor: 0
+    PowerFactorInWay: 0.05
     HpFactor: 0
+    HpFactorInWay: 0.05
     LevelInfo:
     - '{"PowerFactor":0.0,"HpFactor":0.0,"unitsInWay":[0,0]}'
     - '{"PowerFactor":0.0,"HpFactor":0.0,"unitsInWay":[0,0]}'
     - '{"PowerFactor":0.0,"HpFactor":0.0,"unitsInWay":[0,0,0]}'
     - '{"PowerFactor":0.0,"HpFactor":0.0,"unitsInWay":[0,0,0]}'
-    - '{"PowerFactor":0.0,"HpFactor":0.0,"unitsInWay":[0,0,1]}'
-    - '{"PowerFactor":0.0,"HpFactor":0.0,"unitsInWay":[0,1,1]}'
-    - '{"PowerFactor":0.0,"HpFactor":0.0,"unitsInWay":[1,1,0]}'
-    - '{"PowerFactor":0.0,"HpFactor":0.0,"unitsInWay":[1,1,1,1,1]}'
-    - '{"PowerFactor":0.0,"HpFactor":0.0,"unitsInWay":[0,1,1,3]}'
-    - '{"PowerFactor":0.0,"HpFactor":0.0,"unitsInWay":[1,3,1,3,1]}'
+    - '{"PowerFactor":0.0,"HpFactor":0.0,"unitsInWay":[0,0,1,1]}'
+    - '{"PowerFactor":0.0,"HpFactor":0.0,"unitsInWay":[0,1,1,0]}'
+    - '{"PowerFactor":0.0,"HpFactor":0.0,"unitsInWay":[1,1,0,1]}'
+    - '{"PowerFactor":0.0,"HpFactor":0.0,"unitsInWay":[1,1,1,1,1,1]}'
+    - '{"PowerFactor":0.0,"HpFactor":0.0,"unitsInWay":[0,1,1,3,0]}'
+    - '{"PowerFactor":0.0,"HpFactor":0.0,"unitsInWay":[1,3,1,3,1,1]}'
     enemyWays:
     - PowerFactor: 0
       HpFactor: 0
@@ -42,19 +44,19 @@ MonoBehaviour:
       unitsInWay: 000000000000000000000000
     - PowerFactor: 0
       HpFactor: 0
-      unitsInWay: 000000000000000001000000
+      unitsInWay: 00000000000000000100000001000000
     - PowerFactor: 0
       HpFactor: 0
-      unitsInWay: 000000000100000001000000
+      unitsInWay: 00000000010000000100000000000000
     - PowerFactor: 0
       HpFactor: 0
-      unitsInWay: 010000000100000000000000
+      unitsInWay: 01000000010000000000000001000000
     - PowerFactor: 0
       HpFactor: 0
-      unitsInWay: 0100000001000000010000000100000001000000
+      unitsInWay: 010000000100000001000000010000000100000001000000
     - PowerFactor: 0
       HpFactor: 0
-      unitsInWay: 00000000010000000100000003000000
+      unitsInWay: 0000000001000000010000000300000000000000
     - PowerFactor: 0
       HpFactor: 0
-      unitsInWay: 0100000003000000010000000300000001000000
+      unitsInWay: 010000000300000001000000030000000100000001000000
