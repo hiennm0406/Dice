@@ -141,7 +141,10 @@ public class BattleManager : LocalSingleton<BattleManager>
         List<Vector2Int> _list = new List<Vector2Int>();
         foreach (KeyValuePair<Vector2Int, Tile> item in ListTile)
         {
-            item.Value.free = true;
+            if (item.Value.unitController == null)
+            {
+                item.Value.free = true;
+            }
         }
         for (int i = 0; i < Dice.Length; i++)
         {

@@ -3424,9 +3424,9 @@ MonoBehaviour:
   IsPlay: 0
   Stage: 0
   Dice:
-  - {fileID: 1617543593}
-  - {fileID: 1889393428}
-  - {fileID: 2066725054}
+  - {fileID: 2066725057}
+  - {fileID: 1889393431}
+  - {fileID: 1617543596}
   diceStart: {fileID: 326601949}
 --- !u!1 &994198626
 GameObject:
@@ -5625,13 +5625,14 @@ GameObject:
   - component: {fileID: 1617543593}
   - component: {fileID: 1617543592}
   - component: {fileID: 1617543595}
+  - component: {fileID: 1617543596}
   m_Layer: 3
   m_Name: Dice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!95 &1617543592
 Animator:
   serializedVersion: 3
@@ -5742,6 +5743,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.2705883, y: 1.2823529}
   m_EdgeRadius: 0
+--- !u!114 &1617543596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1617543591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bccd8103d5d3f7f4cac208790e985533, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pos: {x: 0, y: 0}
+  boxCollider2D: {fileID: 0}
+  spriteRenderer: {fileID: 0}
 --- !u!1 &1624666397
 GameObject:
   m_ObjectHideFlags: 0
@@ -6888,13 +6904,14 @@ GameObject:
   - component: {fileID: 1889393428}
   - component: {fileID: 1889393427}
   - component: {fileID: 1889393430}
+  - component: {fileID: 1889393431}
   m_Layer: 3
   m_Name: Dice (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!95 &1889393427
 Animator:
   serializedVersion: 3
@@ -7005,6 +7022,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.2705883, y: 1.2823529}
   m_EdgeRadius: 0
+--- !u!114 &1889393431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1889393426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bccd8103d5d3f7f4cac208790e985533, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pos: {x: 0, y: 0}
+  boxCollider2D: {fileID: 0}
+  spriteRenderer: {fileID: 0}
 --- !u!1 &1899456428
 GameObject:
   m_ObjectHideFlags: 0
@@ -7488,13 +7520,14 @@ GameObject:
   - component: {fileID: 2066725054}
   - component: {fileID: 2066725053}
   - component: {fileID: 2066725056}
+  - component: {fileID: 2066725057}
   m_Layer: 3
   m_Name: Dice (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!95 &2066725053
 Animator:
   serializedVersion: 3
@@ -7605,6 +7638,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.2705883, y: 1.2823529}
   m_EdgeRadius: 0
+--- !u!114 &2066725057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2066725052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bccd8103d5d3f7f4cac208790e985533, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pos: {x: 0, y: 0}
+  boxCollider2D: {fileID: 0}
+  spriteRenderer: {fileID: 0}
 --- !u!1 &2103632966
 GameObject:
   m_ObjectHideFlags: 0

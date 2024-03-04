@@ -12,5 +12,6 @@ public class DiceOnBoardController : MonoBehaviour
     {
         boxCollider2D = GetComponent<BoxCollider2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        gameObject.SetActive(false);
     }
 }
