@@ -49,3 +49,10 @@ public enum UnitRank
     EPIC,
     LEGENDARY
 }
+
+public enum Element
+{
+    FIRE,
+    ICE,
+    LIGHT
+}

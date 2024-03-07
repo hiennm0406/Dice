@@ -334,6 +334,102 @@ public class BattleManager : LocalSingleton<BattleManager>
         }
     }
 
+
+    public Tile GetRight(Vector2Int pos)
+    {
+        if (pos.y + 1 > 8)
+        {
+            return null;
+        }
+        else
+        {
+            return ListTile[new Vector2Int(pos.x, pos.y + 1)];
+        }
+    }
+
+    public Tile GetLeft(Vector2Int pos)
+    {
+        if (pos.y - 1 < 0)
+        {
+            return null;
+        }
+        else
+        {
+            return ListTile[new Vector2Int(pos.x, pos.y - 1)];
+        }
+    }
+
+    public Tile GetTop(Vector2Int pos)
+    {
+        if (pos.x + 1 > 6)
+        {
+            return null;
+        }
+        else
+        {
+            return ListTile[new Vector2Int(pos.x + 1, pos.y)];
+        }
+    }
+
+    public Tile GetDown(Vector2Int pos)
+    {
+        if (pos.x - 1 < 1)
+        {
+            return null;
+        }
+        else
+        {
+            return ListTile[new Vector2Int(pos.x - 1, pos.y)];
+        }
+    }
+
+    public Tile GetTopRight(Vector2Int pos)
+    {
+        if (pos.y + 1 > 8 || pos.x + 1 > 6)
+        {
+            return null;
+        }
+        else
+        {
+            return ListTile[new Vector2Int(pos.x + 1, pos.y + 1)];
+        }
+    }
+
+    public Tile GetTopLeft(Vector2Int pos)
+    {
+        if (pos.y - 1 < 0 || pos.x + 1 > 6)
+        {
+            return null;
+        }
+        else
+        {
+            return ListTile[new Vector2Int(pos.x + 1, pos.y - 1)];
+        }
+    }
+
+    public Tile GetDownRight(Vector2Int pos)
+    {
+        if (pos.y + 1 > 8 || pos.x - 1 < 1)
+        {
+            return null;
+        }
+        else
+        {
+            return ListTile[new Vector2Int(pos.x - 1, pos.y + 1)];
+        }
+    }
+
+    public Tile GetDownLeft(Vector2Int pos)
+    {
+        if (pos.y - 1 < 0 || pos.x - 1 < 1)
+        {
+            return null;
+        }
+        else
+        {
+            return ListTile[new Vector2Int(pos.x - 1, pos.y - 1)];
+        }
+    }
     #endregion
 }
 
