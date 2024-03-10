@@ -11,6 +11,10 @@ public class DiceController : MonoBehaviour
 
     public void DealDamage(UnitController target, int dmg, Element element)
     {
-
+        target.HPNow -= dmg;
+        if (target.HPNow <= 0)
+        {
+            target.Die();
+        }
     }
 }

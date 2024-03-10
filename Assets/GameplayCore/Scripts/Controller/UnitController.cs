@@ -57,4 +57,11 @@ public class UnitController : MonoBehaviour
         transform.position = end;
         isMoving = false;
     }
+
+    public void Die()
+    {
+        BattleManager.Instance.ListTile[pos] = null;
+        BattleManager.Instance.listUnit.Remove(this);
+        Destroy(gameObject);
+    }
 }
