@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class BattleManager : LocalSingleton<BattleManager>
 {
-    public Dictionary<Vector2Int, Tile> ListTile = new Dictionary<Vector2Int, Tile>();
+    public Dictionary<int, Tile> ListTile = new Dictionary<int, Tile>();
     public List<UnitController> listUnit = new List<UnitController>();
     public int lv;
     public int way;
@@ -15,14 +15,18 @@ public class BattleManager : LocalSingleton<BattleManager>
 
     public bool IsPlay;
     public GAMESTAGE Stage;
-    public DiceOnBoardController[] Dice;
+    public List<DiceOnBoardController> Dice = new List<DiceOnBoardController>();
     public Transform diceStart;
+
+
+    public List<DiceController> ListDice = new List<DiceController>();
+
     #region PrivateProperty
-    int diceCount;
-    Camera mainCamera;
-    bool drag = false;
-    DiceOnBoardController diceDrag;
-    Tile nowTile;
+    private int diceCount;
+    private Camera mainCamera;
+    private bool drag = false;
+    private DiceOnBoardController diceDrag;
+    private Tile nowTile;
     #endregion
 
     private void Start()
@@ -58,7 +62,7 @@ public class BattleManager : LocalSingleton<BattleManager>
     {
         foreach (var item in Dice)
         {
-            item.gameObject.SetActive(false);
+            Destroy(item.gameObject);
         }
         way++;
         wayFactor++;
@@ -93,7 +97,7 @@ public class BattleManager : LocalSingleton<BattleManager>
                     List<int> pos = new List<int>();
                     for (int i = 1; i <= 6; i++)
                     {
-                        if (ListTile[new Vector2Int(i, 8)].unitController == null)
+                        if (ListTile[Helper.GetVector(i, 8)].unitController == null)
                         {
                             pos.Add(i);
                         }
@@ -133,23 +137,30 @@ public class BattleManager : LocalSingleton<BattleManager>
             return;
         }
         Stage = GAMESTAGE.WAITDICE;
-        foreach (var item in Dice)
+
+        // random 3 trong 5 dice
+        Dice.Clear();
+        for (int i = 0; i < 3; i++)
         {
-            item.gameObject.SetActive(true);
+            int x = Random.Range(0, 5);
+            GameObject _go = Instantiate(ListDice[x].gameObject);
+
+            Dice.Add(_go.GetComponent<DiceOnBoardController>());
         }
+
         diceCount = 0;
-        List<Vector2Int> _list = new List<Vector2Int>();
-        foreach (KeyValuePair<Vector2Int, Tile> item in ListTile)
+        List<int> _list = new List<Vector2Int>();
+        foreach (KeyValuePair<int, Tile> item in ListTile)
         {
             if (item.Value.unitController == null)
             {
                 item.Value.free = true;
             }
         }
-        for (int i = 0; i < Dice.Length; i++)
+        for (int i = 0; i < Dice.Count; i++)
         {
             //get free slot
-            foreach (KeyValuePair<Vector2Int, Tile> item in ListTile)
+            foreach (KeyValuePair<int, Tile> item in ListTile)
             {
                 if (item.Value.unitController == null && item.Value.free)
                 {
@@ -157,7 +168,7 @@ public class BattleManager : LocalSingleton<BattleManager>
                 }
             }
 
-            Vector2Int _vec = _list[Random.Range(0, _list.Count)];
+            int _vec = _list[Random.Range(0, _list.Count)];
             ListTile[_vec].free = false;
             // random 1-6
             diceCount++;

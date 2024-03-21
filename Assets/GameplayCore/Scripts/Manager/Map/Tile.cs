@@ -10,9 +10,14 @@ public class Tile : MonoBehaviour
     public UnitController unitController;
     public void Start()
     {
-        BattleManager.Instance.ListTile.Add(new Vector2Int(Row, Col), this);
+        BattleManager.Instance.ListTile.Add(Helper.GetVector(Row, Col), this);
     }
 
+    [Button]
+    public void Down()
+    {
+        Row--;
+    }
 #if UNITY_EDITOR
     [Button]
     public void Get()

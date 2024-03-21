@@ -370,4 +370,13 @@ public static class Helper
             return false;
         }
     }
+
+    public static int GetVector(int x, int y)
+    {
+        return x * 8 + y;
+    }
+    public static int GetVector(Vector2Int vec)
+    {
+        return vec.x * 8 + vec.y;
+    }
 }

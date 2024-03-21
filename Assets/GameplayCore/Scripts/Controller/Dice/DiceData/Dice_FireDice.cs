@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class Dice_FireDice : DiceController
 {
+
     public override void TriggerDice(int number)
     {
-        // deal dmg 8 ô xung quanh
+        // deal dmg các ô xung quanh
+        DiceOnBoardController _dice = GetComponent<DiceOnBoardController>();
 
     }
 }
