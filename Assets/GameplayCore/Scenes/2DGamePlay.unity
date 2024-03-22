@@ -224,6 +224,7 @@ MonoBehaviour:
   free: 0
   unitController: {fileID: 0}
   Pos: 26
+  BeingDmg: 0
 --- !u!61 &61132015
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -351,6 +352,7 @@ MonoBehaviour:
   free: 0
   unitController: {fileID: 0}
   Pos: 52
+  BeingDmg: 0
 --- !u!61 &116946944
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -478,6 +480,7 @@ MonoBehaviour:
   free: 0
   unitController: {fileID: 0}
   Pos: 25
+  BeingDmg: 0
 --- !u!61 &150263956
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -605,6 +608,7 @@ MonoBehaviour:
   free: 0
   unitController: {fileID: 0}
   Pos: 20
+  BeingDmg: 0
 --- !u!61 &191599793
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -732,6 +736,7 @@ MonoBehaviour:
   free: 0
   unitController: {fileID: 0}
   Pos: 10
+  BeingDmg: 0
 --- !u!61 &233658092
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -941,6 +946,7 @@ MonoBehaviour:
   free: 0
   unitController: {fileID: 0}
   Pos: 40
+  BeingDmg: 0
 --- !u!61 &352333006
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1068,6 +1074,7 @@ MonoBehaviour:
   free: 0
   unitController: {fileID: 0}
   Pos: 33
+  BeingDmg: 0
 --- !u!61 &389822117
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1195,6 +1202,7 @@ MonoBehaviour:
   free: 0
   unitController: {fileID: 0}
   Pos: 30
+  BeingDmg: 0
 --- !u!61 &420702020
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1322,6 +1330,7 @@ MonoBehaviour:
   free: 0
   unitController: {fileID: 0}
   Pos: 1
+  BeingDmg: 0
 --- !u!61 &469833154
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1449,6 +1458,7 @@ MonoBehaviour:
   free: 0
   unitController: {fileID: 0}
   Pos: 45
+  BeingDmg: 0
 --- !u!61 &508453668
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1576,6 +1586,7 @@ MonoBehaviour:
   free: 0
   unitController: {fileID: 0}
   Pos: 36
+  BeingDmg: 0
 --- !u!61 &554248492
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1703,6 +1714,7 @@ MonoBehaviour:
   free: 0
   unitController: {fileID: 0}
   Pos: 50
+  BeingDmg: 0
 --- !u!61 &663670405
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1830,6 +1842,7 @@ MonoBehaviour:
   free: 0
   unitController: {fileID: 0}
   Pos: 4
+  BeingDmg: 0
 --- !u!61 &671066770
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1957,6 +1970,7 @@ MonoBehaviour:
   free: 0
   unitController: {fileID: 0}
   Pos: 51
+  BeingDmg: 0
 --- !u!61 &689425734
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2084,6 +2098,7 @@ MonoBehaviour:
   free: 0
   unitController: {fileID: 0}
   Pos: 53
+  BeingDmg: 0
 --- !u!61 &698574336
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2211,6 +2226,7 @@ MonoBehaviour:
   free: 0
   unitController: {fileID: 0}
   Pos: 3
+  BeingDmg: 0
 --- !u!61 &703999402
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2421,6 +2437,7 @@ MonoBehaviour:
   free: 0
   unitController: {fileID: 0}
   Pos: 18
+  BeingDmg: 0
 --- !u!61 &721589078
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2548,6 +2565,7 @@ MonoBehaviour:
   free: 0
   unitController: {fileID: 0}
   Pos: 49
+  BeingDmg: 0
 --- !u!61 &722451708
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2675,6 +2693,7 @@ MonoBehaviour:
   free: 0
   unitController: {fileID: 0}
   Pos: 47
+  BeingDmg: 0
 --- !u!61 &775601677
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2802,6 +2821,7 @@ MonoBehaviour:
   free: 0
   unitController: {fileID: 0}
   Pos: 23
+  BeingDmg: 0
 --- !u!61 &786920301
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2929,6 +2949,7 @@ MonoBehaviour:
   free: 0
   unitController: {fileID: 0}
   Pos: 2
+  BeingDmg: 0
 --- !u!61 &807164622
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3056,6 +3077,7 @@ MonoBehaviour:
   free: 0
   unitController: {fileID: 0}
   Pos: 42
+  BeingDmg: 0
 --- !u!61 &831314708
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3183,6 +3205,7 @@ MonoBehaviour:
   free: 0
   unitController: {fileID: 0}
   Pos: 19
+  BeingDmg: 0
 --- !u!61 &839676401
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3310,6 +3333,7 @@ MonoBehaviour:
   free: 0
   unitController: {fileID: 0}
   Pos: 9
+  BeingDmg: 0
 --- !u!61 &857913062
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3506,6 +3530,9 @@ MonoBehaviour:
   pos: 0
   boxCollider2D: {fileID: 0}
   spriteRenderer: {fileID: 0}
+  number: 0
+  dice: {fileID: 0}
+  OnBoard: 0
 --- !u!61 &993478436
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3717,6 +3744,7 @@ MonoBehaviour:
   free: 0
   unitController: {fileID: 0}
   Pos: 21
+  BeingDmg: 0
 --- !u!61 &994198630
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3844,6 +3872,7 @@ MonoBehaviour:
   free: 0
   unitController: {fileID: 0}
   Pos: 0
+  BeingDmg: 0
 --- !u!61 &1050436099
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3944,7 +3973,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
-  m_Color: {r: 0.8584906, g: 0.8584906, b: 0.8584906, a: 1}
+  m_Color: {r: 0.85882354, g: 0.85882354, b: 0.85882354, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -3971,6 +4000,7 @@ MonoBehaviour:
   free: 0
   unitController: {fileID: 0}
   Pos: 15
+  BeingDmg: 0
 --- !u!61 &1063736361
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4098,6 +4128,7 @@ MonoBehaviour:
   free: 0
   unitController: {fileID: 0}
   Pos: 12
+  BeingDmg: 0
 --- !u!61 &1070759777
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4225,6 +4256,7 @@ MonoBehaviour:
   free: 0
   unitController: {fileID: 0}
   Pos: 28
+  BeingDmg: 0
 --- !u!61 &1079923178
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4352,6 +4384,7 @@ MonoBehaviour:
   free: 0
   unitController: {fileID: 0}
   Pos: 48
+  BeingDmg: 0
 --- !u!61 &1100916791
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4479,6 +4512,7 @@ MonoBehaviour:
   free: 0
   unitController: {fileID: 0}
   Pos: 24
+  BeingDmg: 0
 --- !u!61 &1150558384
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4556,6 +4590,9 @@ MonoBehaviour:
   pos: 0
   boxCollider2D: {fileID: 0}
   spriteRenderer: {fileID: 0}
+  number: 0
+  dice: {fileID: 0}
+  OnBoard: 0
 --- !u!61 &1185992926
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4767,6 +4804,7 @@ MonoBehaviour:
   free: 0
   unitController: {fileID: 0}
   Pos: 39
+  BeingDmg: 0
 --- !u!61 &1213763411
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4894,6 +4932,7 @@ MonoBehaviour:
   free: 0
   unitController: {fileID: 0}
   Pos: 34
+  BeingDmg: 0
 --- !u!61 &1253929633
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5021,6 +5060,7 @@ MonoBehaviour:
   free: 0
   unitController: {fileID: 0}
   Pos: 16
+  BeingDmg: 0
 --- !u!61 &1279710194
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5148,6 +5188,7 @@ MonoBehaviour:
   free: 0
   unitController: {fileID: 0}
   Pos: 44
+  BeingDmg: 0
 --- !u!61 &1349847385
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5275,6 +5316,7 @@ MonoBehaviour:
   free: 0
   unitController: {fileID: 0}
   Pos: 37
+  BeingDmg: 0
 --- !u!61 &1421110227
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5402,6 +5444,7 @@ MonoBehaviour:
   free: 0
   unitController: {fileID: 0}
   Pos: 35
+  BeingDmg: 0
 --- !u!61 &1431081128
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5529,6 +5572,7 @@ MonoBehaviour:
   free: 0
   unitController: {fileID: 0}
   Pos: 31
+  BeingDmg: 0
 --- !u!61 &1434911368
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5656,6 +5700,7 @@ MonoBehaviour:
   free: 0
   unitController: {fileID: 0}
   Pos: 46
+  BeingDmg: 0
 --- !u!61 &1506036075
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5826,6 +5871,7 @@ MonoBehaviour:
   free: 0
   unitController: {fileID: 0}
   Pos: 7
+  BeingDmg: 0
 --- !u!61 &1538557965
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5953,6 +5999,7 @@ MonoBehaviour:
   free: 0
   unitController: {fileID: 0}
   Pos: 22
+  BeingDmg: 0
 --- !u!61 &1575658079
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6125,6 +6172,9 @@ MonoBehaviour:
   pos: 0
   boxCollider2D: {fileID: 0}
   spriteRenderer: {fileID: 0}
+  number: 0
+  dice: {fileID: 0}
+  OnBoard: 0
 --- !u!114 &1617543597
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6241,6 +6291,7 @@ MonoBehaviour:
   free: 0
   unitController: {fileID: 0}
   Pos: 29
+  BeingDmg: 0
 --- !u!61 &1624666401
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6368,6 +6419,7 @@ MonoBehaviour:
   free: 0
   unitController: {fileID: 0}
   Pos: 14
+  BeingDmg: 0
 --- !u!61 &1634500674
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6495,6 +6547,7 @@ MonoBehaviour:
   free: 0
   unitController: {fileID: 0}
   Pos: 41
+  BeingDmg: 0
 --- !u!61 &1654689238
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6622,6 +6675,7 @@ MonoBehaviour:
   free: 0
   unitController: {fileID: 0}
   Pos: 38
+  BeingDmg: 0
 --- !u!61 &1685547660
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6749,6 +6803,7 @@ MonoBehaviour:
   free: 0
   unitController: {fileID: 0}
   Pos: 43
+  BeingDmg: 0
 --- !u!61 &1733861951
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6876,6 +6931,7 @@ MonoBehaviour:
   free: 0
   unitController: {fileID: 0}
   Pos: 17
+  BeingDmg: 0
 --- !u!61 &1737173413
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7003,6 +7059,7 @@ MonoBehaviour:
   free: 0
   unitController: {fileID: 0}
   Pos: 6
+  BeingDmg: 0
 --- !u!61 &1786491763
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7130,6 +7187,7 @@ MonoBehaviour:
   free: 0
   unitController: {fileID: 0}
   Pos: 32
+  BeingDmg: 0
 --- !u!61 &1815983514
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7257,6 +7315,7 @@ MonoBehaviour:
   free: 0
   unitController: {fileID: 0}
   Pos: 8
+  BeingDmg: 0
 --- !u!61 &1816124414
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7429,6 +7488,9 @@ MonoBehaviour:
   pos: 0
   boxCollider2D: {fileID: 0}
   spriteRenderer: {fileID: 0}
+  number: 0
+  dice: {fileID: 0}
+  OnBoard: 0
 --- !u!114 &1889393432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7545,6 +7607,7 @@ MonoBehaviour:
   free: 0
   unitController: {fileID: 0}
   Pos: 11
+  BeingDmg: 0
 --- !u!61 &1899456432
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7672,6 +7735,7 @@ MonoBehaviour:
   free: 0
   unitController: {fileID: 0}
   Pos: 27
+  BeingDmg: 0
 --- !u!61 &1997723425
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7799,6 +7863,7 @@ MonoBehaviour:
   free: 0
   unitController: {fileID: 0}
   Pos: 5
+  BeingDmg: 0
 --- !u!61 &2029386757
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8064,6 +8129,9 @@ MonoBehaviour:
   pos: 0
   boxCollider2D: {fileID: 0}
   spriteRenderer: {fileID: 0}
+  number: 0
+  dice: {fileID: 0}
+  OnBoard: 0
 --- !u!114 &2066725058
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8180,6 +8248,7 @@ MonoBehaviour:
   free: 0
   unitController: {fileID: 0}
   Pos: 13
+  BeingDmg: 0
 --- !u!61 &2103632970
 BoxCollider2D:
   m_ObjectHideFlags: 0

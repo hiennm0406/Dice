@@ -42,10 +42,7 @@ MonoBehaviour:
         diceDirection:
         - direction: 8
           isLoop: 0
-          diceDirection:
-          - direction: 0
-            isLoop: 0
-            diceDirection: []
+          diceDirection: []
     SpriteList:
     - {fileID: 39516445742236537, guid: 191e0183c898f25428481feba2b87051, type: 3}
     - {fileID: 2376305099863235458, guid: 191e0183c898f25428481feba2b87051, type: 3}
