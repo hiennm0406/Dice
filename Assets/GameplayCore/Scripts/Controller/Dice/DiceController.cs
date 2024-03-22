@@ -15,11 +15,11 @@ public class DiceController : MonoBehaviour
         int pos = GetComponent<DiceOnBoardController>().pos;
 
         List<Tile> tiles = new List<Tile>() { BattleManager.Instance.ListTile[pos] };
+
         GetTile(tiles, pos, _dice.diceDirection);
 
         foreach (var item in tiles)
         {
-            Debug.Log(item.Row + " " + item.Col);
         }
     }
 
@@ -30,11 +30,9 @@ public class DiceController : MonoBehaviour
 
         List<Tile> tiles = new List<Tile>() { BattleManager.Instance.ListTile[pos] };
         GetTile(tiles, pos, _dice.diceDirection);
-        Debug.Log("=========" + pos);
 
         foreach (var item in tiles)
         {
-            Debug.Log(item.Row + " " + item.Col);
             item.BeingDmg++;
             item.SetDmg();
         }
@@ -72,7 +70,6 @@ public class DiceController : MonoBehaviour
                     x = Helper.GetDownRight(pos);
                     break;
             }
-            Debug.Log(x);
 
             if (x == -1)
             {
@@ -88,12 +85,8 @@ public class DiceController : MonoBehaviour
                 return;
             }
 
-            foreach (var _item in item.diceDirection)
-            {
-                Debug.Log(item.diceDirection.Count);
 
-                GetTile(_tiles, x, _item);
-            }
+            GetTile(_tiles, x, item);
         }
     }
 
