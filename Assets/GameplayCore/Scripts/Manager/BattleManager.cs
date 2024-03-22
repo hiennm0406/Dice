@@ -95,9 +95,9 @@ public class BattleManager : LocalSingleton<BattleManager>
                     UnitController _unit = _go.GetComponent<UnitController>();
                     // random pos
                     List<int> pos = new List<int>();
-                    for (int i = 1; i <= 6; i++)
+                    for (int i = 0; i < 6; i++)
                     {
-                        if (ListTile[Helper.GetVector(i, 8)].unitController == null)
+                        if (ListTile[Helper.GetIVector(i, Helper.col - 1)].unitController == null)
                         {
                             pos.Add(i);
                         }
@@ -113,7 +113,7 @@ public class BattleManager : LocalSingleton<BattleManager>
                         }
                     }
                     int x = pos[Random.Range(0, pos.Count)];
-                    _unit.StartMoveUnit(new Vector2Int(x, 8));
+                    _unit.StartMoveUnit(Helper.GetIVector(x, Helper.col - 1));
 
                     // init unit stat
                     _unit.UnitStat.CopyStat(_e.BaseStat);
@@ -140,7 +140,7 @@ public class BattleManager : LocalSingleton<BattleManager>
 
         // random 3 trong 5 dice
         Dice.Clear();
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 1; i++)
         {
             int x = Random.Range(0, 5);
             GameObject _go = Instantiate(ListDice[x].gameObject);
@@ -149,7 +149,7 @@ public class BattleManager : LocalSingleton<BattleManager>
         }
 
         diceCount = 0;
-        List<int> _list = new List<Vector2Int>();
+        List<int> _list = new List<int>();
         foreach (KeyValuePair<int, Tile> item in ListTile)
         {
             if (item.Value.unitController == null)
@@ -157,8 +157,10 @@ public class BattleManager : LocalSingleton<BattleManager>
                 item.Value.free = true;
             }
         }
+        Messenger.Broadcast(GameConstant.Event.RESET_COLOR);
         for (int i = 0; i < Dice.Count; i++)
         {
+            Dice[i].OnBoard = true;
             //get free slot
             foreach (KeyValuePair<int, Tile> item in ListTile)
             {
@@ -173,7 +175,8 @@ public class BattleManager : LocalSingleton<BattleManager>
             // random 1-6
             diceCount++;
             Dice[i].pos = _vec;
-            StartCoroutine(MoveParabol(Dice[i], diceStart.position, ListTile[_vec].transform.position, Random.Range(1f, 2f), 5f, Random.Range(0, 6)));
+            Dice[i].number = Random.Range(0, 6);
+            StartCoroutine(MoveParabol(Dice[i], diceStart.position, ListTile[_vec].transform.position, Random.Range(1f, 2f), 5f));
         }
     }
 
@@ -246,14 +249,18 @@ public class BattleManager : LocalSingleton<BattleManager>
                             nowTile = hit.collider.GetComponent<Tile>();
                         }
                     }
-                    if (Input.GetMouseButtonUp(0))
-                    {
-                        drag = false;
-                        diceDrag.boxCollider2D.enabled = true;
-                    }
+
 
                     if (drag)
                     {
+                        if (Input.GetMouseButtonUp(0))
+                        {
+                            drag = false;
+                            diceDrag.boxCollider2D.enabled = true;
+                            diceDrag = null;
+                            return;
+                        }
+
                         if (Input.GetMouseButton(0))
                         {
                             Vector2 rayOrigin = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -262,7 +269,6 @@ public class BattleManager : LocalSingleton<BattleManager>
                             // Kiểm tra xem ray đã va chạm với một collider không
                             if (hit.collider != null)
                             {
-                                Debug.Log("Ray hit: " + hit.collider.name);
                                 Tile _tile = hit.collider.GetComponent<Tile>();
                                 if (_tile != nowTile && _tile.free)
                                 {
@@ -270,11 +276,14 @@ public class BattleManager : LocalSingleton<BattleManager>
                                     nowTile = _tile;
                                     nowTile.free = false;
                                     diceDrag.gameObject.transform.position = nowTile.transform.position;
-                                    diceDrag.pos = new Vector2Int(nowTile.Row, nowTile.Col);
+                                    diceDrag.pos = Helper.GetIVector(nowTile.Row, nowTile.Col);
+                                    Messenger.Broadcast(GameConstant.Event.RESET_COLOR);
+                                    Messenger.Broadcast(GameConstant.Event.SET_COLOR);
                                 }
                             }
                         }
                     }
+
                     return;
                 case GAMESTAGE.BEFORERDICE:
                     // do smt.
@@ -282,6 +291,10 @@ public class BattleManager : LocalSingleton<BattleManager>
                     return;
                 case GAMESTAGE.TRIGGERDICE:
                     // do smt
+                    foreach (var item in Dice)
+                    {
+                        item.dice.TriggerDice(item.number);
+                    }
                     Stage = GAMESTAGE.ENDTURN;
                     return;
                 case GAMESTAGE.ENDTURN:
@@ -295,7 +308,7 @@ public class BattleManager : LocalSingleton<BattleManager>
 
     #region RollDice
 
-    public IEnumerator MoveParabol(DiceOnBoardController movingGo, Vector3 start, Vector3 to, float arcHeight, float speed, int value)
+    public IEnumerator MoveParabol(DiceOnBoardController movingGo, Vector3 start, Vector3 to, float arcHeight, float speed)
     {
         float distance = Vector3.Distance(start, to);
 
@@ -334,7 +347,7 @@ public class BattleManager : LocalSingleton<BattleManager>
             yield return null;
         }
         anim.enabled = false;
-        movingGo.spriteRenderer.sprite = DiceData.instance.GetDice(0).SpriteList[value];
+        movingGo.spriteRenderer.sprite = DiceData.instance.GetDice(0).SpriteList[movingGo.number];
         diceCount--;
         if (diceCount == 0)
         {
@@ -343,103 +356,7 @@ public class BattleManager : LocalSingleton<BattleManager>
                 Stage = GAMESTAGE.WAITPLAYER;
             }
         }
-    }
-
-
-    public Tile GetRight(Vector2Int pos)
-    {
-        if (pos.y + 1 > 8)
-        {
-            return null;
-        }
-        else
-        {
-            return ListTile[new Vector2Int(pos.x, pos.y + 1)];
-        }
-    }
-
-    public Tile GetLeft(Vector2Int pos)
-    {
-        if (pos.y - 1 < 0)
-        {
-            return null;
-        }
-        else
-        {
-            return ListTile[new Vector2Int(pos.x, pos.y - 1)];
-        }
-    }
-
-    public Tile GetTop(Vector2Int pos)
-    {
-        if (pos.x + 1 > 6)
-        {
-            return null;
-        }
-        else
-        {
-            return ListTile[new Vector2Int(pos.x + 1, pos.y)];
-        }
-    }
-
-    public Tile GetDown(Vector2Int pos)
-    {
-        if (pos.x - 1 < 1)
-        {
-            return null;
-        }
-        else
-        {
-            return ListTile[new Vector2Int(pos.x - 1, pos.y)];
-        }
-    }
-
-    public Tile GetTopRight(Vector2Int pos)
-    {
-        if (pos.y + 1 > 8 || pos.x + 1 > 6)
-        {
-            return null;
-        }
-        else
-        {
-            return ListTile[new Vector2Int(pos.x + 1, pos.y + 1)];
-        }
-    }
-
-    public Tile GetTopLeft(Vector2Int pos)
-    {
-        if (pos.y - 1 < 0 || pos.x + 1 > 6)
-        {
-            return null;
-        }
-        else
-        {
-            return ListTile[new Vector2Int(pos.x + 1, pos.y - 1)];
-        }
-    }
-
-    public Tile GetDownRight(Vector2Int pos)
-    {
-        if (pos.y + 1 > 8 || pos.x - 1 < 1)
-        {
-            return null;
-        }
-        else
-        {
-            return ListTile[new Vector2Int(pos.x - 1, pos.y + 1)];
-        }
-    }
-
-    public Tile GetDownLeft(Vector2Int pos)
-    {
-        if (pos.y - 1 < 0 || pos.x - 1 < 1)
-        {
-            return null;
-        }
-        else
-        {
-            return ListTile[new Vector2Int(pos.x - 1, pos.y - 1)];
-        }
+        movingGo.ChangePos();
     }
     #endregion
 }

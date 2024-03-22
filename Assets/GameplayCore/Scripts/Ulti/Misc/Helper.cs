@@ -370,13 +370,143 @@ public static class Helper
             return false;
         }
     }
+    #region DICE_ROW_COL
+    public static int row = 6; // 6 dòng, bắt đầu từ 0 - 1 - 2 - 3 - 4 -5
+    public static int col = 9; // 9 cột, 0 - 1 - 2 - 3 - 4 - 5 - 6 - 7 - 8
+    public static int GetIVector(int _row, int _col)
+    {
+        return _row * col + _col;
+    }
+    public static int GetIVector(Vector2Int vec)
+    {
+        return vec.x * col + vec.y;
+    }
 
-    public static int GetVector(int x, int y)
+    public static Vector2Int GetVector(int data)
     {
-        return x * 8 + y;
+        // Vector là dòng - cột 
+        // cột = data chia lấy dư cho số lượng trên 1 dòng
+        // dòng = data chia số lượng trên 1 dòng
+        return new Vector2Int(data % col, data / col);
     }
-    public static int GetVector(Vector2Int vec)
+
+    public static int GetRow(int data)
     {
-        return vec.x * 8 + vec.y;
+        return data / col;
     }
+
+    public static int GetCol(int data)
+    {
+        return data % col;
+    }
+
+
+    public static int GetRight(int data)
+    {
+        if (GetCol(data) + 1 >= col)
+        {
+            return -1;
+        }
+        else
+        {
+            return GetIVector(GetRow(data), (GetCol(data) + 1));
+        }
+    }
+
+    public static int GetLeft(int data)
+    {
+        if (GetCol(data) - 1 < 0)
+        {
+            return -1;
+        }
+        else
+        {
+            return GetIVector(GetRow(data), (GetCol(data) - 1));
+        }
+    }
+
+    public static int GetTop(int data)
+    {
+        if (GetRow(data) + 1 > row)
+        {
+            return -1;
+        }
+        else
+        {
+            return GetIVector(GetRow(data) + 1, GetCol(data));
+        }
+    }
+
+    public static int GetDown(int data)
+    {
+        if (GetRow(data) - 1 < 0)
+        {
+            return -1;
+        }
+        else
+        {
+            return GetIVector(GetRow(data) - 1, GetCol(data));
+        }
+    }
+
+    public static int GetTopRight(int data)
+    {
+        if (GetCol(data) + 1 >= col || GetRow(data) + 1 >= row)
+        {
+            return -1;
+        }
+        else
+        {
+            return GetIVector(GetRow(data) + 1, (GetCol(data) + 1));
+        }
+    }
+
+    public static int GetTopLeft(int data)
+    {
+        if (GetCol(data) - 1 < 0 || GetRow(data) + 1 >= row)
+        {
+            return -1;
+        }
+        else
+        {
+            return GetIVector(GetRow(data) + 1, (GetCol(data) - 1));
+        }
+    }
+
+    public static int GetDownRight(int data)
+    {
+        if (GetCol(data) + 1 >= col || GetRow(data) - 1 < 0)
+        {
+            return -1;
+        }
+        else
+        {
+            return GetIVector(GetRow(data) - 1, (GetCol(data) + 1));
+        }
+    }
+
+    public static int GetDownLeft(int data)
+    {
+        if (GetCol(data) - 1 < 0 || GetRow(data) - 1 < 0)
+        {
+            return -1;
+        }
+        else
+        {
+            return GetIVector(GetRow(data) - 1, (GetCol(data) - 1));
+        }
+    }
+
+    public static Color ChangeSaturation(Color originalColor, float newS)
+    {
+        Color.RGBToHSV(originalColor, out float h, out float s, out float v); // Lấy giá trị HSV từ màu gốc
+
+        // Chỉ thay đổi giá trị S
+        s = newS;
+
+        // Chuyển đổi lại thành màu RGB
+        return Color.HSVToRGB(h, s, v);
+    }
+    #endregion
+
 }

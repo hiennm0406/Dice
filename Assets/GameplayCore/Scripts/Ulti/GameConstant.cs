@@ -12,7 +12,8 @@ public class GameConstant
         public const string END_GAME = "END_GAME";
         public const string UPGRADE_UNIT = "UPGRADE_UNIT";
         public const string SELECT_UNIT = "SELECT_UNIT";
-
+        public const string RESET_COLOR = "RESET_COLOR";
+        public const string SET_COLOR = "SET_COLOR";
         public const string GOLD_CHANGE = "GOLD_CHANGE";
         public const string GEM_CHANGE = "GEM_CHANGE";
     }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class UnitController : MonoBehaviour
 {
     public int UnitId;
-    public Vector2Int pos;
+    public int pos;
     public Stat UnitStat;
     public bool isMoving;
     public int HPNow;
@@ -21,24 +21,31 @@ public class UnitController : MonoBehaviour
         }
     }
 
-    public void StartMoveUnit(Vector2Int _pos)
+    public void StartMoveUnit(int _pos)
     {
         isMoving = true;
         pos = _pos;
-        transform.position = BattleManager.Instance.ListTile[Helper.GetVector(pos)].transform.position + new Vector3(2, 0, 0);
-        spriteRenderer.sortingOrder = pos.x;
-        BattleManager.Instance.ListTile[Helper.GetVector(pos)].unitController = this;
+        transform.position = BattleManager.Instance.ListTile[pos].transform.position + new Vector3(2, 0, 0);
+        spriteRenderer.sortingOrder = Helper.GetRow(pos);
+        BattleManager.Instance.ListTile[pos].unitController = this;
 
         StartCoroutine(MoveToPos());
     }
 
     public virtual void MoveUnit()
     {
-        BattleManager.Instance.ListTile[Helper.GetVector(pos)].unitController = null;
+        BattleManager.Instance.ListTile[pos].unitController = null;
         isMoving = true;
-        pos.y -= UnitStat.Moving;
-        spriteRenderer.sortingOrder = pos.x;
-        BattleManager.Instance.ListTile[Helper.GetVector(pos)].unitController = this;
+        int _y = Helper.GetCol(pos) - UnitStat.Moving;
+
+        if (_y <= 0)
+        {
+            _y = 0;
+        }
+        pos = Helper.GetIVector(Helper.GetRow(pos), _y);
+        Debug.Log(pos + " new col : " + _y);
+        spriteRenderer.sortingOrder = Helper.GetRow(pos);
+        BattleManager.Instance.ListTile[pos].unitController = this;
 
         StartCoroutine(MoveToPos());
     }
@@ -47,7 +54,7 @@ public class UnitController : MonoBehaviour
     {
         float t = 0;
         Vector3 start = transform.position;
-        Vector3 end = BattleManager.Instance.ListTile[Helper.GetVector(pos)].transform.position;
+        Vector3 end = BattleManager.Instance.ListTile[pos].transform.position;
         while (t < 1)
         {
             t += Time.deltaTime * 2;
@@ -60,7 +67,7 @@ public class UnitController : MonoBehaviour
 
     public void Die()
     {
-        BattleManager.Instance.ListTile[Helper.GetVector(pos)] = null;
+        BattleManager.Instance.ListTile[pos] = null;
         BattleManager.Instance.listUnit.Remove(this);
         Destroy(gameObject);
     }

@@ -1,3 +1,4 @@
+using Sirenix.OdinInspector;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -25,5 +26,40 @@ public class DiceInfo
 {
     public int DiceId;
     public string DiceName;
+    public DiceDirection diceDirection;
     public Sprite[] SpriteList;
+}
+
+[System.Serializable]
+public class DiceDirection
+{
+    public Direction direction;
+    [OnValueChanged("OnChangeLoop")]
+    public bool isLoop;
+    public List<DiceDirection> diceDirection;
+
+    public void OnChangeLoop()
+    {
+        if (isLoop)
+        {
+            diceDirection = null;
+        }
+        else
+        {
+            diceDirection = new List<DiceDirection>();
+        }
+    }
+}
+
+public enum Direction
+{
+    CENTER,
+    TOP,
+    DOWN,
+    RIGHT,
+    LEFT,
+    TOPRIGHT,
+    TOPLEFT,
+    DOWNRIGHT,
+    DOWNLEFT
 }
