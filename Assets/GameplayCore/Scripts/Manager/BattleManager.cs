@@ -20,7 +20,7 @@ public class BattleManager : LocalSingleton<BattleManager>
 
 
     public List<DiceController> ListDice = new List<DiceController>();
-
+    public int done = 0;
     #region PrivateProperty
     private int diceCount;
     private Camera mainCamera;
@@ -141,7 +141,7 @@ public class BattleManager : LocalSingleton<BattleManager>
 
         // random 3 trong 5 dice
         Dice.Clear();
-        for (int i = 0; i < 1; i++)
+        for (int i = 0; i < 3; i++)
         {
             int x = Random.Range(0, 5);
             GameObject _go = Instantiate(ListDice[x].gameObject);
@@ -234,7 +234,6 @@ public class BattleManager : LocalSingleton<BattleManager>
                         // Kiểm tra xem ray đã va chạm với một collider không
                         if (hit.collider != null)
                         {
-                            Debug.Log("Ray hit: " + hit.collider.name);
                             diceDrag = hit.collider.GetComponent<DiceOnBoardController>();
                             // Xử lý các thao tác sau khi raycast trúng collider
                             drag = true;
@@ -246,7 +245,6 @@ public class BattleManager : LocalSingleton<BattleManager>
                         // Kiểm tra xem ray đã va chạm với một collider không
                         if (hit.collider != null)
                         {
-                            Debug.Log("Ray hit: " + hit.collider.name);
                             nowTile = hit.collider.GetComponent<Tile>();
                         }
                     }
@@ -292,14 +290,29 @@ public class BattleManager : LocalSingleton<BattleManager>
                     break;
                 case GAMESTAGE.TRIGGERDICE:
                     // do smt
+                    done = Dice.Count;
                     foreach (var item in Dice)
                     {
-                        item.dice.TriggerDice(item.number);
+                        StartCoroutine(item.dice.TriggerDice(item.number));
+                    }
+
+                    while (done > 0)
+                    {
+                        yield return null;
                     }
                     Stage = GAMESTAGE.ENDTURN;
                     break;
                 case GAMESTAGE.ENDTURN:
                     // do smt
+                    done = listUnit.Count;
+                    foreach (var item in listUnit)
+                    {
+                        StartCoroutine(item.EndTurn());
+                    }
+                    while (done > 0)
+                    {
+                        yield return null;
+                    }
                     StartTurn();
                     break;
             }
@@ -354,6 +367,7 @@ public class BattleManager : LocalSingleton<BattleManager>
         {
             if (IsPlay)
             {
+                UIManager.Instance.battleUI.ShowButtonTrigger();
                 Stage = GAMESTAGE.WAITPLAYER;
             }
         }

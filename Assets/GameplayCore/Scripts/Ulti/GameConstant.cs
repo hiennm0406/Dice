@@ -57,3 +57,11 @@ public enum Element
     ICE,
     LIGHT
 }
+
+public enum DmgTag
+{
+    PIERCE,
+    FIRE,
+    NORMAL,
+    ICE
+}

@@ -7,10 +7,15 @@ public class DiceController : MonoBehaviour
 {
     public int dmg;
     public Element element;
+    public List<DmgTag> tags;
     public int DiceId;
-    public virtual void TriggerDice(int number)
+
+    public virtual IEnumerator TriggerDice(int number)
     {
         // get all tile 
+        Debug.Log("TRIGGER");
+        yield return null;
+
         DiceInfo _dice = DiceData.instance.GetDice(DiceId);
         int pos = GetComponent<DiceOnBoardController>().pos;
 
@@ -20,8 +25,12 @@ public class DiceController : MonoBehaviour
 
         foreach (var item in tiles)
         {
-
+            if (item.unitController != null)
+            {
+                item.unitController.TakeDamage(dmg, element, tags);
+            }
         }
+        BattleManager.Instance.done--;
     }
 
     public void ChangePos()

@@ -46,7 +46,6 @@ public class UnitController : MonoBehaviour
             _y = 0;
         }
         pos = Helper.GetIVector(Helper.GetRow(pos), _y);
-        Debug.Log(pos + " new col : " + _y);
         spriteRenderer.sortingOrder = Helper.GetRow(pos);
         BattleManager.Instance.ListTile[pos].unitController = this;
 
@@ -68,17 +67,31 @@ public class UnitController : MonoBehaviour
         isMoving = false;
     }
 
-    public void EndTurn()
+    public void TakeDamage(int _dmg, Element element, List<DmgTag> tags)
     {
+        dmg.Add(new TakeDamage(_dmg, element, tags));
+    }
+
+    public IEnumerator EndTurn()
+    {
+        Debug.Log("take dmg");
+
+        yield return null;
         foreach (var item in dmg)
         {
             HPNow -= item.dmg;
         }
+        if (HPNow <= 0)
+        {
+            Die();
+        }
+        dmg.Clear();
+        BattleManager.Instance.done--;
     }
 
     public void Die()
     {
-        BattleManager.Instance.ListTile[pos] = null;
+        BattleManager.Instance.ListTile[pos].unitController = null;
         BattleManager.Instance.listUnit.Remove(this);
         Destroy(gameObject);
     }
@@ -89,4 +102,12 @@ public class TakeDamage
 {
     public int dmg;
     public Element element;
+    public List<DmgTag> tags;
+
+    public TakeDamage(int dmg, Element element, List<DmgTag> tags)
+    {
+        this.dmg = dmg;
+        this.element = element;
+        this.tags = tags;
+    }
 }
