@@ -40,6 +40,7 @@ public class BattleManager : LocalSingleton<BattleManager>
         Debug.Log("INIT GAME");
 
         IsPlay = true;
+        StartCoroutine(GamePlay());
     }
 
     [Button]
@@ -196,33 +197,33 @@ public class BattleManager : LocalSingleton<BattleManager>
     }
 
 
-    public void Update()
+    public IEnumerator GamePlay()
     {
-        if (IsPlay)
+        while (IsPlay)
         {
             switch (Stage)
             {
                 case GAMESTAGE.PREGAME:
                     StartGame();
-                    return;
+                    break;
                 case GAMESTAGE.STARTGAME:
                     StartTurn();
-                    return;
+                    break;
                 case GAMESTAGE.UNITMOVE:
                     foreach (var item in listUnit)
                     {
                         if (item.isMoving && item.HPNow > 0)
                         {
-                            return;
+                            break;
                         }
                     }
                     Stage = GAMESTAGE.ROLLDICE;
-                    return;
+                    break;
                 case GAMESTAGE.ROLLDICE:
                     RollDice();
-                    return;
+                    break;
                 case GAMESTAGE.WAITDICE:
-                    return;
+                    break;
                 case GAMESTAGE.WAITPLAYER:
 
                     if (Input.GetMouseButtonDown(0))
@@ -258,7 +259,7 @@ public class BattleManager : LocalSingleton<BattleManager>
                             drag = false;
                             diceDrag.boxCollider2D.enabled = true;
                             diceDrag = null;
-                            return;
+                            break;
                         }
 
                         if (Input.GetMouseButton(0))
@@ -284,11 +285,11 @@ public class BattleManager : LocalSingleton<BattleManager>
                         }
                     }
 
-                    return;
+                    break;
                 case GAMESTAGE.BEFORERDICE:
                     // do smt.
                     Stage = GAMESTAGE.TRIGGERDICE;
-                    return;
+                    break;
                 case GAMESTAGE.TRIGGERDICE:
                     // do smt
                     foreach (var item in Dice)
@@ -296,15 +297,15 @@ public class BattleManager : LocalSingleton<BattleManager>
                         item.dice.TriggerDice(item.number);
                     }
                     Stage = GAMESTAGE.ENDTURN;
-                    return;
+                    break;
                 case GAMESTAGE.ENDTURN:
                     // do smt
                     StartTurn();
-                    return;
+                    break;
             }
+            yield return null;
         }
     }
-
 
     #region RollDice
 

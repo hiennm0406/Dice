@@ -20,6 +20,7 @@ public class DiceController : MonoBehaviour
 
         foreach (var item in tiles)
         {
+
         }
     }
 
@@ -73,7 +74,7 @@ public class DiceController : MonoBehaviour
 
             if (x == -1)
             {
-                return;
+                continue;
             }
             if (!_tiles.Contains(BattleManager.Instance.ListTile[x]))
             {

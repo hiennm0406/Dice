@@ -497,13 +497,13 @@ public static class Helper
         }
     }
 
-    public static Color ChangeSaturation(Color originalColor, float newS)
+    public static Color ChangeSaturation(Color originalColor, float newS, float newV)
     {
         Color.RGBToHSV(originalColor, out float h, out float s, out float v); // Lấy giá trị HSV từ màu gốc
 
         // Chỉ thay đổi giá trị S
         s = newS;
-
+        v = newV;
         // Chuyển đổi lại thành màu RGB
         return Color.HSVToRGB(h, s, v);
     }

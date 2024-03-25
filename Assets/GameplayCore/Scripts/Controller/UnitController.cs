@@ -9,9 +9,12 @@ public class UnitController : MonoBehaviour
     public Stat UnitStat;
     public bool isMoving;
     public int HPNow;
+
+    public List<TakeDamage> dmg = new List<TakeDamage>();
     #region privateStat
     private SpriteRenderer spriteRenderer;
     #endregion
+
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -65,10 +68,25 @@ public class UnitController : MonoBehaviour
         isMoving = false;
     }
 
+    public void EndTurn()
+    {
+        foreach (var item in dmg)
+        {
+            HPNow -= item.dmg;
+        }
+    }
+
     public void Die()
     {
         BattleManager.Instance.ListTile[pos] = null;
         BattleManager.Instance.listUnit.Remove(this);
         Destroy(gameObject);
     }
+}
+
+
+public class TakeDamage
+{
+    public int dmg;
+    public Element element;
 }

@@ -18,6 +18,7 @@ public class Tile : MonoBehaviour
         Messenger.AddListener(GameConstant.Event.RESET_COLOR, ResetColor);
     }
 
+    [Button]
     public void ResetColor()
     {
         BeingDmg = 0;
@@ -26,20 +27,28 @@ public class Tile : MonoBehaviour
 
     public void SetDmg()
     {
-        float _col = 0;
-        for (int i = 0; i < BeingDmg; i++)
+        if (BeingDmg == 0)
         {
-            _col += 0.2f;
+            if ((Row + Col) % 2 == 0)
+            {
+                render.color = Helper.ChangeSaturation(render.color, 0, 0.9f);
+            }
+            else
+            {
+                render.color = Helper.ChangeSaturation(render.color, 0, 1f);
+            }
         }
-
-        render.color = Helper.ChangeSaturation(render.color, _col);
+        else
+        {
+            float _col = 0;
+            for (int i = 0; i < BeingDmg; i++)
+            {
+                _col += 0.25f;
+            }
+            render.color = Helper.ChangeSaturation(render.color, _col, 1f);
+        }
     }
 
-    [Button]
-    public void Down()
-    {
-        Row--;
-    }
 
     [Button]
     public void GetPos()
@@ -56,8 +65,7 @@ public class Tile : MonoBehaviour
     [Button]
     public void Get()
     {
-        Col = Mathf.RoundToInt(transform.localPosition.x);
-        Row = Mathf.RoundToInt(transform.localPosition.y) + 4;
+        gameObject.name = "Row" + Row + " - Col" + Col;
     }
 
 #endif
