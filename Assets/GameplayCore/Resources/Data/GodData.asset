@@ -12,3 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76712a23057edde44a3fba25470852ca, type: 3}
   m_Name: GodData
   m_EditorClassIdentifier: 
+  ListGod:
+  - GodId: 0
+    GodName: Ra - God Of Sun
+    BaseStat:
+      Power: 0
+      HP: 0
+      Moving: 0
+      AtkRange: 0
+      Luck: 0
+      CritRate: 0
+      CritDmg: 0
+    dice: 0000000000000000000000000000000000000000

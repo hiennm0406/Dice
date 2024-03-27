@@ -5,6 +5,15 @@ using UnityEngine;
 
 public class GameSave
 {
+    public static int PlayerGod
+    {
+        get => PlayerPrefs.GetInt(GameSaveKey.PLAYER_GOD, 0);
+        set
+        {
+            PlayerPrefs.SetInt(GameSaveKey.PLAYER_GOD, value);
+            PlayerPrefs.Save();
+        }
+    }
 
 
     public static int PlayerLevel
@@ -18,15 +27,6 @@ public class GameSave
     }
 
 
-    public static int FakePlayerLevel
-    {
-        get => PlayerPrefs.GetInt(GameSaveKey.KEY_FAKE_LEVEL, 0);
-        set
-        {
-            PlayerPrefs.SetInt(GameSaveKey.KEY_FAKE_LEVEL, value);
-            PlayerPrefs.Save();
-        }
-    }
 
 
     public static string DateSpin
@@ -328,7 +328,7 @@ public class GameSaveKey
 
     public const string KEY_USERNAME = "KEY_USERNAME";
     public const string KEY_PASSWORD = "KEY_PASSWORD";
-
+    public const string PLAYER_GOD = "PLAYER_GOD";
     public const string KEY_LEVEL = "KEY_LEVEL";
     public const string KEY_FAKE_LEVEL = "KEY_FAKE_LEVEL";
     public const string KEY_COIN = "KEY_COIN";

@@ -9,7 +9,12 @@ public class DiceController : MonoBehaviour
     public Element element;
     public List<DmgTag> tags;
     public int DiceId;
+    private DiceOnBoardController _diceOnBoard;
 
+    private void Start()
+    {
+        _diceOnBoard = GetComponent<DiceOnBoardController>();
+    }
     public virtual IEnumerator TriggerDice(int number)
     {
         // get all tile 
@@ -17,7 +22,7 @@ public class DiceController : MonoBehaviour
         yield return null;
 
         DiceInfo _dice = DiceData.instance.GetDice(DiceId);
-        int pos = GetComponent<DiceOnBoardController>().pos;
+        int pos = _diceOnBoard.pos;
 
         List<Tile> tiles = new List<Tile>() { BattleManager.Instance.ListTile[pos] };
 
@@ -36,7 +41,7 @@ public class DiceController : MonoBehaviour
     public void ChangePos()
     {
         DiceInfo _dice = DiceData.instance.GetDice(DiceId);
-        int pos = GetComponent<DiceOnBoardController>().pos;
+        int pos = _diceOnBoard.pos;
 
         List<Tile> tiles = new List<Tile>() { BattleManager.Instance.ListTile[pos] };
         GetTile(tiles, pos, _dice.diceDirection);

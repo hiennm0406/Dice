@@ -32,6 +32,9 @@ public class BattleManager : LocalSingleton<BattleManager>
     private void Start()
     {
         mainCamera = Camera.main;
+
+        // lấy ra player God
+
     }
     [Button]
     public void InitGame()
