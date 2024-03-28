@@ -44,6 +44,7 @@ public class God
     public int GodId;
     public string GodName;
     public Stat BaseStat;
+    public Stat BaseStatIncrease;
     [ValueDropdown("GetList")]
     public List<int> dice; // 1-3 là cố định, 4 5 có thể đổi được
 
@@ -55,5 +56,25 @@ public class God
             result.Add(item.DiceName, item.DiceId);
         }
         return result;
+    }
+}
+
+public class GodInfo
+{
+    public int GodId;
+    public int Level;
+    public Stat GodStat;
+
+    public GodInfo(int id, int level)
+    {
+        GodId = id;
+        Level = level;
+        God _base = GodData.instance.GetGod(id);
+        GodStat = new Stat();
+        GodStat.Power = _base.BaseStat.Power + Level * _base.BaseStatIncrease.Power;
+        GodStat.HP = _base.BaseStat.HP + Level * _base.BaseStatIncrease.HP;
+        GodStat.Luck = _base.BaseStat.Luck;
+        GodStat.CritDmg = _base.BaseStat.CritDmg;
+        GodStat.CritRate = _base.BaseStat.CritRate;
     }
 }

@@ -16,11 +16,11 @@ MonoBehaviour:
   - GodId: 0
     GodName: Ra - God Of Sun
     BaseStat:
-      Power: 0
-      HP: 0
+      Power: 100
+      HP: 1000
       Moving: 0
       AtkRange: 0
       Luck: 0
       CritRate: 0
-      CritDmg: 0
+      CritDmg: 150
     dice: 0000000000000000000000000000000000000000

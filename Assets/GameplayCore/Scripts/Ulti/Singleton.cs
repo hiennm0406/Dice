@@ -1,8 +1,8 @@
-﻿    using UnityEngine;
+﻿using UnityEngine;
 
 public class Singleton<ClassName> : MonoBehaviour where ClassName : MonoBehaviour
 {
-    static ClassName _Instance;
+    private static ClassName _Instance;
     public static ClassName Instance
     {
         get
@@ -14,6 +14,7 @@ public class Singleton<ClassName> : MonoBehaviour where ClassName : MonoBehaviou
             if (_Instance == null)
             {
                 GameObject g = new GameObject("singleton");
+                DontDestroyOnLoad(g);
                 g.AddComponent<ClassName>();
                 _Instance = g.GetComponent<ClassName>();
             }
@@ -21,7 +22,10 @@ public class Singleton<ClassName> : MonoBehaviour where ClassName : MonoBehaviou
             {
                 ClassName[] tmts = FindObjectsOfType<ClassName>();
                 if (tmts.Length == 1)
+                {
                     _Instance = tmts[0];
+                }
+
                 if (tmts.Length > 1)
                 {
                     _Instance = tmts[0];
