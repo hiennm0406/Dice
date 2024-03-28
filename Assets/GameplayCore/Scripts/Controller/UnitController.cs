@@ -69,13 +69,13 @@ public class UnitController : MonoBehaviour
 
     public void TakeDamage(int _dmg, Element element, List<DmgTag> tags)
     {
+        Debug.Log("= " + _dmg);
+
         dmg.Add(new TakeDamage(_dmg, element, tags));
     }
 
     public IEnumerator EndTurn()
     {
-        Debug.Log("take dmg");
-
         yield return null;
         foreach (var item in dmg)
         {

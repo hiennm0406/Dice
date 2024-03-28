@@ -28,6 +28,10 @@ public class DiceInfo
     public string DiceName;
     public DiceDirection diceDirection;
     public Sprite[] SpriteList;
+
+    public int baseDmg;
+    public Element element;
+    public List<DmgTag> tags;
 }
 
 [System.Serializable]

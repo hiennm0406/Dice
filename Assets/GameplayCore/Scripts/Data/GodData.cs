@@ -64,17 +64,17 @@ public class GodInfo
     public int GodId;
     public int Level;
     public Stat GodStat;
-
+    public God godData;
     public GodInfo(int id, int level)
     {
         GodId = id;
         Level = level;
-        God _base = GodData.instance.GetGod(id);
+        godData = GodData.instance.GetGod(id);
         GodStat = new Stat();
-        GodStat.Power = _base.BaseStat.Power + Level * _base.BaseStatIncrease.Power;
-        GodStat.HP = _base.BaseStat.HP + Level * _base.BaseStatIncrease.HP;
-        GodStat.Luck = _base.BaseStat.Luck;
-        GodStat.CritDmg = _base.BaseStat.CritDmg;
-        GodStat.CritRate = _base.BaseStat.CritRate;
+        GodStat.Power = godData.BaseStat.Power + Level * godData.BaseStatIncrease.Power;
+        GodStat.HP = godData.BaseStat.HP + Level * godData.BaseStatIncrease.HP;
+        GodStat.Luck = godData.BaseStat.Luck;
+        GodStat.CritDmg = godData.BaseStat.CritDmg;
+        GodStat.CritRate = godData.BaseStat.CritRate;
     }
 }

@@ -10,10 +10,16 @@ public class DiceController : MonoBehaviour
     public List<DmgTag> tags;
     public int DiceId;
     private DiceOnBoardController _diceOnBoard;
+    private DiceInfo diceInfo;
 
     private void Start()
     {
         _diceOnBoard = GetComponent<DiceOnBoardController>();
+        diceInfo = DiceData.instance.GetDice(DiceId);
+        // set up dice
+        dmg = diceInfo.baseDmg;
+        element = diceInfo.element;
+        tags = diceInfo.tags;
     }
     public virtual IEnumerator TriggerDice(int number)
     {
@@ -32,7 +38,9 @@ public class DiceController : MonoBehaviour
         {
             if (item.unitController != null)
             {
-                item.unitController.TakeDamage(dmg, element, tags);
+                Debug.Log(dmg + " * " + _diceOnBoard.number + " * " + BattleManager.Instance.PlayerGod.GodStat.Power);
+
+                item.unitController.TakeDamage(dmg * _diceOnBoard.number * BattleManager.Instance.PlayerGod.GodStat.Power, element, tags);
             }
         }
         BattleManager.Instance.done--;

@@ -5440,7 +5440,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b093b79421bad84e9ab56bbd7920dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dmg: 2
+  dmg: 0
   element: 0
   tags: 
   DiceId: 0
@@ -7120,7 +7120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b093b79421bad84e9ab56bbd7920dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dmg: 2
+  dmg: 0
   element: 0
   tags: 
   DiceId: 0
@@ -9978,7 +9978,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b093b79421bad84e9ab56bbd7920dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dmg: 2
+  dmg: 0
   element: 0
   tags: 
   DiceId: 0
@@ -12042,7 +12042,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b093b79421bad84e9ab56bbd7920dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dmg: 2
+  dmg: 0
   element: 0
   tags: 
   DiceId: 0
@@ -12895,7 +12895,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b093b79421bad84e9ab56bbd7920dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dmg: 2
+  dmg: 0
   element: 0
   tags: 
   DiceId: 0

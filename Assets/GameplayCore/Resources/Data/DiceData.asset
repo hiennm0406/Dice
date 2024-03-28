@@ -50,3 +50,6 @@ MonoBehaviour:
     - {fileID: -7464760887336577109, guid: 191e0183c898f25428481feba2b87051, type: 3}
     - {fileID: -8866378825118310145, guid: 191e0183c898f25428481feba2b87051, type: 3}
     - {fileID: -3287765887320952711, guid: 191e0183c898f25428481feba2b87051, type: 3}
+    baseDmg: 1
+    element: 0
+    tags: 

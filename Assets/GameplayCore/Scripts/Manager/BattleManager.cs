@@ -29,7 +29,8 @@ public class BattleManager : LocalSingleton<BattleManager>
     private bool drag = false;
     private DiceOnBoardController diceDrag;
     private Tile nowTile;
-    private God playerGod;
+    private GodInfo playerGod;
+    public GodInfo PlayerGod => playerGod;
     #endregion
 
     private void Start()
@@ -37,10 +38,10 @@ public class BattleManager : LocalSingleton<BattleManager>
         mainCamera = Camera.main;
 
         // lấy ra player God
-        playerGod = GodData.instance.GetGod(PlayerData.Instance.GodId);
+        playerGod = new GodInfo(PlayerData.Instance.GodId, 1); // default 1
         for (int i = 0; i < 5; i++)
         {
-            ListDice[i].DiceId = playerGod.dice[i];
+            ListDice[i].DiceId = playerGod.godData.dice[i];
         }
     }
     [Button]
