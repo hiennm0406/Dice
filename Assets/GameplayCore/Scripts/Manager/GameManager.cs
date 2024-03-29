@@ -18,7 +18,6 @@ public class GameManager : Singleton<GameManager>
     }
 
 
-
     #region Helper
     public void StopAndStartMyCoroute(ref Coroutine c, IEnumerator ie)
     {

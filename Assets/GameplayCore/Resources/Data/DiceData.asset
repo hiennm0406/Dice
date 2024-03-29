@@ -50,6 +50,159 @@ MonoBehaviour:
     - {fileID: -7464760887336577109, guid: 191e0183c898f25428481feba2b87051, type: 3}
     - {fileID: -8866378825118310145, guid: 191e0183c898f25428481feba2b87051, type: 3}
     - {fileID: -3287765887320952711, guid: 191e0183c898f25428481feba2b87051, type: 3}
+    isTemp: 0
     baseDmg: 1
     element: 0
+    tags: 
+  - DiceId: 1000
+    DiceName: Sun Dice tmp
+    diceDirection:
+      direction: 0
+      isLoop: 0
+      diceDirection:
+      - direction: 5
+        isLoop: 0
+        diceDirection:
+        - direction: 5
+          isLoop: 0
+          diceDirection: []
+      - direction: 6
+        isLoop: 0
+        diceDirection:
+        - direction: 6
+          isLoop: 0
+          diceDirection: []
+      - direction: 7
+        isLoop: 0
+        diceDirection:
+        - direction: 7
+          isLoop: 0
+          diceDirection: []
+      - direction: 8
+        isLoop: 0
+        diceDirection:
+        - direction: 8
+          isLoop: 0
+          diceDirection: []
+    SpriteList:
+    - {fileID: 39516445742236537, guid: 191e0183c898f25428481feba2b87051, type: 3}
+    - {fileID: 2376305099863235458, guid: 191e0183c898f25428481feba2b87051, type: 3}
+    - {fileID: 1813239885723335896, guid: 191e0183c898f25428481feba2b87051, type: 3}
+    - {fileID: -7464760887336577109, guid: 191e0183c898f25428481feba2b87051, type: 3}
+    - {fileID: -8866378825118310145, guid: 191e0183c898f25428481feba2b87051, type: 3}
+    - {fileID: -3287765887320952711, guid: 191e0183c898f25428481feba2b87051, type: 3}
+    isTemp: 0
+    baseDmg: 1
+    element: 0
+    tags: 
+  - DiceId: 1
+    DiceName: Fiire Dice
+    diceDirection:
+      direction: 0
+      isLoop: 0
+      diceDirection:
+      - direction: 1
+        isLoop: 0
+        diceDirection:
+        - direction: 1
+          isLoop: 0
+          diceDirection: []
+      - direction: 2
+        isLoop: 0
+        diceDirection:
+        - direction: 2
+          isLoop: 0
+          diceDirection: []
+      - direction: 3
+        isLoop: 0
+        diceDirection:
+        - direction: 3
+          isLoop: 0
+          diceDirection: []
+      - direction: 4
+        isLoop: 0
+        diceDirection:
+        - direction: 4
+          isLoop: 0
+          diceDirection: []
+    SpriteList:
+    - {fileID: 39516445742236537, guid: 191e0183c898f25428481feba2b87051, type: 3}
+    - {fileID: 2376305099863235458, guid: 191e0183c898f25428481feba2b87051, type: 3}
+    - {fileID: 1813239885723335896, guid: 191e0183c898f25428481feba2b87051, type: 3}
+    - {fileID: -7464760887336577109, guid: 191e0183c898f25428481feba2b87051, type: 3}
+    - {fileID: -8866378825118310145, guid: 191e0183c898f25428481feba2b87051, type: 3}
+    - {fileID: -3287765887320952711, guid: 191e0183c898f25428481feba2b87051, type: 3}
+    isTemp: 0
+    baseDmg: 1
+    element: 0
+    tags: 
+  - DiceId: 1001
+    DiceName: Fiire Dice tmp
+    diceDirection:
+      direction: 0
+      isLoop: 0
+      diceDirection:
+      - direction: 1
+        isLoop: 0
+        diceDirection:
+        - direction: 1
+          isLoop: 0
+          diceDirection: []
+      - direction: 2
+        isLoop: 0
+        diceDirection:
+        - direction: 2
+          isLoop: 0
+          diceDirection: []
+      - direction: 3
+        isLoop: 0
+        diceDirection:
+        - direction: 3
+          isLoop: 0
+          diceDirection: []
+      - direction: 4
+        isLoop: 0
+        diceDirection:
+        - direction: 4
+          isLoop: 0
+          diceDirection: []
+    SpriteList:
+    - {fileID: 39516445742236537, guid: 191e0183c898f25428481feba2b87051, type: 3}
+    - {fileID: 2376305099863235458, guid: 191e0183c898f25428481feba2b87051, type: 3}
+    - {fileID: 1813239885723335896, guid: 191e0183c898f25428481feba2b87051, type: 3}
+    - {fileID: -7464760887336577109, guid: 191e0183c898f25428481feba2b87051, type: 3}
+    - {fileID: -8866378825118310145, guid: 191e0183c898f25428481feba2b87051, type: 3}
+    - {fileID: -3287765887320952711, guid: 191e0183c898f25428481feba2b87051, type: 3}
+    isTemp: 0
+    baseDmg: 1
+    element: 0
+    tags: 
+  - DiceId: 2
+    DiceName: Sky Dice
+    diceDirection:
+      direction: 0
+      isLoop: 0
+      diceDirection:
+      - direction: 1
+        isLoop: 0
+        diceDirection: []
+      - direction: 2
+        isLoop: 0
+        diceDirection: []
+      - direction: 3
+        isLoop: 0
+        diceDirection: []
+      - direction: 4
+        isLoop: 0
+        diceDirection: []
+    SpriteList:
+    - {fileID: 39516445742236537, guid: 191e0183c898f25428481feba2b87051, type: 3}
+    - {fileID: 2376305099863235458, guid: 191e0183c898f25428481feba2b87051, type: 3}
+    - {fileID: 1813239885723335896, guid: 191e0183c898f25428481feba2b87051, type: 3}
+    - {fileID: -7464760887336577109, guid: 191e0183c898f25428481feba2b87051, type: 3}
+    - {fileID: -8866378825118310145, guid: 191e0183c898f25428481feba2b87051, type: 3}
+    - {fileID: -3287765887320952711, guid: 191e0183c898f25428481feba2b87051, type: 3}
+    isTemp: 0
+    baseDmg: 1
+    element: 2
     tags: 

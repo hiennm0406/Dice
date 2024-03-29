@@ -2,13 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UnitController : MonoBehaviour
+public class UnitController : UnitBase
 {
     public int UnitId;
     public int pos;
-    public Stat UnitStat;
     public bool isMoving;
-    public int HPNow;
 
     public List<TakeDamage> dmg = new List<TakeDamage>();
     #region privateStat
@@ -39,7 +37,7 @@ public class UnitController : MonoBehaviour
     {
         BattleManager.Instance.ListTile[pos].unitController = null;
         isMoving = true;
-        int _y = Helper.GetCol(pos) - UnitStat.Moving;
+        int _y = Helper.GetCol(pos) - stat.Moving;
 
         if (_y <= 0)
         {
@@ -69,8 +67,6 @@ public class UnitController : MonoBehaviour
 
     public void TakeDamage(int _dmg, Element element, List<DmgTag> tags)
     {
-        Debug.Log("= " + _dmg);
-
         dmg.Add(new TakeDamage(_dmg, element, tags));
     }
 

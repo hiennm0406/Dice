@@ -29,27 +29,26 @@ public class BattleManager : LocalSingleton<BattleManager>
     private bool drag = false;
     private DiceOnBoardController diceDrag;
     private Tile nowTile;
-    private GodInfo playerGod;
-    public GodInfo PlayerGod => playerGod;
+
     #endregion
+
+    public GodManager godManager;
 
     private void Start()
     {
         mainCamera = Camera.main;
-
-        // lấy ra player God
-        playerGod = new GodInfo(PlayerData.Instance.GodId, 1); // default 1
-        for (int i = 0; i < 5; i++)
-        {
-            ListDice[i].DiceId = playerGod.godData.dice[i];
-        }
     }
     [Button]
     public void InitGame()
     {
         Stage = GAMESTAGE.PREGAME;
         Debug.Log("INIT GAME");
+        // lấy ra player God
 
+        for (int i = 0; i < 5; i++)
+        {
+            ListDice[i].DiceId = godManager.godData.dice[i];
+        }
         IsPlay = true;
         StartCoroutine(GamePlay());
     }
@@ -128,10 +127,10 @@ public class BattleManager : LocalSingleton<BattleManager>
                     _unit.StartMoveUnit(Helper.GetIVector(x, Helper.col - 1));
 
                     // init unit stat
-                    _unit.UnitStat.CopyStat(_e.BaseStat);
-                    _unit.UnitStat.Power = Mathf.CeilToInt(_e.BaseStat.Power * (1 + level.PowerFactor) * (1 + enemyWay.PowerFactor) * (1 + wayFactor * level.PowerFactorInWay));
-                    _unit.UnitStat.HP = Mathf.CeilToInt(_e.BaseStat.HP * (1 + level.HpFactor) * (1 + enemyWay.HpFactor) * (1 + wayFactor * level.HpFactorInWay));
-                    _unit.HPNow = _unit.UnitStat.HP;
+                    _unit.stat.CopyStat(_e.BaseStat);
+                    _unit.stat.Power = Mathf.CeilToInt(_e.BaseStat.Power * (1 + level.PowerFactor) * (1 + enemyWay.PowerFactor) * (1 + wayFactor * level.PowerFactorInWay));
+                    _unit.stat.HP = Mathf.CeilToInt(_e.BaseStat.HP * (1 + level.HpFactor) * (1 + enemyWay.HpFactor) * (1 + wayFactor * level.HpFactorInWay));
+                    _unit.HPNow = _unit.stat.HP;
                     listUnit.Add(_unit);
                 }
             }
@@ -155,6 +154,8 @@ public class BattleManager : LocalSingleton<BattleManager>
         for (int i = 0; i < 3; i++)
         {
             int x = Random.Range(0, 5);
+            Debug.Log("RANDOM X " + x);
+
             GameObject _go = Instantiate(ListDice[x].gameObject);
 
             Dice.Add(_go.GetComponent<DiceOnBoardController>());
@@ -329,6 +330,12 @@ public class BattleManager : LocalSingleton<BattleManager>
             }
             yield return null;
         }
+    }
+
+    [Button]
+    public void GetTile(int x)
+    {
+        Debug.Log(Helper.GetCol(x) + " " + Helper.GetRow(x));
     }
 
     #region RollDice

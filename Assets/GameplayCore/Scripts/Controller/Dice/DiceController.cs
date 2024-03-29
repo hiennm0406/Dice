@@ -11,9 +11,15 @@ public class DiceController : MonoBehaviour
     public int DiceId;
     private DiceOnBoardController _diceOnBoard;
     private DiceInfo diceInfo;
+    private int[] number;
 
     private void Start()
     {
+        number = new int[6];
+        for (int i = 0; i < 6; i++)
+        {
+            number[i] = i + 1;
+        }
         _diceOnBoard = GetComponent<DiceOnBoardController>();
         diceInfo = DiceData.instance.GetDice(DiceId);
         // set up dice
@@ -21,10 +27,9 @@ public class DiceController : MonoBehaviour
         element = diceInfo.element;
         tags = diceInfo.tags;
     }
-    public virtual IEnumerator TriggerDice(int number)
+    public virtual IEnumerator TriggerDice(int _num)
     {
         // get all tile 
-        Debug.Log("TRIGGER");
         yield return null;
 
         DiceInfo _dice = DiceData.instance.GetDice(DiceId);
@@ -38,9 +43,9 @@ public class DiceController : MonoBehaviour
         {
             if (item.unitController != null)
             {
-                Debug.Log(dmg + " * " + _diceOnBoard.number + " * " + BattleManager.Instance.PlayerGod.GodStat.Power);
+                Debug.Log(dmg + " * " + number[_diceOnBoard.number] + " * " + BattleManager.Instance.godManager.stat.Power);
 
-                item.unitController.TakeDamage(dmg * _diceOnBoard.number * BattleManager.Instance.PlayerGod.GodStat.Power, element, tags);
+                item.unitController.TakeDamage(dmg * number[_diceOnBoard.number] * BattleManager.Instance.godManager.stat.Power, element, tags);
             }
         }
         BattleManager.Instance.done--;
@@ -98,18 +103,24 @@ public class DiceController : MonoBehaviour
             {
                 continue;
             }
-            if (!_tiles.Contains(BattleManager.Instance.ListTile[x]))
+            try
             {
-                _tiles.Add(BattleManager.Instance.ListTile[x]);
+                if (!_tiles.Contains(BattleManager.Instance.ListTile[x]))
+                {
+                    _tiles.Add(BattleManager.Instance.ListTile[x]);
+                }
+                if (diceDirection.isLoop)
+                {
+                    GetTile(_tiles, x, diceDirection);
+                    return;
+                }
+                GetTile(_tiles, x, item);
             }
-            if (diceDirection.isLoop)
+            catch
             {
-                GetTile(_tiles, x, diceDirection);
-                return;
+                Debug.LogError(x);
             }
 
-
-            GetTile(_tiles, x, item);
         }
     }
 

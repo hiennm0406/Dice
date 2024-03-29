@@ -32,4 +32,7 @@ public class Stat
         CritRate = _stat.CritRate;
         CritDmg = _stat.CritDmg;
     }
+
+
+
 }

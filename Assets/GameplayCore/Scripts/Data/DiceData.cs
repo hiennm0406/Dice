@@ -24,12 +24,18 @@ public class DiceData : SingletonScriptableObject<DiceData>
 [System.Serializable]
 public class DiceInfo
 {
+    [HorizontalGroup("DiceID", 0.2f, LabelWidth = 100)]
     public int DiceId;
+    [HorizontalGroup("DiceID", 0.5f, LabelWidth = 100)]
     public string DiceName;
     public DiceDirection diceDirection;
     public Sprite[] SpriteList;
-
-    public int baseDmg;
+    [HideLabel]
+    [HorizontalGroup("DiceData", 50)]
+    public bool isTemp = false;
+    [HorizontalGroup("DiceData", 0.4f, LabelWidth = 100)]
+    public int baseDmg = 1;
+    [HorizontalGroup("DiceData", 0.4f, LabelWidth = 100)]
     public Element element;
     public List<DmgTag> tags;
 }
@@ -40,7 +46,7 @@ public class DiceDirection
     public Direction direction;
     [OnValueChanged("OnChangeLoop")]
     public bool isLoop;
-    public List<DiceDirection> diceDirection;
+    public List<DiceDirection> diceDirection = new List<DiceDirection>();
 
     public void OnChangeLoop()
     {

@@ -427,7 +427,7 @@ public static class Helper
 
     public static int GetTop(int data)
     {
-        if (GetRow(data) + 1 > row)
+        if (GetRow(data) + 1 >= row)
         {
             return -1;
         }

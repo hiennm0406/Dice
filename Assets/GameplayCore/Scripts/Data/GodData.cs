@@ -58,23 +58,3 @@ public class God
         return result;
     }
 }
-
-public class GodInfo
-{
-    public int GodId;
-    public int Level;
-    public Stat GodStat;
-    public God godData;
-    public GodInfo(int id, int level)
-    {
-        GodId = id;
-        Level = level;
-        godData = GodData.instance.GetGod(id);
-        GodStat = new Stat();
-        GodStat.Power = godData.BaseStat.Power + Level * godData.BaseStatIncrease.Power;
-        GodStat.HP = godData.BaseStat.HP + Level * godData.BaseStatIncrease.HP;
-        GodStat.Luck = godData.BaseStat.Luck;
-        GodStat.CritDmg = godData.BaseStat.CritDmg;
-        GodStat.CritRate = godData.BaseStat.CritRate;
-    }
-}
