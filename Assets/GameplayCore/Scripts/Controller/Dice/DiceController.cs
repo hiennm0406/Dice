@@ -45,7 +45,7 @@ public class DiceController : MonoBehaviour
             {
                 Debug.Log(dmg + " * " + number[_diceOnBoard.number] + " * " + BattleManager.Instance.godManager.stat.Power);
 
-                item.unitController.TakeDamage(dmg * number[_diceOnBoard.number] * BattleManager.Instance.godManager.stat.Power, element, tags);
+                item.unitController.InitDamageWillTake(dmg * number[_diceOnBoard.number] * BattleManager.Instance.godManager.stat.Power, element, tags);
             }
         }
         BattleManager.Instance.done--;
@@ -123,5 +123,8 @@ public class DiceController : MonoBehaviour
 
         }
     }
+
+
+
 
 }

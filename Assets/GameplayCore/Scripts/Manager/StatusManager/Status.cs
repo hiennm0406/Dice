@@ -1,13 +1,28 @@
+using Sirenix.OdinInspector;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Status
+[System.Serializable]
+public class Status : ScriptableObject
 {
+    public string status;
+    public string statusName;
+
     public float Value;
+    public string Description;
 
-    public abstract void OnTrigger();
+    #region VirtualMethod
 
-    public abstract void OnRemove();
+    public virtual void OnTrigger(UnitBase target)
+    {
+
+    }
+
+    public virtual void OnRemove(UnitBase target)
+    {
+
+    }
+    #endregion
 }
 

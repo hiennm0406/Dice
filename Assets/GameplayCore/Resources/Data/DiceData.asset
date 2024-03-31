@@ -54,6 +54,7 @@ MonoBehaviour:
     baseDmg: 1
     element: 0
     tags: 
+    diceImbues: []
   - DiceId: 1000
     DiceName: Sun Dice tmp
     diceDirection:
@@ -95,8 +96,9 @@ MonoBehaviour:
     baseDmg: 1
     element: 0
     tags: 
+    diceImbues: []
   - DiceId: 1
-    DiceName: Fiire Dice
+    DiceName: Fire Dice
     diceDirection:
       direction: 0
       isLoop: 0
@@ -136,8 +138,9 @@ MonoBehaviour:
     baseDmg: 1
     element: 0
     tags: 
+    diceImbues: []
   - DiceId: 1001
-    DiceName: Fiire Dice tmp
+    DiceName: Fire Dice tmp
     diceDirection:
       direction: 0
       isLoop: 0
@@ -177,6 +180,7 @@ MonoBehaviour:
     baseDmg: 1
     element: 0
     tags: 
+    diceImbues: []
   - DiceId: 2
     DiceName: Sky Dice
     diceDirection:
@@ -206,3 +210,15 @@ MonoBehaviour:
     baseDmg: 1
     element: 2
     tags: 
+    diceImbues:
+    - ImbueId: -1
+      ImbueName: Apply Sun Burn
+      required: 
+      GodRequired: 
+      GodTalenRequired: 
+      Rate: 0
+      maxCount: 1
+      diceEffects:
+        Type: 1
+        status: {fileID: 11400000, guid: 1c946ac99f8ec0f40a3ab01bdcc416ea, type: 2}
+        value: 2

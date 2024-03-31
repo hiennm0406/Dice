@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,6 +9,8 @@ public class UnitController : UnitBase
     public bool isMoving;
 
     public List<TakeDamage> dmg = new List<TakeDamage>();
+    public List<TakeStatus> statusWaiting = new List<TakeStatus>();
+    public List<TakeStatus> status = new List<TakeStatus>();
     #region privateStat
     private SpriteRenderer spriteRenderer;
     #endregion
@@ -65,9 +67,14 @@ public class UnitController : UnitBase
         isMoving = false;
     }
 
-    public void TakeDamage(int _dmg, Element element, List<DmgTag> tags)
+    public void InitDamageWillTake(int _dmg, Element element, List<DmgTag> tags)
     {
         dmg.Add(new TakeDamage(_dmg, element, tags));
+    }
+
+    public void InitStatusWillTake(Status _status, int _duration)
+    {
+        statusWaiting.Add(new TakeStatus(_status, _duration));
     }
 
     public IEnumerator EndTurn()
@@ -75,7 +82,9 @@ public class UnitController : UnitBase
         yield return null;
         foreach (var item in dmg)
         {
-            HPNow -= item.dmg;
+            TakeDamage(ref item.dmg, item.element, item.tags);
+
+            // anim chữ bay lên (item.dmg)
         }
         if (HPNow <= 0)
         {
@@ -83,6 +92,23 @@ public class UnitController : UnitBase
         }
         dmg.Clear();
         BattleManager.Instance.done--;
+
+        foreach (var item in statusWaiting)
+        {
+            status.Add(item);
+            item.status.OnTrigger(this);
+        }
+        statusWaiting.Clear();
+        // trigger
+
+        foreach (var item in status)
+        {
+            item.Duration--;
+            if (item.Duration == 0)
+            {
+                item.status.OnRemove(this);
+            }
+        }
     }
 
     public void Die()
@@ -105,5 +131,18 @@ public class TakeDamage
         this.dmg = dmg;
         this.element = element;
         this.tags = tags;
+    }
+}
+
+
+public class TakeStatus
+{
+    public Status status;
+    public int Duration;
+
+    public TakeStatus(Status _status, int _duration)
+    {
+        this.status = _status;
+        this.Duration = _duration;
     }
 }

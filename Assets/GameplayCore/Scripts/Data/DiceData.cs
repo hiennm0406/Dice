@@ -38,6 +38,7 @@ public class DiceInfo
     [HorizontalGroup("DiceData", 0.4f, LabelWidth = 100)]
     public Element element;
     public List<DmgTag> tags;
+    public List<DiceImbue> diceImbues = new List<DiceImbue>();
 }
 
 [System.Serializable]
@@ -72,4 +73,26 @@ public enum Direction
     TOPLEFT,
     DOWNRIGHT,
     DOWNLEFT
+}
+[System.Serializable]
+public class DiceImbue
+{
+    public string ImbueName; // UNITQUE
+    [HorizontalGroup("Required", 0.3f)]
+    public List<int> required = new List<int>(); // need id to unlock
+    [HorizontalGroup("Required", 0.3f)]
+    public List<int> GodRequired = new List<int>(); // only for this god
+    [HorizontalGroup("Required", 0.3f)]
+    public List<int> GodTalenRequired = new List<int>(); // god need this to unlock
+    [HorizontalGroup("Rate", 0.3f)]
+    public int Rate;
+    [HorizontalGroup("Rate", 0.3f)]
+    [MinValue(1)]
+    public int maxCount = 1;// if > 1 => can reoccus multi time
+}
+
+
+public enum DiceImbued
+{
+    INCREASEDMG
 }

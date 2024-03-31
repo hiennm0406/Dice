@@ -53,6 +53,8 @@ public enum UnitRank
 
 public enum Element
 {
+    ALL,
+    NORMAL,
     FIRE,
     ICE,
     LIGHT

@@ -44,7 +44,7 @@ public class BattleManager : LocalSingleton<BattleManager>
         Stage = GAMESTAGE.PREGAME;
         Debug.Log("INIT GAME");
         // lấy ra player God
-
+        godManager.InitGod(PlayerData.Instance.GodId, 1);
         for (int i = 0; i < 5; i++)
         {
             ListDice[i].DiceId = godManager.godData.dice[i];

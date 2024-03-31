@@ -1,18 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class Status_SunBurn : MonoBehaviour
+[CreateAssetMenu(fileName = "SunBurn", menuName = "Create Data/Status/SunBurn")]
+public class Status_SunBurn : Status
 {
-    // Start is called before the first frame update
-    void Start()
+    public override void OnTrigger(UnitBase target)
     {
-        
+        if (!target.Resis.ContainsKey(Element.FIRE))
+        {
+            target.Resis.Add(Element.FIRE, -Value);
+        }
+        else
+        {
+            target.Resis[Element.FIRE] -= Value;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void OnRemove(UnitBase target)
     {
-        
+        if (target.Resis.ContainsKey(Element.FIRE))
+        {
+            target.Resis[Element.FIRE] += Value;
+        }
     }
+
 }
+

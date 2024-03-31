@@ -7,7 +7,7 @@ public class GodManager : UnitBase
     public int GodId;
     public int Level;
     public God godData;
-
+    public Dictionary<Element, float> Improve = new Dictionary<Element, float>();
     private void Start()
     {
         BattleManager.Instance.godManager = this;
