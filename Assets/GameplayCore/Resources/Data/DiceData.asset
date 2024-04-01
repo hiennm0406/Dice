@@ -52,7 +52,7 @@ MonoBehaviour:
     - {fileID: -3287765887320952711, guid: 191e0183c898f25428481feba2b87051, type: 3}
     isTemp: 0
     baseDmg: 1
-    element: 0
+    element: 4
     tags: 
     diceImbues: []
   - DiceId: 1000
@@ -94,7 +94,7 @@ MonoBehaviour:
     - {fileID: -3287765887320952711, guid: 191e0183c898f25428481feba2b87051, type: 3}
     isTemp: 0
     baseDmg: 1
-    element: 0
+    element: 4
     tags: 
     diceImbues: []
   - DiceId: 1
@@ -136,7 +136,7 @@ MonoBehaviour:
     - {fileID: -3287765887320952711, guid: 191e0183c898f25428481feba2b87051, type: 3}
     isTemp: 0
     baseDmg: 1
-    element: 0
+    element: 2
     tags: 
     diceImbues: []
   - DiceId: 1001
@@ -178,7 +178,7 @@ MonoBehaviour:
     - {fileID: -3287765887320952711, guid: 191e0183c898f25428481feba2b87051, type: 3}
     isTemp: 0
     baseDmg: 1
-    element: 0
+    element: 2
     tags: 
     diceImbues: []
   - DiceId: 2
@@ -208,17 +208,12 @@ MonoBehaviour:
     - {fileID: -3287765887320952711, guid: 191e0183c898f25428481feba2b87051, type: 3}
     isTemp: 0
     baseDmg: 1
-    element: 2
+    element: 4
     tags: 
     diceImbues:
-    - ImbueId: -1
-      ImbueName: Apply Sun Burn
+    - ImbueName: 3
       required: 
       GodRequired: 
       GodTalenRequired: 
-      Rate: 0
+      Rate: 10
       maxCount: 1
-      diceEffects:
-        Type: 1
-        status: {fileID: 11400000, guid: 1c946ac99f8ec0f40a3ab01bdcc416ea, type: 2}
-        value: 2

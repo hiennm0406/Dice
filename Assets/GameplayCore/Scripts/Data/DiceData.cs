@@ -77,7 +77,7 @@ public enum Direction
 [System.Serializable]
 public class DiceImbue
 {
-    public string ImbueName; // UNITQUE
+    public DiceImbued ImbueName; // UNITQUE
     [HorizontalGroup("Required", 0.3f)]
     public List<int> required = new List<int>(); // need id to unlock
     [HorizontalGroup("Required", 0.3f)]
@@ -94,5 +94,9 @@ public class DiceImbue
 
 public enum DiceImbued
 {
-    INCREASEDMG
+    INCREASEDMG_I,
+    INCREASEDMG_II,
+    INCREASEDMG_III,
+    SUN_BURN_I,
+    SUN_BURN_II,
 }
