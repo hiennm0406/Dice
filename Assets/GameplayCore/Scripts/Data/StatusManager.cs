@@ -6,7 +6,7 @@ public class StatusManager : SingletonScriptableObject<StatusManager>
 {
     public List<Status> listStatus = new List<Status>();
 
-    public Status GetStatus(string _status)
+    public Status GetStatus(StatusID _status)
     {
         foreach (var item in listStatus)
         {
@@ -19,3 +19,7 @@ public class StatusManager : SingletonScriptableObject<StatusManager>
     }
 }
 
+public enum StatusID
+{
+    SUNBURN
+}

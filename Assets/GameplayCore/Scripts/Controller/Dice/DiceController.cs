@@ -14,7 +14,7 @@ public class DiceController : MonoBehaviour
     private int[] number;
     public List<DiceImbued> imbued = new List<DiceImbued>();
 
-    private float dmgImprove = 1;
+    protected float dmgImprove = 1;
 
     private void Start()
     {
@@ -48,10 +48,22 @@ public class DiceController : MonoBehaviour
             {
                 Debug.Log(dmg + " * " + number[_diceOnBoard.number] + " * " + BattleManager.Instance.godManager.stat.Power);
 
-                item.unitController.InitDamageWillTake(dmg * number[_diceOnBoard.number] * BattleManager.Instance.godManager.stat.Power, element, tags);
+                DealDmg(item.unitController);
+                InflictStatus(item.unitController);
             }
         }
         BattleManager.Instance.done--;
+    }
+
+
+    public virtual void DealDmg(UnitController unit)
+    {
+        unit.InitDamageWillTake(dmg * number[_diceOnBoard.number] * BattleManager.Instance.godManager.stat.Power, element, tags);
+    }
+
+    public virtual void InflictStatus(UnitController unit)
+    {
+
     }
 
     public void ChangePos()
@@ -135,7 +147,7 @@ public class DiceController : MonoBehaviour
         imbued.Add(imbue);
     }
 
-    public void SetupImbue()
+    public virtual void SetupImbue()
     {
         foreach (var item in imbued)
         {

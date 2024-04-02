@@ -17,6 +17,7 @@ public class UnitBase : MonoBehaviour
 
 
         // immune ?
+        Debug.Log("TAKE DMG ==> " + _dmg);
 
         if (Immune.Contains(element))
         {
@@ -45,5 +46,6 @@ public class UnitBase : MonoBehaviour
         float dmg = _dmg * (1f - resis);
         _dmg = Mathf.CeilToInt(dmg);
         HPNow -= _dmg;
+        Debug.Log("TAKE DMG FINAL ==> " + _dmg);
     }
 }

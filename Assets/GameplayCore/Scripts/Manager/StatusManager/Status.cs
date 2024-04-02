@@ -6,7 +6,7 @@ using UnityEngine;
 [System.Serializable]
 public class Status : ScriptableObject
 {
-    public string status;
+    public StatusID status;
     public string statusName;
 
     public float Value;

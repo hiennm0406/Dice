@@ -74,6 +74,7 @@ public class UnitController : UnitBase
 
     public void InitStatusWillTake(Status _status, int _duration)
     {
+        Debug.Log("TAKE STATUS ==> " + _status.statusName);
         statusWaiting.Add(new TakeStatus(_status, _duration));
     }
 

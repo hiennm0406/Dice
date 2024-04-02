@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72cb612ddd6ba8f42b311b466e945e9c, type: 3}
   m_Name: SunBurn
   m_EditorClassIdentifier: 
-  status: 
+  status: 0
+  statusName: Sun Burn
   Value: 10
   Description: Increase fire danage taken.

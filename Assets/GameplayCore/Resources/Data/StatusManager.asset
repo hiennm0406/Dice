@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d137c49603bc93a4dabf9e49668a4be9, type: 3}
   m_Name: StatusManager
   m_EditorClassIdentifier: 
-  listStatus: []
+  listStatus:
+  - {fileID: 11400000, guid: 1c946ac99f8ec0f40a3ab01bdcc416ea, type: 2}
