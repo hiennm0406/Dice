@@ -15,6 +15,7 @@ MonoBehaviour:
   listDice:
   - DiceId: 0
     DiceName: Sun Dice
+    ClassName: Dice_SunDice
     diceDirection:
       direction: 0
       isLoop: 0
@@ -54,9 +55,28 @@ MonoBehaviour:
     baseDmg: 1
     element: 4
     tags: 
-    diceImbues: []
+    diceImbues:
+    - ImbueName: 0
+      required: 
+      GodRequired: 
+      GodTalenRequired: 
+      Rate: 15
+      maxCount: 100
+    - ImbueName: 1
+      required: 
+      GodRequired: 
+      GodTalenRequired: 
+      Rate: 10
+      maxCount: 100
+    - ImbueName: 2
+      required: 
+      GodRequired: 
+      GodTalenRequired: 
+      Rate: 5
+      maxCount: 100
   - DiceId: 1000
     DiceName: Sun Dice tmp
+    ClassName: Dice_SunDice
     diceDirection:
       direction: 0
       isLoop: 0
@@ -99,6 +119,7 @@ MonoBehaviour:
     diceImbues: []
   - DiceId: 1
     DiceName: Fire Dice
+    ClassName: Dice_FireDice
     diceDirection:
       direction: 0
       isLoop: 0
@@ -138,9 +159,28 @@ MonoBehaviour:
     baseDmg: 1
     element: 2
     tags: 
-    diceImbues: []
+    diceImbues:
+    - ImbueName: 0
+      required: 
+      GodRequired: 
+      GodTalenRequired: 
+      Rate: 15
+      maxCount: 100
+    - ImbueName: 1
+      required: 
+      GodRequired: 
+      GodTalenRequired: 
+      Rate: 10
+      maxCount: 100
+    - ImbueName: 2
+      required: 
+      GodRequired: 
+      GodTalenRequired: 
+      Rate: 5
+      maxCount: 100
   - DiceId: 1001
     DiceName: Fire Dice tmp
+    ClassName: Dice_FireDice
     diceDirection:
       direction: 0
       isLoop: 0
@@ -183,6 +223,7 @@ MonoBehaviour:
     diceImbues: []
   - DiceId: 2
     DiceName: Sky Dice
+    ClassName: Dice_SkyDice
     diceDirection:
       direction: 0
       isLoop: 0
@@ -211,6 +252,24 @@ MonoBehaviour:
     element: 4
     tags: 
     diceImbues:
+    - ImbueName: 0
+      required: 
+      GodRequired: 
+      GodTalenRequired: 
+      Rate: 15
+      maxCount: 100
+    - ImbueName: 1
+      required: 
+      GodRequired: 
+      GodTalenRequired: 
+      Rate: 10
+      maxCount: 100
+    - ImbueName: 2
+      required: 
+      GodRequired: 
+      GodTalenRequired: 
+      Rate: 5
+      maxCount: 100
     - ImbueName: 3
       required: 
       GodRequired: 

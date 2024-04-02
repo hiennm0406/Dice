@@ -12,6 +12,9 @@ public class DiceController : MonoBehaviour
     private DiceOnBoardController _diceOnBoard;
     private DiceInfo diceInfo;
     private int[] number;
+    public List<DiceImbued> imbued = new List<DiceImbued>();
+
+    private float dmgImprove = 1;
 
     private void Start()
     {
@@ -120,11 +123,35 @@ public class DiceController : MonoBehaviour
             {
                 Debug.LogError(x);
             }
-
         }
     }
 
 
+
+    #region IMBUE
+
+    public void AddImbue(DiceImbued imbue)
+    {
+        imbued.Add(imbue);
+    }
+
+    public void SetupImbue()
+    {
+        foreach (var item in imbued)
+        {
+            switch (item)
+            {
+                case DiceImbued.INCREASEDMG_I:
+                    break;
+                case DiceImbued.INCREASEDMG_II:
+                    break;
+                case DiceImbued.INCREASEDMG_III:
+                    break;
+            }
+        }
+    }
+
+    #endregion
 
 
 }

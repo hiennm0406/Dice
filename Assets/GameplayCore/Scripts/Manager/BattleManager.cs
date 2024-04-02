@@ -1,8 +1,10 @@
 ﻿using Newtonsoft.Json;
 using Sirenix.OdinInspector;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class BattleManager : LocalSingleton<BattleManager>
 {
@@ -17,8 +19,8 @@ public class BattleManager : LocalSingleton<BattleManager>
     public GAMESTAGE Stage;
     public List<DiceOnBoardController> Dice = new List<DiceOnBoardController>();
     public Transform diceStart;
-
-
+    [SerializeField] private GameObject prefabDice;
+    public List<GameObject> ListGODice = new List<GameObject>();
     public List<DiceController> ListDice = new List<DiceController>();
     public int done = 0;
 
@@ -44,11 +46,23 @@ public class BattleManager : LocalSingleton<BattleManager>
         Stage = GAMESTAGE.PREGAME;
         Debug.Log("INIT GAME");
         // lấy ra player God
+        ListDice.Clear();
         godManager.InitGod(PlayerData.Instance.GodId, 1);
-        for (int i = 0; i < 5; i++)
+
+        for (int i = 0; i < godManager.godData.dice.Count; i++)
         {
-            ListDice[i].DiceId = godManager.godData.dice[i];
+            GameObject _go = Instantiate(prefabDice);
+            Type type = Type.GetType(DiceData.instance.GetDice(godManager.godData.dice[i]).ClassName);
+            _go.AddComponent(type);
+
+            DiceController _dice = _go.GetComponent<DiceController>();
+            if (_dice != null)
+            {
+                ListDice.Add(_dice);
+                _dice.DiceId = godManager.godData.dice[i];
+            }
         }
+
         IsPlay = true;
         StartCoroutine(GamePlay());
     }

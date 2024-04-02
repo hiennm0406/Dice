@@ -26,8 +26,10 @@ public class DiceInfo
 {
     [HorizontalGroup("DiceID", 0.2f, LabelWidth = 100)]
     public int DiceId;
-    [HorizontalGroup("DiceID", 0.5f, LabelWidth = 100)]
+    [HorizontalGroup("DiceID", 0.4f, LabelWidth = 100)]
     public string DiceName;
+    [HorizontalGroup("DiceID", 0.4f, LabelWidth = 100)]
+    public string ClassName;
     public DiceDirection diceDirection;
     public Sprite[] SpriteList;
     [HideLabel]
