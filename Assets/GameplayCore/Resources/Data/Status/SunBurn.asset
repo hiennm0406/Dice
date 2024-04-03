@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   status: 0
   statusName: Sun Burn
-  Value: 10
+  Value: 0.1
   Description: Increase fire danage taken.

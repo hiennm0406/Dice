@@ -10,7 +10,6 @@ public class UnitController : UnitBase
 
     public List<TakeDamage> dmg = new List<TakeDamage>();
     public List<TakeStatus> statusWaiting = new List<TakeStatus>();
-    public List<TakeStatus> status = new List<TakeStatus>();
     #region privateStat
     private SpriteRenderer spriteRenderer;
     #endregion
@@ -87,12 +86,19 @@ public class UnitController : UnitBase
 
             // anim chữ bay lên (item.dmg)
         }
-        if (HPNow <= 0)
-        {
-            Die();
-        }
+
         dmg.Clear();
         BattleManager.Instance.done--;
+
+        if (HPNow <= 0)
+        {
+            statusWaiting.Clear();
+            status.Clear();
+            Die();
+            yield break;
+        }
+
+        Debug.Log("=> " + statusWaiting.Count);
 
         foreach (var item in statusWaiting)
         {
@@ -101,7 +107,7 @@ public class UnitController : UnitBase
         }
         statusWaiting.Clear();
         // trigger
-
+        Debug.Log("=> " + status.Count);
         foreach (var item in status)
         {
             item.Duration--;
@@ -120,7 +126,7 @@ public class UnitController : UnitBase
     }
 }
 
-
+[System.Serializable]
 public class TakeDamage
 {
     public int dmg;
@@ -135,7 +141,7 @@ public class TakeDamage
     }
 }
 
-
+[System.Serializable]
 public class TakeStatus
 {
     public Status status;

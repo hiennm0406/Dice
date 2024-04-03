@@ -19,8 +19,8 @@ MonoBehaviour:
     Prefab: {fileID: 5431998823819661621, guid: 14d1f5bfee8649b48961273f8f74c2ef, type: 3}
     Skills: 
     BaseStat:
-      Power: 2
-      HP: 5
+      Power: 20
+      HP: 40
       Moving: 1
       AtkRange: 1
       Luck: 0
@@ -32,8 +32,8 @@ MonoBehaviour:
     Prefab: {fileID: 5431998823819661621, guid: 14d1f5bfee8649b48961273f8f74c2ef, type: 3}
     Skills: 
     BaseStat:
-      Power: 5
-      HP: 12
+      Power: 50
+      HP: 120
       Moving: 1
       AtkRange: 2
       Luck: 0
@@ -45,8 +45,8 @@ MonoBehaviour:
     Prefab: {fileID: 5431998823819661621, guid: 14d1f5bfee8649b48961273f8f74c2ef, type: 3}
     Skills: 
     BaseStat:
-      Power: 3
-      HP: 6
+      Power: 30
+      HP: 60
       Moving: 1
       AtkRange: 1
       Luck: 0
@@ -58,8 +58,8 @@ MonoBehaviour:
     Prefab: {fileID: 5431998823819661621, guid: 14d1f5bfee8649b48961273f8f74c2ef, type: 3}
     Skills: 
     BaseStat:
-      Power: 4
-      HP: 8
+      Power: 40
+      HP: 80
       Moving: 1
       AtkRange: 100
       Luck: 0
@@ -71,8 +71,8 @@ MonoBehaviour:
     Prefab: {fileID: 0}
     Skills: 
     BaseStat:
-      Power: 10
-      HP: 15
+      Power: 100
+      HP: 150
       Moving: 2
       AtkRange: 1
       Luck: 0
@@ -84,8 +84,8 @@ MonoBehaviour:
     Prefab: {fileID: 0}
     Skills: 
     BaseStat:
-      Power: 5
-      HP: 25
+      Power: 50
+      HP: 250
       Moving: 1
       AtkRange: 1
       Luck: 0
@@ -97,8 +97,8 @@ MonoBehaviour:
     Prefab: {fileID: 0}
     Skills: 
     BaseStat:
-      Power: 9
-      HP: 30
+      Power: 90
+      HP: 300
       Moving: 1
       AtkRange: 1
       Luck: 0
@@ -110,8 +110,8 @@ MonoBehaviour:
     Prefab: {fileID: 0}
     Skills: 
     BaseStat:
-      Power: 7
-      HP: 10
+      Power: 70
+      HP: 100
       Moving: 1
       AtkRange: 1
       Luck: 0
@@ -123,8 +123,8 @@ MonoBehaviour:
     Prefab: {fileID: 0}
     Skills: 
     BaseStat:
-      Power: 15
-      HP: 25
+      Power: 150
+      HP: 250
       Moving: 2
       AtkRange: 2
       Luck: 0

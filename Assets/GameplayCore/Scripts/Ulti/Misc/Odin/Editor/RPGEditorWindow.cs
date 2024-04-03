@@ -40,6 +40,7 @@ public class RPGEditorWindow : OdinMenuEditorWindow
         tree.AddAssetAtPath("UnitData", "Assets/GameplayCore/Resources/Data/UnitData.asset", typeof(UnitData));
         tree.AddAssetAtPath("LevelCampainData", "Assets/GameplayCore/Resources/Data/LevelCampainData.asset", typeof(LevelCampainData));
         tree.AddAssetAtPath("DiceData", "Assets/GameplayCore/Resources/Data/DiceData.asset", typeof(DiceData));
+        tree.AddAssetAtPath("ImbuedData", "Assets/GameplayCore/Resources/Data/ImbuedData.asset", typeof(ImbuedData));
         tree.AddAssetAtPath("StatusManager", "Assets/GameplayCore/Resources/Data/StatusManager.asset", typeof(StatusManager));
         tree.AddAllAssetsAtPath("Status", "Assets/GameplayCore/Resources/Data/Status", typeof(Status), true, true);
         return tree;

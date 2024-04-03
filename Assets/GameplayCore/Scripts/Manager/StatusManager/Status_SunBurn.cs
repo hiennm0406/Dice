@@ -6,6 +6,8 @@ public class Status_SunBurn : Status
 {
     public override void OnTrigger(UnitBase target)
     {
+        Debug.Log("trigger status");
+
         if (!target.Resis.ContainsKey(Element.FIRE))
         {
             target.Resis.Add(Element.FIRE, -Value);

@@ -1,15 +1,16 @@
-using System.Collections;
+using Sirenix.OdinInspector;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UnitBase : MonoBehaviour
+public class UnitBase : SerializedMonoBehaviour
 {
     public Stat stat;
     public int HPNow;
 
-    public List<Status> statuses = new List<Status>();
+    [SerializeField]
     public Dictionary<Element, float> Resis = new Dictionary<Element, float>();
     public List<Element> Immune = new List<Element>();
+    public List<TakeStatus> status = new List<TakeStatus>();
 
     public virtual void TakeDamage(ref int _dmg, Element element, List<DmgTag> tags)
     {
@@ -17,7 +18,7 @@ public class UnitBase : MonoBehaviour
 
 
         // immune ?
-        Debug.Log("TAKE DMG ==> " + _dmg);
+        Debug.Log("TAKE DMG ==> " + _dmg + " " + element);
 
         if (Immune.Contains(element))
         {
