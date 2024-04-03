@@ -9,5 +9,5 @@ public class EnemyWay
 {
     public float PowerFactor;
     public float HpFactor;
-    public List<int> unitsInWay = new List<int>();
+    public List<Vector2Int> unitsInWay = new List<Vector2Int>();
 }

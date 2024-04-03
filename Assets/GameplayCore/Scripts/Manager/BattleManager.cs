@@ -113,7 +113,7 @@ public class BattleManager : LocalSingleton<BattleManager>
             foreach (var unitId in enemyWay.unitsInWay)
             {
                 // get enemy
-                UnitEnemy _e = UnitData.instance.GetUnitEnemy(unitId);
+                UnitEnemy _e = UnitData.instance.GetUnitEnemy(unitId.x);
                 if (_e != null)
                 {
                     GameObject _go = Instantiate(_e.Prefab);
