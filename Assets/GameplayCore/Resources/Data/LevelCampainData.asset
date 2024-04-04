@@ -19,53 +19,53 @@ MonoBehaviour:
     HpFactor: 0
     HpFactorInWay: 0.05
     LevelInfo:
-    - '{"PowerFactor":0.0,"HpFactor":0.0,"unitsInWay":[{"x":0,"y":1,"magnitude":1.0,"sqrMagnitude":1},{"x":0,"y":1,"magnitude":1.0,"sqrMagnitude":1}]}'
-    - '{"PowerFactor":0.0,"HpFactor":0.0,"unitsInWay":[{"x":0,"y":1,"magnitude":1.0,"sqrMagnitude":1},{"x":0,"y":1,"magnitude":1.0,"sqrMagnitude":1}]}'
-    - '{"PowerFactor":0.0,"HpFactor":0.0,"unitsInWay":[{"x":0,"y":1,"magnitude":1.0,"sqrMagnitude":1},{"x":0,"y":1,"magnitude":1.0,"sqrMagnitude":1},{"x":0,"y":1,"magnitude":1.0,"sqrMagnitude":1}]}'
-    - '{"PowerFactor":0.0,"HpFactor":0.0,"unitsInWay":[{"x":0,"y":1,"magnitude":1.0,"sqrMagnitude":1},{"x":0,"y":1,"magnitude":1.0,"sqrMagnitude":1},{"x":0,"y":1,"magnitude":1.0,"sqrMagnitude":1}]}'
-    - '{"PowerFactor":0.0,"HpFactor":0.0,"unitsInWay":[{"x":0,"y":1,"magnitude":1.0,"sqrMagnitude":1},{"x":0,"y":1,"magnitude":1.0,"sqrMagnitude":1},{"x":1,"y":1,"magnitude":1.41421354,"sqrMagnitude":2},{"x":1,"y":1,"magnitude":1.41421354,"sqrMagnitude":2}]}'
-    - '{"PowerFactor":0.0,"HpFactor":0.0,"unitsInWay":[{"x":0,"y":1,"magnitude":1.0,"sqrMagnitude":1},{"x":1,"y":1,"magnitude":1.41421354,"sqrMagnitude":2},{"x":1,"y":1,"magnitude":1.41421354,"sqrMagnitude":2},{"x":0,"y":1,"magnitude":1.0,"sqrMagnitude":1}]}'
+    - '{"PowerFactor":0.0,"HpFactor":0.0,"unitsInWay":[{"x":0,"y":2,"magnitude":2.0,"sqrMagnitude":4},{"x":0,"y":2,"magnitude":2.0,"sqrMagnitude":4}]}'
+    - '{"PowerFactor":0.0,"HpFactor":0.0,"unitsInWay":[{"x":0,"y":2,"magnitude":2.0,"sqrMagnitude":4},{"x":0,"y":2,"magnitude":2.0,"sqrMagnitude":4}]}'
+    - '{"PowerFactor":0.0,"HpFactor":0.0,"unitsInWay":[{"x":0,"y":2,"magnitude":2.0,"sqrMagnitude":4},{"x":0,"y":2,"magnitude":2.0,"sqrMagnitude":4},{"x":0,"y":2,"magnitude":2.0,"sqrMagnitude":4}]}'
+    - '{"PowerFactor":0.0,"HpFactor":0.0,"unitsInWay":[{"x":0,"y":3,"magnitude":3.0,"sqrMagnitude":9},{"x":0,"y":3,"magnitude":3.0,"sqrMagnitude":9},{"x":0,"y":3,"magnitude":3.0,"sqrMagnitude":9}]}'
+    - '{"PowerFactor":0.0,"HpFactor":0.0,"unitsInWay":[{"x":0,"y":3,"magnitude":3.0,"sqrMagnitude":9},{"x":0,"y":3,"magnitude":3.0,"sqrMagnitude":9},{"x":1,"y":5,"magnitude":5.09901953,"sqrMagnitude":26},{"x":1,"y":5,"magnitude":5.09901953,"sqrMagnitude":26}]}'
+    - '{"PowerFactor":0.0,"HpFactor":0.0,"unitsInWay":[{"x":0,"y":3,"magnitude":3.0,"sqrMagnitude":9},{"x":1,"y":5,"magnitude":5.09901953,"sqrMagnitude":26},{"x":1,"y":5,"magnitude":5.09901953,"sqrMagnitude":26},{"x":0,"y":3,"magnitude":3.0,"sqrMagnitude":9}]}'
     - '{"PowerFactor":0.0,"HpFactor":0.0,"unitsInWay":[{"x":1671857832,"y":514,"magnitude":"NaN","sqrMagnitude":-659007932},{"x":53,"y":0,"magnitude":53.0,"sqrMagnitude":2809},{"x":1879062480,"y":511,"magnitude":14297.1348,"sqrMagnitude":204408065},{"x":33,"y":0,"magnitude":33.0,"sqrMagnitude":1089}]}'
-    - '{"PowerFactor":0.0,"HpFactor":0.0,"unitsInWay":[{"x":1,"y":1,"magnitude":1.41421354,"sqrMagnitude":2},{"x":1,"y":1,"magnitude":1.41421354,"sqrMagnitude":2},{"x":1,"y":1,"magnitude":1.41421354,"sqrMagnitude":2},{"x":1,"y":1,"magnitude":1.41421354,"sqrMagnitude":2},{"x":1,"y":1,"magnitude":1.41421354,"sqrMagnitude":2},{"x":1,"y":1,"magnitude":1.41421354,"sqrMagnitude":2}]}'
-    - '{"PowerFactor":0.0,"HpFactor":0.0,"unitsInWay":[{"x":0,"y":1,"magnitude":1.0,"sqrMagnitude":1},{"x":1,"y":1,"magnitude":1.41421354,"sqrMagnitude":2},{"x":1,"y":1,"magnitude":1.41421354,"sqrMagnitude":2},{"x":3,"y":1,"magnitude":3.1622777,"sqrMagnitude":10},{"x":0,"y":1,"magnitude":1.0,"sqrMagnitude":1}]}'
-    - '{"PowerFactor":0.0,"HpFactor":0.0,"unitsInWay":[{"x":1,"y":1,"magnitude":1.41421354,"sqrMagnitude":2},{"x":3,"y":1,"magnitude":3.1622777,"sqrMagnitude":10},{"x":1,"y":1,"magnitude":1.41421354,"sqrMagnitude":2},{"x":3,"y":1,"magnitude":3.1622777,"sqrMagnitude":10},{"x":1,"y":1,"magnitude":1.41421354,"sqrMagnitude":2},{"x":2147483647,"y":1,"magnitude":1.41421354,"sqrMagnitude":2}]}'
+    - '{"PowerFactor":0.0,"HpFactor":0.0,"unitsInWay":[{"x":1,"y":6,"magnitude":6.08276272,"sqrMagnitude":37},{"x":1,"y":6,"magnitude":6.08276272,"sqrMagnitude":37},{"x":1,"y":6,"magnitude":6.08276272,"sqrMagnitude":37},{"x":1,"y":6,"magnitude":6.08276272,"sqrMagnitude":37},{"x":1,"y":6,"magnitude":6.08276272,"sqrMagnitude":37},{"x":1,"y":6,"magnitude":6.08276272,"sqrMagnitude":37}]}'
+    - '{"PowerFactor":0.0,"HpFactor":0.0,"unitsInWay":[{"x":0,"y":4,"magnitude":4.0,"sqrMagnitude":16},{"x":1,"y":6,"magnitude":6.08276272,"sqrMagnitude":37},{"x":1,"y":6,"magnitude":6.08276272,"sqrMagnitude":37},{"x":3,"y":9,"magnitude":9.486833,"sqrMagnitude":90},{"x":0,"y":4,"magnitude":4.0,"sqrMagnitude":16}]}'
+    - '{"PowerFactor":0.0,"HpFactor":0.0,"unitsInWay":[{"x":1,"y":6,"magnitude":6.08276272,"sqrMagnitude":37},{"x":3,"y":9,"magnitude":9.486833,"sqrMagnitude":90},{"x":1,"y":4,"magnitude":4.12310553,"sqrMagnitude":17},{"x":3,"y":6,"magnitude":6.708204,"sqrMagnitude":45},{"x":1,"y":6,"magnitude":6.08276272,"sqrMagnitude":37},{"x":1,"y":6,"magnitude":6.08276272,"sqrMagnitude":37}]}'
     enemyWays:
     - PowerFactor: 0
       HpFactor: 0
       unitsInWay:
-      - {x: 0, y: 1}
-      - {x: 0, y: 1}
+      - {x: 0, y: 2}
+      - {x: 0, y: 2}
     - PowerFactor: 0
       HpFactor: 0
       unitsInWay:
-      - {x: 0, y: 1}
-      - {x: 0, y: 1}
+      - {x: 0, y: 2}
+      - {x: 0, y: 2}
     - PowerFactor: 0
       HpFactor: 0
       unitsInWay:
-      - {x: 0, y: 1}
-      - {x: 0, y: 1}
-      - {x: 0, y: 1}
+      - {x: 0, y: 2}
+      - {x: 0, y: 2}
+      - {x: 0, y: 2}
     - PowerFactor: 0
       HpFactor: 0
       unitsInWay:
-      - {x: 0, y: 1}
-      - {x: 0, y: 1}
-      - {x: 0, y: 1}
+      - {x: 0, y: 3}
+      - {x: 0, y: 3}
+      - {x: 0, y: 3}
     - PowerFactor: 0
       HpFactor: 0
       unitsInWay:
-      - {x: 0, y: 1}
-      - {x: 0, y: 1}
-      - {x: 1, y: 1}
-      - {x: 1, y: 1}
+      - {x: 0, y: 3}
+      - {x: 0, y: 3}
+      - {x: 1, y: 5}
+      - {x: 1, y: 5}
     - PowerFactor: 0
       HpFactor: 0
       unitsInWay:
-      - {x: 0, y: 1}
-      - {x: 1, y: 1}
-      - {x: 1, y: 1}
-      - {x: 0, y: 1}
+      - {x: 0, y: 3}
+      - {x: 1, y: 5}
+      - {x: 1, y: 5}
+      - {x: 0, y: 3}
     - PowerFactor: 0
       HpFactor: 0
       unitsInWay:
@@ -76,26 +76,26 @@ MonoBehaviour:
     - PowerFactor: 0
       HpFactor: 0
       unitsInWay:
-      - {x: 1, y: 1}
-      - {x: 1, y: 1}
-      - {x: 1, y: 1}
-      - {x: 1, y: 1}
-      - {x: 1, y: 1}
-      - {x: 1, y: 1}
+      - {x: 1, y: 6}
+      - {x: 1, y: 6}
+      - {x: 1, y: 6}
+      - {x: 1, y: 6}
+      - {x: 1, y: 6}
+      - {x: 1, y: 6}
     - PowerFactor: 0
       HpFactor: 0
       unitsInWay:
-      - {x: 0, y: 1}
-      - {x: 1, y: 1}
-      - {x: 1, y: 1}
-      - {x: 3, y: 1}
-      - {x: 0, y: 1}
+      - {x: 0, y: 4}
+      - {x: 1, y: 6}
+      - {x: 1, y: 6}
+      - {x: 3, y: 9}
+      - {x: 0, y: 4}
     - PowerFactor: 0
       HpFactor: 0
       unitsInWay:
-      - {x: 1, y: 1}
-      - {x: 3, y: 1}
-      - {x: 1, y: 1}
-      - {x: 3, y: 1}
-      - {x: 1, y: 1}
-      - {x: 2147483647, y: 1}
+      - {x: 1, y: 6}
+      - {x: 3, y: 9}
+      - {x: 1, y: 4}
+      - {x: 3, y: 6}
+      - {x: 1, y: 6}
+      - {x: 1, y: 6}

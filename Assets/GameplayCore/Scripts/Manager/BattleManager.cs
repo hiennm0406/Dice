@@ -47,7 +47,7 @@ public class BattleManager : LocalSingleton<BattleManager>
         Debug.Log("INIT GAME");
         // lấy ra player God
         ListDice.Clear();
-        godManager.InitGod(PlayerData.Instance.GodId, 1);
+        godManager.InitGod(PlayerData.Instance.GodId, 0);
 
         for (int i = 0; i < godManager.godData.dice.Count; i++)
         {
@@ -118,6 +118,8 @@ public class BattleManager : LocalSingleton<BattleManager>
                 {
                     GameObject _go = Instantiate(_e.Prefab);
                     UnitController _unit = _go.GetComponent<UnitController>();
+                    _unit.UnitId = unitId.x;
+                    _unit.exp = unitId.y;
                     // random pos
                     List<int> pos = new List<int>();
                     for (int i = 0; i < 6; i++)
@@ -350,6 +352,16 @@ public class BattleManager : LocalSingleton<BattleManager>
     public void GetTile(int x)
     {
         Debug.Log(Helper.GetCol(x) + " " + Helper.GetRow(x));
+    }
+
+    [Button]
+    public void GainExp(int x)
+    {
+        if (godManager.GainExp(x))
+        {
+            // show level up
+        }
+        Messenger.Broadcast(GameConstant.Event.EXP_UP);
     }
 
     #region RollDice

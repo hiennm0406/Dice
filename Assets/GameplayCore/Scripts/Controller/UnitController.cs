@@ -7,7 +7,7 @@ public class UnitController : UnitBase
     public int UnitId;
     public int pos;
     public bool isMoving;
-
+    public int exp;
     public List<TakeDamage> dmg = new List<TakeDamage>();
     public List<TakeStatus> statusWaiting = new List<TakeStatus>();
     #region privateStat
@@ -120,6 +120,7 @@ public class UnitController : UnitBase
 
     public void Die()
     {
+        BattleManager.Instance.GainExp(exp);
         BattleManager.Instance.ListTile[pos].unitController = null;
         BattleManager.Instance.listUnit.Remove(this);
         Destroy(gameObject);

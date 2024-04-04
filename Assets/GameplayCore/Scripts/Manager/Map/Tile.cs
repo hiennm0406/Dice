@@ -1,4 +1,4 @@
-using Sirenix.OdinInspector;
+﻿using Sirenix.OdinInspector;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -54,6 +54,21 @@ public class Tile : MonoBehaviour
     public void GetPos()
     {
         Pos = Helper.GetIVector(Row, Col);
+        if (Row != 0)
+        {
+            Tile[] tiles = FindObjectsOfType<Tile>();
+
+            // Duyệt qua từng đối tượng và làm gì đó với chúng
+            foreach (Tile tile in tiles)
+            {
+                // Thực hiện các hành động cần thiết với mỗi đối tượng tile ở đây
+                if (tile.Row + 1 == Row && tile.Col == Col)
+                {
+                    transform.localPosition = new Vector3(tile.transform.localPosition.x + 0.21f, transform.localPosition.y, transform.localPosition.z);
+                    return;
+                }
+            }
+        }
     }
 
     private void OnDestroy()

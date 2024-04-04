@@ -1,0 +1,853 @@
+fileFormatVersion: 2
+guid: e72a82c978e686246b769f04cc05b632
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8271849475686578031
+    second: LordSheet edited_0
+  - first:
+      213: 5518432343736720167
+    second: LordSheet edited_1
+  - first:
+      213: 7971465403632566306
+    second: LordSheet edited_2
+  - first:
+      213: -5733897147463459536
+    second: LordSheet edited_3
+  - first:
+      213: -8288615754001534116
+    second: LordSheet edited_4
+  - first:
+      213: -6113810268693864119
+    second: LordSheet edited_5
+  - first:
+      213: 1100491932725529187
+    second: LordSheet edited_6
+  - first:
+      213: 3456166872432814704
+    second: LordSheet edited_7
+  - first:
+      213: 5594358712891356533
+    second: LordSheet edited_8
+  - first:
+      213: -7656387349463437997
+    second: LordSheet edited_9
+  - first:
+      213: 1096592544755552709
+    second: LordSheet edited_10
+  - first:
+      213: 3104120693203613229
+    second: LordSheet edited_11
+  - first:
+      213: -2651692221790922045
+    second: LordSheet edited_12
+  - first:
+      213: -7400711201877169872
+    second: LordSheet edited_13
+  - first:
+      213: -6530251587443911845
+    second: LordSheet edited_14
+  - first:
+      213: -561953483812143203
+    second: LordSheet edited_15
+  - first:
+      213: -5157316051878899691
+    second: LordSheet edited_16
+  - first:
+      213: 5492310196923504020
+    second: LordSheet edited_17
+  - first:
+      213: 5665774624249318970
+    second: LordSheet edited_18
+  - first:
+      213: 5669053556838455975
+    second: LordSheet edited_19
+  - first:
+      213: 1823166564269126130
+    second: LordSheet edited_20
+  - first:
+      213: -5841214322508142052
+    second: LordSheet edited_21
+  - first:
+      213: -1194542952234674544
+    second: LordSheet edited_22
+  - first:
+      213: -1907738209798639525
+    second: LordSheet edited_23
+  - first:
+      213: -4437928125514316837
+    second: LordSheet edited_24
+  - first:
+      213: 8232586400857700817
+    second: LordSheet edited_25
+  - first:
+      213: 5784648267066999640
+    second: LordSheet edited_26
+  - first:
+      213: 8313404218649500914
+    second: LordSheet edited_27
+  - first:
+      213: -7587628000177859723
+    second: LordSheet edited_28
+  - first:
+      213: 7441813183857577756
+    second: LordSheet edited_29
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 80
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 0
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: LordSheet edited_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1885
+        width: 420
+        height: 377
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 198433e5abc743d80800000000000000
+      internalID: -8271849475686578031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LordSheet edited_1
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 1885
+        width: 420
+        height: 377
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72b147d8af8659c40800000000000000
+      internalID: 5518432343736720167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LordSheet edited_2
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 1885
+        width: 420
+        height: 377
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 220c5dacc8550ae60800000000000000
+      internalID: 7971465403632566306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LordSheet edited_3
+      rect:
+        serializedVersion: 2
+        x: 1260
+        y: 1885
+        width: 420
+        height: 377
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03d90d28cea1d60b0800000000000000
+      internalID: -5733897147463459536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LordSheet edited_4
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 1885
+        width: 420
+        height: 377
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c53380ff2ebe8fc80800000000000000
+      internalID: -8288615754001534116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LordSheet edited_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1508
+        width: 420
+        height: 377
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 941ed56f3f1672ba0800000000000000
+      internalID: -6113810268693864119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LordSheet edited_6
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 1508
+        width: 420
+        height: 377
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36ac948059bb54f00800000000000000
+      internalID: 1100491932725529187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LordSheet edited_7
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 1508
+        width: 420
+        height: 377
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07aa4db7575c6ff20800000000000000
+      internalID: 3456166872432814704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LordSheet edited_8
+      rect:
+        serializedVersion: 2
+        x: 1260
+        y: 1508
+        width: 420
+        height: 377
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5753004fb9723ad40800000000000000
+      internalID: 5594358712891356533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LordSheet edited_9
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 1508
+        width: 420
+        height: 377
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35def6c554c0fb590800000000000000
+      internalID: -7656387349463437997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LordSheet edited_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1131
+        width: 420
+        height: 377
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c11f750c11e73f00800000000000000
+      internalID: 1096592544755552709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LordSheet edited_11
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 1131
+        width: 420
+        height: 377
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d26375af25d041b20800000000000000
+      internalID: 3104120693203613229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LordSheet edited_12
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 1131
+        width: 420
+        height: 377
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ca5c7a39fb433bd0800000000000000
+      internalID: -2651692221790922045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LordSheet edited_13
+      rect:
+        serializedVersion: 2
+        x: 1260
+        y: 1131
+        width: 420
+        height: 377
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0396bde5f546b4990800000000000000
+      internalID: -7400711201877169872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LordSheet edited_14
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 1131
+        width: 420
+        height: 377
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b53997ca7c2ef55a0800000000000000
+      internalID: -6530251587443911845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LordSheet edited_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 754
+        width: 420
+        height: 377
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9f7519a84a8338f0800000000000000
+      internalID: -561953483812143203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LordSheet edited_16
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 754
+        width: 420
+        height: 377
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 510965d10688d68b0800000000000000
+      internalID: -5157316051878899691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LordSheet edited_17
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 754
+        width: 420
+        height: 377
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49591eb460b983c40800000000000000
+      internalID: 5492310196923504020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LordSheet edited_18
+      rect:
+        serializedVersion: 2
+        x: 1260
+        y: 754
+        width: 420
+        height: 377
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3e8dcf8000e0ae40800000000000000
+      internalID: 5665774624249318970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LordSheet edited_19
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 754
+        width: 420
+        height: 377
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7aa550c8c268cae40800000000000000
+      internalID: 5669053556838455975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LordSheet edited_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 377
+        width: 420
+        height: 377
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f171a5a4503d4910800000000000000
+      internalID: 1823166564269126130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LordSheet edited_21
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 377
+        width: 420
+        height: 377
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1a6af19586dfeea0800000000000000
+      internalID: -5841214322508142052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LordSheet edited_22
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 377
+        width: 420
+        height: 377
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0961b1f83812c6fe0800000000000000
+      internalID: -1194542952234674544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LordSheet edited_23
+      rect:
+        serializedVersion: 2
+        x: 1260
+        y: 377
+        width: 420
+        height: 377
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b503380b43a5685e0800000000000000
+      internalID: -1907738209798639525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LordSheet edited_24
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 377
+        width: 420
+        height: 377
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd3010c02ef4962c0800000000000000
+      internalID: -4437928125514316837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LordSheet edited_25
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 420
+        height: 377
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d9b5d5a6b5004270800000000000000
+      internalID: 8232586400857700817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LordSheet edited_26
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 0
+        width: 420
+        height: 377
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8538b1553f2374050800000000000000
+      internalID: 5784648267066999640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LordSheet edited_27
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 0
+        width: 420
+        height: 377
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fc56de27152f5370800000000000000
+      internalID: 8313404218649500914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LordSheet edited_28
+      rect:
+        serializedVersion: 2
+        x: 1260
+        y: 0
+        width: 420
+        height: 377
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5735799e88453b690800000000000000
+      internalID: -7587628000177859723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LordSheet edited_29
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 0
+        width: 420
+        height: 377
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1f46ac89a1a64760800000000000000
+      internalID: 7441813183857577756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 4105bdc783be0494b822f82e70ec2069
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
