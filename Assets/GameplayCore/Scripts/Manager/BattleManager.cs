@@ -23,7 +23,7 @@ public class BattleManager : LocalSingleton<BattleManager>
     public List<GameObject> ListGODice = new List<GameObject>();
     public List<DiceController> ListDice = new List<DiceController>();
     public int done = 0;
-
+    public bool UserBusy = false;
 
     #region PrivateProperty
     private int diceCount;
@@ -235,7 +235,13 @@ public class BattleManager : LocalSingleton<BattleManager>
                     StartGame();
                     break;
                 case GAMESTAGE.STARTGAME:
+                    while (UserBusy)
+                    {
+                        yield return null;
+                    }
+
                     StartTurn();
+                    // check Exp
                     break;
                 case GAMESTAGE.UNITMOVE:
                     foreach (var item in listUnit)
@@ -360,6 +366,11 @@ public class BattleManager : LocalSingleton<BattleManager>
         if (godManager.GainExp(x))
         {
             // show level up
+
+            // select 3/5 dice
+
+
+            UIManager.Instance.battleUI.ShowImbueChoice();
         }
         Messenger.Broadcast(GameConstant.Event.EXP_UP);
     }
