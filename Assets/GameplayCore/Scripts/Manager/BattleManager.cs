@@ -368,9 +368,79 @@ public class BattleManager : LocalSingleton<BattleManager>
             // show level up
 
             // select 3/5 dice
+            List<int> _diceChoice = new List<int>();
+            while (_diceChoice.Count < 3)
+            {
+                int _r = Random.Range(0, 5);
+                if (!_diceChoice.Contains(_r))
+                {
+                    _diceChoice.Add(_r);
+                }
+            }
 
+            foreach (var _id in _diceChoice)
+            {
+                DiceInfo _info = DiceData.instance.GetDice(_id);
 
-            UIManager.Instance.battleUI.ShowImbueChoice();
+                // get list imbue can take
+                List<DiceImbue> diceImbues = new List<DiceImbue>();
+                foreach (var _imb in _info.diceImbues)
+                {
+                    if (ListDice[_id].imbued.Contains(_imb.ImbueName))
+                    {
+                        continue;
+                    }
+                    bool havRequired = true;
+                    foreach (var _required in _imb.required)
+                    {
+                        if (!ListDice[_id].imbued.Contains(_required))
+                        {
+                            havRequired = false;
+                            break;
+                        }
+                    }
+
+                    if (_imb.GodRequired.Count > 0 && !_imb.GodRequired.Contains(godManager.GodId))
+                    {
+                        havRequired = false;
+                    }
+
+                    foreach (var _required in _imb.GodTalenRequired)
+                    {
+                        // TO DO check God Talen
+                    }
+
+                    if (havRequired)
+                    {
+                        // add to list can random
+                        diceImbues.Add(_imb);
+                    }
+                }
+
+                // tính hệ số
+                int total = 0;
+                foreach (var item in diceImbues)
+                {
+                    total += item.Rate;
+                }
+                if (diceImbues.Count == 0)
+                {
+                    UIManager.Instance.battleUI.ShowImbueChoice(0, null);
+                    continue;
+                }
+
+                int final = Random.Range(0, total);
+                foreach (var item in diceImbues)
+                {
+                    final -= item.Rate;
+                    if (final < 0)
+                    {
+                        UIManager.Instance.battleUI.ShowImbueChoice(item.ImbueName, ListDice[_id]);
+
+                        break;
+                    }
+                }
+            }
         }
         Messenger.Broadcast(GameConstant.Event.EXP_UP);
     }

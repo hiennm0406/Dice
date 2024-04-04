@@ -24,5 +24,6 @@ public class ChoiceBox : MonoBehaviour
     public void SelectImbue()
     {
         dice.AddImbue(imbue);
+        UIManager.Instance.battleUI.OnImbueDone();
     }
 }

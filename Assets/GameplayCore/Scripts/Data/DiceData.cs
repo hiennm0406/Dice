@@ -81,11 +81,11 @@ public class DiceImbue
 {
     public DiceImbued ImbueName; // UNITQUE
     [HorizontalGroup("Required", 0.3f)]
-    public List<int> required = new List<int>(); // need id to unlock
+    public List<DiceImbued> required = new List<DiceImbued>(); // need id to unlock
     [HorizontalGroup("Required", 0.3f)]
     public List<int> GodRequired = new List<int>(); // only for this god
     [HorizontalGroup("Required", 0.3f)]
-    public List<int> GodTalenRequired = new List<int>(); // god need this to unlock
+    public List<GodTalen> GodTalenRequired = new List<GodTalen>(); // god need this to unlock
     [HorizontalGroup("Rate", 0.3f)]
     public int Rate;
     [HorizontalGroup("Rate", 0.3f)]

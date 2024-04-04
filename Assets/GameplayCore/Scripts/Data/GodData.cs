@@ -58,3 +58,11 @@ public class God
         return result;
     }
 }
+
+
+public enum GodTalen
+{
+    INCREASEDMG_I,
+    INCREASEDMG_II,
+    INCREASEDMG_III,
+}

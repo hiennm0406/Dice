@@ -11,6 +11,8 @@ public class BattleUIManager : MonoBehaviour
     [SerializeField] public List<ChoiceBox> choiceBoxes = new List<ChoiceBox>();
     [SerializeField] private GameObject ChoicePanel;
 
+
+    int count = 0;
     private void Start()
     {
         UIManager.Instance.battleUI = this;
@@ -37,7 +39,7 @@ public class BattleUIManager : MonoBehaviour
         ExpBar.fillAmount = x;
     }
 
-    public void ShowImbueChoice(DiceImbued diceImbued1, DiceImbued diceImbued2, DiceImbued diceImbued3, DiceController dice1 = null, DiceController dice2 = null, DiceController dice3 = null)
+    public void ShowImbueChoices(DiceImbued diceImbued1, DiceImbued diceImbued2, DiceImbued diceImbued3, DiceController dice1 = null, DiceController dice2 = null, DiceController dice3 = null)
     {
         BattleManager.Instance.UserBusy = true;
         choiceBoxes[0].InitDiceImbue(diceImbued1, dice1);
@@ -46,8 +48,21 @@ public class BattleUIManager : MonoBehaviour
         ChoicePanel.SetActive(true);
     }
 
+
+    public void ShowImbueChoice(DiceImbued diceImbued, DiceController dice = null)
+    {
+        BattleManager.Instance.UserBusy = true;
+        choiceBoxes[count].InitDiceImbue(diceImbued, dice);
+        count++;
+        if (count == 3)
+        {
+            ChoicePanel.SetActive(true);
+        }
+    }
+
     public void OnImbueDone()
     {
+        count = 0;
         BattleManager.Instance.UserBusy = false;
         ChoicePanel.SetActive(false);
     }
