@@ -185,6 +185,10 @@ public class BattleManager : LocalSingleton<BattleManager>
             {
                 item.Value.free = true;
             }
+            else
+            {
+                item.Value.free = false;
+            }
         }
         Messenger.Broadcast(GameConstant.Event.RESET_COLOR);
         for (int i = 0; i < Dice.Count; i++)
@@ -372,9 +376,9 @@ public class BattleManager : LocalSingleton<BattleManager>
             while (_diceChoice.Count < 3)
             {
                 int _r = Random.Range(0, 5);
-                if (!_diceChoice.Contains(_r))
+                if (!_diceChoice.Contains(ListDice[_r].DiceId))
                 {
-                    _diceChoice.Add(_r);
+                    _diceChoice.Add(ListDice[_r].DiceId);
                 }
             }
 

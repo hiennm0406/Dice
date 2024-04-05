@@ -96,6 +96,7 @@ public class DiceImbue
 
 public enum DiceImbued
 {
+    NULL,
     INCREASEDMG_I,
     INCREASEDMG_II,
     INCREASEDMG_III,

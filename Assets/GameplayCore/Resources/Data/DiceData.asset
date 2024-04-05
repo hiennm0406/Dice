@@ -56,19 +56,19 @@ MonoBehaviour:
     element: 4
     tags: 
     diceImbues:
-    - ImbueName: 0
+    - ImbueName: 1
       required: 
       GodRequired: 
       GodTalenRequired: 
       Rate: 15
       maxCount: 100
-    - ImbueName: 1
+    - ImbueName: 2
       required: 
       GodRequired: 
       GodTalenRequired: 
       Rate: 10
       maxCount: 100
-    - ImbueName: 2
+    - ImbueName: 3
       required: 
       GodRequired: 
       GodTalenRequired: 
@@ -160,19 +160,19 @@ MonoBehaviour:
     element: 2
     tags: 
     diceImbues:
-    - ImbueName: 0
+    - ImbueName: 1
       required: 
       GodRequired: 
       GodTalenRequired: 
       Rate: 15
       maxCount: 100
-    - ImbueName: 1
+    - ImbueName: 2
       required: 
       GodRequired: 
       GodTalenRequired: 
       Rate: 10
       maxCount: 100
-    - ImbueName: 2
+    - ImbueName: 3
       required: 
       GodRequired: 
       GodTalenRequired: 
@@ -252,25 +252,25 @@ MonoBehaviour:
     element: 4
     tags: 
     diceImbues:
-    - ImbueName: 0
+    - ImbueName: 1
       required: 
       GodRequired: 
       GodTalenRequired: 
       Rate: 15
       maxCount: 100
-    - ImbueName: 1
+    - ImbueName: 2
       required: 
       GodRequired: 
       GodTalenRequired: 
       Rate: 10
       maxCount: 100
-    - ImbueName: 2
+    - ImbueName: 3
       required: 
       GodRequired: 
       GodTalenRequired: 
       Rate: 5
       maxCount: 100
-    - ImbueName: 3
+    - ImbueName: 4
       required: 
       GodRequired: 
       GodTalenRequired: 

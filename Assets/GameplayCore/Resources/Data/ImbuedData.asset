@@ -13,19 +13,23 @@ MonoBehaviour:
   m_Name: ImbuedData
   m_EditorClassIdentifier: 
   imbueInfos:
-  - imbue: 0
-    imbueName: Increase Damage I
-    sprite: {fileID: 0}
-    Description: Increase small damage deal by this dice.
   - imbue: 1
-    imbueName: Increase Damage II
-    sprite: {fileID: 0}
-    Description: Increase damage deal by this dice.
+    imbueName: Increase Damage I
+    sprite: {fileID: 21300000, guid: 0a5b9b79102eb5448bc50326ddd72904, type: 3}
+    Description: Increase small damage deal by this dice.
   - imbue: 2
-    imbueName: Increase Damage III
-    sprite: {fileID: 0}
-    Description: Increase hugo damage deal by this dice.
+    imbueName: Increase Damage II
+    sprite: {fileID: 21300000, guid: 25337d489d4504940826947f67a6797e, type: 3}
+    Description: Increase damage deal by this dice.
   - imbue: 3
+    imbueName: Increase Damage III
+    sprite: {fileID: 21300000, guid: 55b62d98e234970459d2c9dd1da71eeb, type: 3}
+    Description: Increase hugo damage deal by this dice.
+  - imbue: 4
     imbueName: 
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300000, guid: 41a98ac2be4477745b541f719a998097, type: 3}
+    Description: 
+  - imbue: 0
+    imbueName: 
+    sprite: {fileID: 21300000, guid: 56e456ab0f7f79a4dbabcc9079c49a94, type: 3}
     Description: 
