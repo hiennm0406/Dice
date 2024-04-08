@@ -4,10 +4,4 @@ using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
 
-[System.Serializable]
-public class EnemyWay
-{
-    public float PowerFactor;
-    public float HpFactor;
-    public List<Vector2Int> unitsInWay = new List<Vector2Int>();
-}
+

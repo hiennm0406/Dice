@@ -98,8 +98,6 @@ public class UnitController : UnitBase
             yield break;
         }
 
-        Debug.Log("=> " + statusWaiting.Count);
-
         foreach (var item in statusWaiting)
         {
             status.Add(item);
@@ -107,7 +105,6 @@ public class UnitController : UnitBase
         }
         statusWaiting.Clear();
         // trigger
-        Debug.Log("=> " + status.Count);
         foreach (var item in status)
         {
             item.Duration--;

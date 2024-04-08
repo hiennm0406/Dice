@@ -29,7 +29,7 @@ public class LevelCampainData : SingletonScriptableObject<LevelCampainData>
             item.LevelInfo = new List<string>();
             foreach (var _lv in item.enemyWays)
             {
-                if (_lv.HpFactor == 0 && _lv.PowerFactor == 0 && _lv.unitsInWay.Count == 0)
+                if (_lv.HpFactor == 0 && _lv.PowerFactor == 0 && _lv.ways.Count == 0)
                 {
                     item.LevelInfo.Add("");
                 }
@@ -57,4 +57,26 @@ public class LevelCampain
     public float HpFactorInWay;
     public List<string> LevelInfo;
     public List<EnemyWay> enemyWays = new List<EnemyWay>();
+}
+
+
+[System.Serializable]
+public class EnemyWay
+{
+    public float PowerFactor;
+    public float HpFactor;
+    public List<Way> ways = new List<Way>();
+}
+
+[System.Serializable]
+public class Way
+{
+    public int id;
+    public int exp;
+
+    public Way(int id, int exp)
+    {
+        this.id = id;
+        this.exp = exp;
+    }
 }

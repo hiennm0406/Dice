@@ -80,7 +80,7 @@ public class BattleManager : LocalSingleton<BattleManager>
         listUnit.Clear();
         way = -1;
         wayFactor = -1;
-        Stage = GAMESTAGE.STARTGAME;
+        Stage = GAMESTAGE.STARTURN;
     }
 
     public void StartTurn()
@@ -110,16 +110,16 @@ public class BattleManager : LocalSingleton<BattleManager>
             EnemyWay enemyWay = JsonConvert.DeserializeObject<EnemyWay>(level.LevelInfo[way]);
 
             //get list ID enemy;
-            foreach (var unitId in enemyWay.unitsInWay)
+            foreach (var unitId in enemyWay.ways)
             {
                 // get enemy
-                UnitEnemy _e = UnitData.instance.GetUnitEnemy(unitId.x);
+                UnitEnemy _e = UnitData.instance.GetUnitEnemy(unitId.id);
                 if (_e != null)
                 {
                     GameObject _go = Instantiate(_e.Prefab);
                     UnitController _unit = _go.GetComponent<UnitController>();
-                    _unit.UnitId = unitId.x;
-                    _unit.exp = unitId.y;
+                    _unit.UnitId = unitId.id;
+                    _unit.exp = unitId.exp;
                     // random pos
                     List<int> pos = new List<int>();
                     for (int i = 0; i < 6; i++)
@@ -132,7 +132,7 @@ public class BattleManager : LocalSingleton<BattleManager>
                     if (firstCheck)
                     {
                         firstCheck = false;
-                        if (pos.Count < enemyWay.unitsInWay.Count)
+                        if (pos.Count < enemyWay.ways.Count)
                         {
                             Stage = GAMESTAGE.UNITMOVE;
                             way--;
@@ -238,7 +238,7 @@ public class BattleManager : LocalSingleton<BattleManager>
                 case GAMESTAGE.PREGAME:
                     StartGame();
                     break;
-                case GAMESTAGE.STARTGAME:
+                case GAMESTAGE.STARTURN:
                     while (UserBusy)
                     {
                         yield return null;
@@ -351,7 +351,7 @@ public class BattleManager : LocalSingleton<BattleManager>
                     {
                         yield return null;
                     }
-                    StartTurn();
+                    Stage = GAMESTAGE.STARTURN;
                     break;
             }
             yield return null;
@@ -392,7 +392,26 @@ public class BattleManager : LocalSingleton<BattleManager>
                 {
                     if (ListDice[_id].imbued.Contains(_imb.ImbueName))
                     {
-                        continue;
+                        // check can duplicate
+                        if (_imb.maxCount > 0)
+                        {
+                            int _count = 0;
+                            foreach (var item in ListDice[_id].imbued)
+                            {
+                                if (item == _imb.ImbueName)
+                                {
+                                    _count++;
+                                }
+                            }
+                            if (_imb.maxCount <= _count)
+                            {
+                                continue;
+                            }
+                        }
+                        else
+                        {
+                            continue;
+                        }
                     }
                     bool havRequired = true;
                     foreach (var _required in _imb.required)
@@ -508,7 +527,7 @@ public class BattleManager : LocalSingleton<BattleManager>
 public enum GAMESTAGE
 {
     PREGAME,
-    STARTGAME,
+    STARTURN,
     UNITMOVE,
     ROLLDICE,
     WAITDICE,

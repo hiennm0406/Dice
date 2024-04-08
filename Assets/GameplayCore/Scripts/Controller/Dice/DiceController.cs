@@ -29,6 +29,8 @@ public class DiceController : MonoBehaviour
         dmg = diceInfo.baseDmg;
         element = diceInfo.element;
         tags = diceInfo.tags;
+
+        SetupImbue();
     }
     public virtual IEnumerator TriggerDice(int _num)
     {
@@ -46,8 +48,6 @@ public class DiceController : MonoBehaviour
         {
             if (item.unitController != null)
             {
-                Debug.Log(dmg + " * " + number[_diceOnBoard.number] + " * " + BattleManager.Instance.godManager.stat.Power);
-
                 DealDmg(item.unitController);
                 InflictStatus(item.unitController);
             }
@@ -58,7 +58,7 @@ public class DiceController : MonoBehaviour
 
     public virtual void DealDmg(UnitController unit)
     {
-        unit.InitDamageWillTake(dmg * number[_diceOnBoard.number] * BattleManager.Instance.godManager.stat.Power, element, tags);
+        unit.InitDamageWillTake(Mathf.CeilToInt(dmg * number[_diceOnBoard.number] * BattleManager.Instance.godManager.stat.Power * dmgImprove), element, tags);
     }
 
     public virtual void InflictStatus(UnitController unit)
@@ -154,10 +154,13 @@ public class DiceController : MonoBehaviour
             switch (item)
             {
                 case DiceImbued.INCREASEDMG_I:
+                    dmgImprove += 0.03f;
                     break;
                 case DiceImbued.INCREASEDMG_II:
+                    dmgImprove += 0.06f;
                     break;
                 case DiceImbued.INCREASEDMG_III:
+                    dmgImprove += 0.1f;
                     break;
             }
         }
