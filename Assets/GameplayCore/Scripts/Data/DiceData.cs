@@ -39,6 +39,13 @@ public class DiceInfo
     public int baseDmg = 1;
     [HorizontalGroup("DiceData", 0.4f, LabelWidth = 100)]
     public Element element;
+
+    [HorizontalGroup("DiceEffect", 0.4f, LabelWidth = 100)]
+    public GameObject MainEffect;
+
+    [HorizontalGroup("DiceEffect", 0.4f, LabelWidth = 100)]
+    public GameObject SubEffect;
+
     public List<DmgTag> tags;
     public List<DiceImbue> diceImbues = new List<DiceImbue>();
 }
