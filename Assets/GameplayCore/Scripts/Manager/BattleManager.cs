@@ -39,6 +39,7 @@ public class BattleManager : LocalSingleton<BattleManager>
     private void Start()
     {
         mainCamera = Camera.main;
+        InitGame();
     }
     [Button]
     public void InitGame()

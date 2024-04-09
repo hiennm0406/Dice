@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>
 {
     private PlayerData playerData;
     public PlayerData PlayerData => playerData;
+
 
     private void Awake()
     {
@@ -17,20 +19,24 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
-
-    #region Helper
-    public void StopAndStartMyCoroute(ref Coroutine c, IEnumerator ie)
+    public void LoadScene(string name)
     {
-        if (c != null)
-        {
-            StopCoroutine(c);
-        }
+        StartCoroutine(OnLoadSceneAsync(name));
+    }
 
-        if (ie != null)
+    IEnumerator OnLoadSceneAsync(string name)
+    {
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(name);
+
+        while (!asyncLoad.isDone)
         {
-            c = StartCoroutine(ie);
+            yield return null;
         }
     }
+
+
+    #region Helper
+
     /*
     public void DoLoadSpriteResourceAsync(Image img, string resourcePath)
     {
