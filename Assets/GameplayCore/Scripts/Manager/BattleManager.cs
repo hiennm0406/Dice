@@ -158,8 +158,6 @@ public class BattleManager : LocalSingleton<BattleManager>
 
     public void RollDice()
     {
-        Debug.Log("ROLL DICE");
-
         if (Stage != GAMESTAGE.ROLLDICE)
         {
             return;
@@ -171,7 +169,6 @@ public class BattleManager : LocalSingleton<BattleManager>
         for (int i = 0; i < 3; i++)
         {
             int x = Random.Range(0, 5);
-            Debug.Log("RANDOM X " + x);
 
             GameObject _go = Instantiate(ListDice[x].gameObject);
 
@@ -332,7 +329,7 @@ public class BattleManager : LocalSingleton<BattleManager>
                     done = Dice.Count;
                     foreach (var item in Dice)
                     {
-                        StartCoroutine(item.dice.TriggerDice(item.number));
+                        item.dice.TriggerDice(item.number);
                     }
 
                     while (done > 0)
@@ -348,6 +345,9 @@ public class BattleManager : LocalSingleton<BattleManager>
                     {
                         StartCoroutine(item.EndTurn());
                     }
+
+                    yield return Helper.GetWait(1f);
+
                     while (done > 0)
                     {
                         yield return null;

@@ -29,7 +29,6 @@ public class GodManager : UnitBase
     {
         expNow += exp;
         int need = ConfigData.instance.ExpLevelUp[Mathf.Min(BattleManager.Instance.godManager.Level, ConfigData.instance.ExpLevelUp.Count - 1)] + 50 * Mathf.Max(0, Level + 1 - ConfigData.instance.ExpLevelUp.Count);
-        Debug.Log(expNow + " " + need);
 
         if (expNow >= need)
         {

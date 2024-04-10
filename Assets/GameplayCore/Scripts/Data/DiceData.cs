@@ -40,10 +40,10 @@ public class DiceInfo
     [HorizontalGroup("DiceData", 0.4f, LabelWidth = 100)]
     public Element element;
 
-    [HorizontalGroup("DiceEffect", 0.4f, LabelWidth = 100)]
+    [HorizontalGroup("DiceEffect", 0.45f, LabelWidth = 100)]
     public GameObject MainEffect;
 
-    [HorizontalGroup("DiceEffect", 0.4f, LabelWidth = 100)]
+    [HorizontalGroup("DiceEffect", 0.45f, LabelWidth = 100)]
     public GameObject SubEffect;
 
     public List<DmgTag> tags;

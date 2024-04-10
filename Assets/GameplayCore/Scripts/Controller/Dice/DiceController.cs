@@ -32,10 +32,9 @@ public class DiceController : MonoBehaviour
 
         SetupImbue();
     }
-    public virtual IEnumerator TriggerDice(int _num)
+    public void TriggerDice(int _num)
     {
         // get all tile 
-        yield return null;
 
         DiceInfo _dice = DiceData.instance.GetDice(DiceId);
         int pos = _diceOnBoard.pos;
@@ -46,6 +45,12 @@ public class DiceController : MonoBehaviour
 
         foreach (var item in tiles)
         {
+            // create a gameobject vfx
+            if (_dice.MainEffect != null)
+            {
+                Instantiate(_dice.MainEffect, item.transform.position, Quaternion.identity);
+            }
+
             if (item.unitController != null)
             {
                 DealDmg(item.unitController);
@@ -53,6 +58,8 @@ public class DiceController : MonoBehaviour
             }
         }
         BattleManager.Instance.done--;
+
+        Destroy(gameObject);
     }
 
 
