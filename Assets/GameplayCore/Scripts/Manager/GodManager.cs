@@ -32,7 +32,7 @@ public class GodManager : UnitBase
 
         if (expNow >= need)
         {
-            Debug.Log("LEVEL UP");
+            Debug.Log("LEVEL UP " + UIManager.Instance.battleUI.count);
 
             Level++;
             expNow -= need;

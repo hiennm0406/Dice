@@ -86,10 +86,6 @@ public class BattleManager : LocalSingleton<BattleManager>
 
     public void StartTurn()
     {
-        foreach (var item in Dice)
-        {
-            Destroy(item.gameObject);
-        }
         way++;
         wayFactor++;
         Debug.Log("START TURN - MOVE");
@@ -237,6 +233,8 @@ public class BattleManager : LocalSingleton<BattleManager>
                     StartGame();
                     break;
                 case GAMESTAGE.STARTURN:
+
+                    UIManager.Instance.battleUI.ShowMenuImbueChoice();
                     while (UserBusy)
                     {
                         yield return null;
@@ -327,6 +325,8 @@ public class BattleManager : LocalSingleton<BattleManager>
                 case GAMESTAGE.TRIGGERDICE:
                     // do smt
                     done = Dice.Count;
+                    Debug.Log("TRIGGER DICE");
+
                     foreach (var item in Dice)
                     {
                         item.dice.TriggerDice(item.number);
@@ -341,9 +341,9 @@ public class BattleManager : LocalSingleton<BattleManager>
                 case GAMESTAGE.ENDTURN:
                     // do smt
                     done = listUnit.Count;
-                    foreach (var item in listUnit)
+                    for (int i = listUnit.Count - 1; i >= 0; i--)
                     {
-                        StartCoroutine(item.EndTurn());
+                        StartCoroutine(listUnit[i].EndTurn());
                     }
 
                     yield return Helper.GetWait(1f);

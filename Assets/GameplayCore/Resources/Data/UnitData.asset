@@ -16,7 +16,7 @@ MonoBehaviour:
   - UnitId: 0
     UnitName: Farmer
     ImageUnit: {fileID: 0}
-    Prefab: {fileID: 5431998823819661621, guid: 14d1f5bfee8649b48961273f8f74c2ef, type: 3}
+    Prefab: {fileID: 5431998823819661621, guid: 1076daadebc038843b49b2e9893d7301, type: 3}
     Skills: 
     BaseStat:
       Power: 20
@@ -29,7 +29,7 @@ MonoBehaviour:
   - UnitId: 1
     UnitName: Pikeman
     ImageUnit: {fileID: 0}
-    Prefab: {fileID: 5431998823819661621, guid: 14d1f5bfee8649b48961273f8f74c2ef, type: 3}
+    Prefab: {fileID: 5431998823819661621, guid: 1076daadebc038843b49b2e9893d7301, type: 3}
     Skills: 
     BaseStat:
       Power: 50
@@ -42,7 +42,7 @@ MonoBehaviour:
   - UnitId: 2
     UnitName: Rogue
     ImageUnit: {fileID: 0}
-    Prefab: {fileID: 5431998823819661621, guid: 14d1f5bfee8649b48961273f8f74c2ef, type: 3}
+    Prefab: {fileID: 5431998823819661621, guid: 1076daadebc038843b49b2e9893d7301, type: 3}
     Skills: 
     BaseStat:
       Power: 30
@@ -55,7 +55,7 @@ MonoBehaviour:
   - UnitId: 3
     UnitName: Archer
     ImageUnit: {fileID: 0}
-    Prefab: {fileID: 5431998823819661621, guid: 14d1f5bfee8649b48961273f8f74c2ef, type: 3}
+    Prefab: {fileID: 5431998823819661621, guid: 1076daadebc038843b49b2e9893d7301, type: 3}
     Skills: 
     BaseStat:
       Power: 40

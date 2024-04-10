@@ -11,6 +11,18 @@ public class UnitBase : SerializedMonoBehaviour
     public Dictionary<Element, float> Resis = new Dictionary<Element, float>();
     public List<Element> Immune = new List<Element>();
     public List<TakeStatus> status = new List<TakeStatus>();
+    protected Animator Anim
+    {
+        get
+        {
+            if (anim == null)
+            {
+                anim = GetComponent<Animator>();
+            }
+            return anim;
+        }
+    }
+    Animator anim;
 
     public virtual void TakeDamage(ref int _dmg, Element element, List<DmgTag> tags)
     {

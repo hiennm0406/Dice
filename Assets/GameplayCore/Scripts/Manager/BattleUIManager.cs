@@ -12,7 +12,7 @@ public class BattleUIManager : MonoBehaviour
     [SerializeField] private GameObject ChoicePanel;
 
 
-    int count = 0;
+    public int count = 0;
     private void Start()
     {
         UIManager.Instance.battleUI = this;
@@ -52,8 +52,21 @@ public class BattleUIManager : MonoBehaviour
     public void ShowImbueChoice(DiceImbued diceImbued, DiceController dice = null)
     {
         BattleManager.Instance.UserBusy = true;
-        choiceBoxes[count].InitDiceImbue(diceImbued, dice);
+        try
+        {
+
+            choiceBoxes[count].InitDiceImbue(diceImbued, dice);
+        }
+        catch
+        {
+            Debug.LogError(count);
+
+        }
         count++;
+    }
+
+    public void ShowMenuImbueChoice()
+    {
         if (count == 3)
         {
             ChoicePanel.SetActive(true);

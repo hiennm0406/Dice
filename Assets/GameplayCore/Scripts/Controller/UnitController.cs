@@ -53,6 +53,7 @@ public class UnitController : UnitBase
 
     private IEnumerator MoveToPos()
     {
+        Anim.SetInteger("Move", 1);
         float t = 0;
         Vector3 start = transform.position;
         Vector3 end = BattleManager.Instance.ListTile[pos].transform.position;
@@ -62,6 +63,7 @@ public class UnitController : UnitBase
             transform.position = Vector3.Lerp(start, end, t);
             yield return null;
         }
+        Anim.SetInteger("Move", 0);
         transform.position = end;
         isMoving = false;
     }
@@ -79,7 +81,8 @@ public class UnitController : UnitBase
 
     public IEnumerator EndTurn()
     {
-        yield return null;
+        Debug.Log("TRIGGER DMG");
+
         foreach (var item in dmg)
         {
             TakeDamage(ref item.dmg, item.element, item.tags);
@@ -97,7 +100,7 @@ public class UnitController : UnitBase
             Die();
             yield break;
         }
-
+        Anim.SetTrigger("Hit");
         foreach (var item in statusWaiting)
         {
             status.Add(item);
@@ -113,6 +116,7 @@ public class UnitController : UnitBase
                 item.status.OnRemove(this);
             }
         }
+        yield return null;
     }
 
     public void Die()
@@ -120,7 +124,8 @@ public class UnitController : UnitBase
         BattleManager.Instance.GainExp(exp);
         BattleManager.Instance.ListTile[pos].unitController = null;
         BattleManager.Instance.listUnit.Remove(this);
-        Destroy(gameObject);
+        Anim.SetTrigger("Die");
+        Destroy(gameObject, 1f);
     }
 }
 
