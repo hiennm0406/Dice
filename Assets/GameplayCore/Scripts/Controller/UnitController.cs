@@ -81,8 +81,7 @@ public class UnitController : UnitBase
 
     public IEnumerator EndTurn()
     {
-        Debug.Log("TRIGGER DMG");
-
+        int _hp = HPNow;
         foreach (var item in dmg)
         {
             TakeDamage(ref item.dmg, item.element, item.tags);
@@ -100,7 +99,11 @@ public class UnitController : UnitBase
             Die();
             yield break;
         }
-        Anim.SetTrigger("Hit");
+        if (HPNow != _hp)
+        {
+            Anim.SetTrigger("Hit");
+        }
+
         foreach (var item in statusWaiting)
         {
             status.Add(item);

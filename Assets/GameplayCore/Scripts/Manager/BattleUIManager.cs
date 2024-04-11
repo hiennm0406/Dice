@@ -39,18 +39,10 @@ public class BattleUIManager : MonoBehaviour
         ExpBar.fillAmount = x;
     }
 
-    public void ShowImbueChoices(DiceImbued diceImbued1, DiceImbued diceImbued2, DiceImbued diceImbued3, DiceController dice1 = null, DiceController dice2 = null, DiceController dice3 = null)
-    {
-        BattleManager.Instance.UserBusy = true;
-        choiceBoxes[0].InitDiceImbue(diceImbued1, dice1);
-        choiceBoxes[1].InitDiceImbue(diceImbued2, dice2);
-        choiceBoxes[2].InitDiceImbue(diceImbued3, dice3);
-        ChoicePanel.SetActive(true);
-    }
-
 
     public void ShowImbueChoice(DiceImbued diceImbued, DiceController dice = null)
     {
+        //Debug.Log("imbue => count" + count);
         BattleManager.Instance.UserBusy = true;
         try
         {
@@ -67,6 +59,7 @@ public class BattleUIManager : MonoBehaviour
 
     public void ShowMenuImbueChoice()
     {
+        //Debug.Log("imbue => show" + count);
         if (count == 3)
         {
             ChoicePanel.SetActive(true);
@@ -75,9 +68,12 @@ public class BattleUIManager : MonoBehaviour
 
     public void OnImbueDone()
     {
+        //Debug.Log("imbue => done");
         count = 0;
-        BattleManager.Instance.UserBusy = false;
         ChoicePanel.SetActive(false);
+        BattleManager.Instance.UserBusy = false;
+
+        BattleManager.Instance.GainExp(0);
     }
 
 

@@ -187,6 +187,7 @@ public class BattleManager : LocalSingleton<BattleManager>
         Messenger.Broadcast(GameConstant.Event.RESET_COLOR);
         for (int i = 0; i < Dice.Count; i++)
         {
+            _list.Clear();
             Dice[i].OnBoard = true;
             //get free slot
             foreach (KeyValuePair<int, Tile> item in ListTile)
@@ -339,7 +340,8 @@ public class BattleManager : LocalSingleton<BattleManager>
                     Stage = GAMESTAGE.ENDTURN;
                     break;
                 case GAMESTAGE.ENDTURN:
-                    // do smt
+                    // do smt.
+                    Messenger.Broadcast(GameConstant.Event.RESET_COLOR);
                     done = listUnit.Count;
                     for (int i = listUnit.Count - 1; i >= 0; i--)
                     {
@@ -368,7 +370,7 @@ public class BattleManager : LocalSingleton<BattleManager>
     [Button]
     public void GainExp(int x)
     {
-        if (godManager.GainExp(x))
+        if (godManager.GainExp(x) && UIManager.Instance.battleUI.count < 3)
         {
             // show level up
 
@@ -467,6 +469,10 @@ public class BattleManager : LocalSingleton<BattleManager>
             }
         }
         Messenger.Broadcast(GameConstant.Event.EXP_UP);
+        if (Stage == GAMESTAGE.STARTURN)
+        {
+            UIManager.Instance.battleUI.ShowMenuImbueChoice();
+        }
     }
 
     #region RollDice

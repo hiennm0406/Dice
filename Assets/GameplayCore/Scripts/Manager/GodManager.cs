@@ -9,6 +9,9 @@ public class GodManager : UnitBase
     public int expNow;
     public God godData;
     public Dictionary<Element, float> Improve = new Dictionary<Element, float>();
+
+    int levelUp = 0;
+
     private void Start()
     {
         BattleManager.Instance.godManager = this;
@@ -30,12 +33,19 @@ public class GodManager : UnitBase
         expNow += exp;
         int need = ConfigData.instance.ExpLevelUp[Mathf.Min(BattleManager.Instance.godManager.Level, ConfigData.instance.ExpLevelUp.Count - 1)] + 50 * Mathf.Max(0, Level + 1 - ConfigData.instance.ExpLevelUp.Count);
 
-        if (expNow >= need)
+        while (expNow >= need)
         {
             Debug.Log("LEVEL UP " + UIManager.Instance.battleUI.count);
 
             Level++;
+            levelUp++;
             expNow -= need;
+            need = ConfigData.instance.ExpLevelUp[Mathf.Min(BattleManager.Instance.godManager.Level, ConfigData.instance.ExpLevelUp.Count - 1)] + 50 * Mathf.Max(0, Level + 1 - ConfigData.instance.ExpLevelUp.Count);
+        }
+
+        if (levelUp > 0)
+        {
+            levelUp--;
             return true;
         }
 
