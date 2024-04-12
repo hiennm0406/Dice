@@ -159,6 +159,7 @@ public class BattleManager : LocalSingleton<BattleManager>
             return;
         }
         Stage = GAMESTAGE.WAITDICE;
+        Debug.Log("DICE ==> ROLL DICE");
 
         // random 3 trong 5 dice
         Dice.Clear();
@@ -247,9 +248,9 @@ public class BattleManager : LocalSingleton<BattleManager>
                 case GAMESTAGE.UNITMOVE:
                     foreach (var item in listUnit)
                     {
-                        if (item.isMoving && item.HPNow > 0)
+                        while (item.isMoving && item.HPNow > 0)
                         {
-                            break;
+                            yield return null;
                         }
                     }
                     Stage = GAMESTAGE.ROLLDICE;
@@ -321,6 +322,14 @@ public class BattleManager : LocalSingleton<BattleManager>
                     break;
                 case GAMESTAGE.BEFORERDICE:
                     // do smt.
+                    foreach (var item in listUnit)
+                    {
+                        while (item.isMoving && item.HPNow > 0)
+                        {
+                            yield return null;
+                        }
+                    }
+
                     Stage = GAMESTAGE.TRIGGERDICE;
                     break;
                 case GAMESTAGE.TRIGGERDICE:
@@ -353,6 +362,14 @@ public class BattleManager : LocalSingleton<BattleManager>
                     while (done > 0)
                     {
                         yield return null;
+                    }
+
+                    foreach (var item in listUnit)
+                    {
+                        while (item.isMoving && item.HPNow > 0)
+                        {
+                            yield return null;
+                        }
                     }
                     Stage = GAMESTAGE.STARTURN;
                     break;

@@ -55,7 +55,7 @@ MonoBehaviour:
   - UnitId: 3
     UnitName: Archer
     ImageUnit: {fileID: 0}
-    Prefab: {fileID: 5431998823819661621, guid: 1076daadebc038843b49b2e9893d7301, type: 3}
+    Prefab: {fileID: 5431998823819661621, guid: 79a69eebd09b01e40a8b4a6b337598ff, type: 3}
     Skills: 
     BaseStat:
       Power: 40

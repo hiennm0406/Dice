@@ -9,8 +9,7 @@ public class GodManager : UnitBase
     public int expNow;
     public God godData;
     public Dictionary<Element, float> Improve = new Dictionary<Element, float>();
-
-    int levelUp = 0;
+    private int levelUp = 0;
 
     private void Start()
     {
@@ -26,6 +25,7 @@ public class GodManager : UnitBase
         stat.CopyStat(godData.BaseStat);
         stat.Power = godData.BaseStat.Power + (Level + 1) * godData.BaseStatIncrease.Power;
         stat.HP = godData.BaseStat.HP + (Level + 1) * godData.BaseStatIncrease.HP;
+        HPNow = stat.HP;
     }
 
     public bool GainExp(int exp)
@@ -50,6 +50,32 @@ public class GodManager : UnitBase
         }
 
         return false;
+    }
+
+
+    public override void TakeDamage(ref int _dmg, Element element, List<DmgTag> tags)
+    {
+        // check all tag logic here
+        Debug.Log("TAKE DMG ==> " + _dmg + " " + element);
+
+        // immune ? Boss have no immune
+
+        // piearcing? unit can't piercing
+
+        // resis ?
+        float resis = 0;
+        if (Resis.ContainsKey(element) && element != Element.ALL)
+        {
+            resis += Resis[element];
+        }
+        if (Resis.ContainsKey(Element.ALL))
+        {
+            resis += Resis[Element.ALL];
+        }
+        float dmg = _dmg * (1f - resis);
+        int _finaldmg = Mathf.CeilToInt(dmg);
+        HPNow -= _finaldmg;
+        Debug.Log("TAKE DMG FINAL ==> " + _finaldmg);
     }
 }
 

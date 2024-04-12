@@ -25,7 +25,7 @@ public class DiceOnBoardController : MonoBehaviour
         {
             dice.ChangePos();
         }
-        spriteRenderer.sortingOrder = Helper.GetRow(pos);
+        spriteRenderer.sortingOrder = 100 - Helper.GetRow(pos);
     }
 
 

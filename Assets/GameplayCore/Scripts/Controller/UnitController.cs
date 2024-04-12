@@ -11,7 +11,7 @@ public class UnitController : UnitBase
     public List<TakeDamage> dmg = new List<TakeDamage>();
     public List<TakeStatus> statusWaiting = new List<TakeStatus>();
     #region privateStat
-    private SpriteRenderer spriteRenderer;
+    protected SpriteRenderer spriteRenderer;
     #endregion
 
     private void Awake()
@@ -45,13 +45,13 @@ public class UnitController : UnitBase
             _y = 0;
         }
         pos = Helper.GetIVector(Helper.GetRow(pos), _y);
-        spriteRenderer.sortingOrder = Helper.GetRow(pos);
+        spriteRenderer.sortingOrder = 100 - Helper.GetRow(pos);
         BattleManager.Instance.ListTile[pos].unitController = this;
 
         StartCoroutine(MoveToPos());
     }
 
-    private IEnumerator MoveToPos()
+    protected virtual IEnumerator MoveToPos()
     {
         Anim.SetInteger("Move", 1);
         float t = 0;
@@ -65,8 +65,26 @@ public class UnitController : UnitBase
         }
         Anim.SetInteger("Move", 0);
         transform.position = end;
+
+        // check can attack
+        yield return StartCoroutine(Attack());
         isMoving = false;
     }
+
+    public virtual IEnumerator Attack()
+    {
+        if (Helper.GetCol(pos) + 1 <= stat.AtkRange)
+        {
+            Debug.Log("UNIT ==> ATTACK GOD " + pos + " " + (Helper.GetCol(pos) + 1) + " " + stat.AtkRange);
+            // attack
+            Anim.SetTrigger("Attack");
+            yield return Helper.GetWait(0.5f);
+
+            BattleManager.Instance.godManager.TakeDamage(ref stat.Power, Element.ALL, null);
+            yield return Helper.GetWait(1f);
+        }
+    }
+
 
     public void InitDamageWillTake(int _dmg, Element element, List<DmgTag> tags)
     {
@@ -119,6 +137,11 @@ public class UnitController : UnitBase
                 item.status.OnRemove(this);
             }
         }
+        yield return StartCoroutine(EndTurnAction());
+    }
+
+    public virtual IEnumerator EndTurnAction()
+    {
         yield return null;
     }
 
