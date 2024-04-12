@@ -53,22 +53,7 @@ public class Tile : MonoBehaviour
     [Button]
     public void GetPos()
     {
-        Pos = Helper.GetIVector(Row, Col);
-        if (Row != 0)
-        {
-            Tile[] tiles = FindObjectsOfType<Tile>();
-
-            // Duyệt qua từng đối tượng và làm gì đó với chúng
-            foreach (Tile tile in tiles)
-            {
-                // Thực hiện các hành động cần thiết với mỗi đối tượng tile ở đây
-                if (tile.Row + 1 == Row && tile.Col == Col)
-                {
-                    transform.localPosition = new Vector3(tile.transform.localPosition.x + 0.21f, transform.localPosition.y, transform.localPosition.z);
-                    return;
-                }
-            }
-        }
+        transform.localPosition = new Vector3(transform.localPosition.x - (1.1f - 1.092f), transform.localPosition.y - (-2.65f - -2.81f), 0);
     }
 
     private void OnDestroy()
