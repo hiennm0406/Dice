@@ -32,7 +32,6 @@ public class HumanArcher : UnitController
             move++;
             canBack = false;
             base.MoveUnit();
-
         }
         else
         {
@@ -44,6 +43,8 @@ public class HumanArcher : UnitController
 
     protected override IEnumerator MoveToPos(bool isMove = true)
     {
+        Debug.Log(isMove);
+
         if (isMove)
         {
             Anim.SetInteger("Move", 1);
@@ -80,6 +81,7 @@ public class HumanArcher : UnitController
 
     public override IEnumerator Attack()
     {
+        yield return Helper.GetWait(0.05f * Random.Range(0, 5));
         Debug.Log("UNIT ==> ATTACK GOD " + pos + " " + (Helper.GetCol(pos) + 1) + " " + stat.AtkRange);
         // attack
         Anim.SetTrigger("Attack");
@@ -91,6 +93,7 @@ public class HumanArcher : UnitController
 
     public IEnumerator AttackSpecial()
     {
+        yield return Helper.GetWait(0.05f * Random.Range(0, 5));
         Anim.SetTrigger("Special_1");
         yield return Helper.GetWait(0.5f);
     }
@@ -100,8 +103,7 @@ public class HumanArcher : UnitController
     {
         if (_attack && attack == 1)
         {
-            Debug.Log("archer hit!!");
-
+            yield return Helper.GetWait(0.05f * Random.Range(0, 5));
             canBack = false;
             _attack = false;
             Anim.SetTrigger("Special_2");

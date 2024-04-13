@@ -93,11 +93,14 @@ public class BattleManager : LocalSingleton<BattleManager>
 
         // move old unit
 
-        foreach (var item in listUnit)
+        foreach (var item in ListTile)
         {
-            if (item.HPNow > 0)
+            if (item.unitController != null)
             {
-                item.MoveUnit();
+                if (item.unitController.HPNow > 0)
+                {
+                    item.unitController.MoveUnit();
+                }
             }
         }
 

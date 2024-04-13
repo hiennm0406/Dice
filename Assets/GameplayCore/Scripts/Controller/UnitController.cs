@@ -93,6 +93,8 @@ public class UnitController : UnitBase
                 {
                     if (i == 1)
                     {
+                        Debug.Log("==> ?? " + (BattleManager.Instance.ListTile[_newPos].unitController == null));
+
                         StartCoroutine(MoveToPos(false));
                         return;
                     }
@@ -151,6 +153,7 @@ public class UnitController : UnitBase
     {
         if (Helper.GetCol(pos) + 1 <= stat.AtkRange)
         {
+            yield return Helper.GetWait(0.05f * Random.Range(0, 5));
             Debug.Log("UNIT ==> ATTACK GOD " + pos + " " + (Helper.GetCol(pos) + 1) + " " + stat.AtkRange);
             // attack
             Anim.SetTrigger("Attack");

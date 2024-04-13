@@ -56,7 +56,6 @@ public class GodManager : UnitBase
     public override void TakeDamage(ref int _dmg, Element element, List<DmgTag> tags)
     {
         // check all tag logic here
-        Debug.Log("TAKE DMG ==> " + _dmg + " " + element);
 
         // immune ? Boss have no immune
 
