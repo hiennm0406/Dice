@@ -1,3 +1,4 @@
+using Sirenix.OdinInspector;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,9 @@ public class HumanArcher : UnitController
     private int move = 0;
     private int attack = 0;
     private bool _attack = false;
+
+    [SerializeField] private GameObject effectToSpawn;
+    [SerializeField] private Transform Shooter;
     protected void Start()
     {
         attack = 0;
@@ -101,12 +105,22 @@ public class HumanArcher : UnitController
             canBack = false;
             _attack = false;
             Anim.SetTrigger("Special_2");
-
-            yield return Helper.GetWait(0.5f);
+            GameObject vfx = Instantiate(effectToSpawn, Shooter.position, Quaternion.identity);
+            ProjectileMoveObj _projectile = vfx.GetComponent<ProjectileMoveObj>();
+            _projectile.InitProjectile(new Vector3(BattleManager.Instance.godManager.transform.position.x + 0.85f, Shooter.position.y, 0));
+            yield return Helper.GetWait(.5f);
 
             BattleManager.Instance.godManager.TakeDamage(ref stat.Power, Element.ALL, null);
             yield return Helper.GetWait(1f);
         }
+    }
+
+    [Button]
+    public void Test()
+    {
+        GameObject vfx = Instantiate(effectToSpawn, Shooter.position, Quaternion.identity);
+        ProjectileMoveObj _projectile = vfx.GetComponent<ProjectileMoveObj>();
+        _projectile.InitProjectile(new Vector3(BattleManager.Instance.godManager.transform.position.x + 0.85f, Shooter.position.y, 0));
     }
 
     public override void Hit()
