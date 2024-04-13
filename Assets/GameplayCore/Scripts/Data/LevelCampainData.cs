@@ -71,7 +71,9 @@ public class EnemyWay
 [System.Serializable]
 public class Way
 {
+    [HorizontalGroup("Way", .5f)]
     public int id;
+    [HorizontalGroup("Way", .5f)]
     public int exp;
 
     public Way(int id, int exp)

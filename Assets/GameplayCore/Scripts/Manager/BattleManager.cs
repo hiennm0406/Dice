@@ -8,7 +8,7 @@ using Random = UnityEngine.Random;
 
 public class BattleManager : LocalSingleton<BattleManager>
 {
-    public Dictionary<int, Tile> ListTile = new Dictionary<int, Tile>();
+    public List<Tile> ListTile = new List<Tile>();
     public List<UnitController> listUnit = new List<UnitController>();
     public int lv;
     public int way;
@@ -41,6 +41,7 @@ public class BattleManager : LocalSingleton<BattleManager>
         mainCamera = Camera.main;
         InitGame();
     }
+
     [Button]
     public void InitGame()
     {
@@ -102,6 +103,11 @@ public class BattleManager : LocalSingleton<BattleManager>
 
         // spawn new unit
         bool firstCheck = true;
+        if (way >= level.LevelInfo.Count)
+        {
+            Stage = GAMESTAGE.UNITMOVE;
+            return;
+        }
         if (level.LevelInfo[way] != "")
         {
             EnemyWay enemyWay = JsonConvert.DeserializeObject<EnemyWay>(level.LevelInfo[way]);
@@ -126,6 +132,7 @@ public class BattleManager : LocalSingleton<BattleManager>
                             pos.Add(i);
                         }
                     }
+                    // Nếu không có đủ ô để spawn quái thì delay lại
                     if (firstCheck)
                     {
                         firstCheck = false;
@@ -174,15 +181,15 @@ public class BattleManager : LocalSingleton<BattleManager>
 
         diceCount = 0;
         List<int> _list = new List<int>();
-        foreach (KeyValuePair<int, Tile> item in ListTile)
+        foreach (Tile item in ListTile)
         {
-            if (item.Value.unitController == null)
+            if (item.unitController == null)
             {
-                item.Value.free = true;
+                item.free = true;
             }
             else
             {
-                item.Value.free = false;
+                item.free = false;
             }
         }
         Messenger.Broadcast(GameConstant.Event.RESET_COLOR);
@@ -191,11 +198,11 @@ public class BattleManager : LocalSingleton<BattleManager>
             _list.Clear();
             Dice[i].OnBoard = true;
             //get free slot
-            foreach (KeyValuePair<int, Tile> item in ListTile)
+            for (int _key = 0; _key < ListTile.Count; _key++)
             {
-                if (item.Value.unitController == null && item.Value.free)
+                if (ListTile[_key].unitController == null && ListTile[_key].free)
                 {
-                    _list.Add(item.Key);
+                    _list.Add(_key);
                 }
             }
 
@@ -232,7 +239,7 @@ public class BattleManager : LocalSingleton<BattleManager>
             switch (Stage)
             {
                 case GAMESTAGE.PREGAME:
-                    StartGame();
+                    StartGame(2);
                     break;
                 case GAMESTAGE.STARTURN:
 

@@ -14,7 +14,26 @@ public class Tile : MonoBehaviour
     public void Start()
     {
         render = GetComponent<SpriteRenderer>();
-        BattleManager.Instance.ListTile.Add(Helper.GetIVector(Row, Col), this);
+        if (BattleManager.Instance.ListTile.Count == 0)
+        {
+            BattleManager.Instance.ListTile.Add(this);
+        }
+        else
+        {
+            for (int i = 0, x = BattleManager.Instance.ListTile.Count; i <= x; i++)
+            {
+                if (i == x)
+                {
+                    BattleManager.Instance.ListTile.Add(this);
+                    break;
+                }
+                else if (BattleManager.Instance.ListTile[i].Pos > Pos)
+                {
+                    BattleManager.Instance.ListTile.Insert(i, this);
+                    break;
+                }
+            }
+        }
         Messenger.AddListener(GameConstant.Event.RESET_COLOR, ResetColor);
     }
 
@@ -53,7 +72,8 @@ public class Tile : MonoBehaviour
     [Button]
     public void GetPos()
     {
-        transform.localPosition = new Vector3(transform.localPosition.x - (1.1f - 1.092f), transform.localPosition.y - (-2.65f - -2.81f), 0);
+        Pos = Helper.GetIVector(Row, Col);
+        //transform.localPosition = new Vector3(transform.localPosition.x - (1.1f - 1.092f), transform.localPosition.y - (-2.65f - -2.81f), 0);
     }
 
     private void OnDestroy()

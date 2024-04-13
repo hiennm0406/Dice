@@ -10,6 +10,7 @@ public class UnitController : UnitBase
     public int exp;
     public List<TakeDamage> dmg = new List<TakeDamage>();
     public List<TakeStatus> statusWaiting = new List<TakeStatus>();
+    public bool canBack = false;
     #region privateStat
     protected SpriteRenderer spriteRenderer;
     #endregion
@@ -36,24 +37,104 @@ public class UnitController : UnitBase
 
     public virtual void MoveUnit()
     {
-        BattleManager.Instance.ListTile[pos].unitController = null;
         isMoving = true;
-        int _y = Helper.GetCol(pos) - stat.Moving;
-
-        if (_y <= 0)
+        // check pos to go 
+        for (int i = stat.Moving; i > 0; i--)
         {
-            _y = 0;
-        }
-        pos = Helper.GetIVector(Helper.GetRow(pos), _y);
-        spriteRenderer.sortingOrder = 100 - Helper.GetRow(pos);
-        BattleManager.Instance.ListTile[pos].unitController = this;
+            int _y = Helper.GetCol(pos) - i;
 
-        StartCoroutine(MoveToPos());
+            if (_y <= 0)
+            {
+                _y = 0;
+                StartCoroutine(MoveToPos(false));
+                return;
+            }
+            int _newPos = Helper.GetIVector(Helper.GetRow(pos), _y);
+            if (BattleManager.Instance.ListTile[_newPos].unitController != null)
+            {
+                // đã có unit rồi
+                // check xem unit ở ô đó có thể lùi không
+                if (BattleManager.Instance.ListTile[_newPos].unitController.canBack)
+                {
+                    // chỉ lùi 1 ô 
+                    if (i > 1) // nếu nhân vật hiện tại di chuyển nhiều hơn 1 ô -> check ô lùi xem có trống không
+                    {
+                        int movebackPos = Helper.GetIVector(Helper.GetRow(_newPos), Helper.GetCol(_newPos) + 1);
+                        if (BattleManager.Instance.ListTile[movebackPos].unitController != null)
+                        {
+                            // có unit khác nữa ở ô này rồi, k lùi đc đứng im thôi
+                            continue;
+                        }
+                        else
+                        {
+                            // lùi
+                            BattleManager.Instance.ListTile[_newPos].unitController.canBack = false;
+                            BattleManager.Instance.ListTile[_newPos].unitController.pos = movebackPos;
+                            StartCoroutine(BattleManager.Instance.ListTile[_newPos].unitController.MoveBack());
+                            BattleManager.Instance.ListTile[movebackPos].unitController = BattleManager.Instance.ListTile[_newPos].unitController;
+                            BattleManager.Instance.ListTile[_newPos].unitController = null;
+                        }
+                    }
+                    else // nếu nhân vật hiện tại di chuyển 1 ô => ô lùi cũng chính là ô nhân vật này đang đứng, swap vị trí 2 người
+                    {
+                        BattleManager.Instance.ListTile[_newPos].unitController.canBack = false;
+                        BattleManager.Instance.ListTile[_newPos].unitController.pos = pos;
+                        StartCoroutine(BattleManager.Instance.ListTile[_newPos].unitController.MoveBack());
+                        BattleManager.Instance.ListTile[pos].unitController = BattleManager.Instance.ListTile[_newPos].unitController;
+                        BattleManager.Instance.ListTile[_newPos].unitController = null;
+                    }
+                    pos = _newPos;
+                    spriteRenderer.sortingOrder = 100 - Helper.GetRow(pos);
+                    BattleManager.Instance.ListTile[pos].unitController = this;
+                    StartCoroutine(MoveToPos());
+                    return;
+                }
+                else
+                {
+                    if (i == 1)
+                    {
+                        StartCoroutine(MoveToPos(false));
+                        return;
+                    }
+                }
+            }
+            else
+            {
+                // move to pos 
+                BattleManager.Instance.ListTile[pos].unitController = null;
+                pos = _newPos;
+                spriteRenderer.sortingOrder = 100 - Helper.GetRow(pos);
+                BattleManager.Instance.ListTile[pos].unitController = this;
+                StartCoroutine(MoveToPos());
+                return;
+            }
+        }
     }
 
-    protected virtual IEnumerator MoveToPos()
+    protected virtual IEnumerator MoveToPos(bool isMove = true)
     {
-        Anim.SetInteger("Move", 1);
+        if (isMove)
+        {
+            Anim.SetInteger("Move", 1);
+            float t = 0;
+            Vector3 start = transform.position;
+            Vector3 end = BattleManager.Instance.ListTile[pos].transform.position;
+            while (t < 1)
+            {
+                t += Time.deltaTime * 2;
+                transform.position = Vector3.Lerp(start, end, t);
+                yield return null;
+            }
+            Anim.SetInteger("Move", 0);
+            transform.position = end;
+        }
+        // check can attack
+        yield return StartCoroutine(Attack());
+        isMoving = false;
+    }
+
+    public IEnumerator MoveBack()
+    {
         float t = 0;
         Vector3 start = transform.position;
         Vector3 end = BattleManager.Instance.ListTile[pos].transform.position;
@@ -63,12 +144,7 @@ public class UnitController : UnitBase
             transform.position = Vector3.Lerp(start, end, t);
             yield return null;
         }
-        Anim.SetInteger("Move", 0);
         transform.position = end;
-
-        // check can attack
-        yield return StartCoroutine(Attack());
-        isMoving = false;
     }
 
     public virtual IEnumerator Attack()
@@ -108,18 +184,18 @@ public class UnitController : UnitBase
         }
 
         dmg.Clear();
-        BattleManager.Instance.done--;
 
         if (HPNow <= 0)
         {
             statusWaiting.Clear();
             status.Clear();
+            BattleManager.Instance.done--;
             Die();
             yield break;
         }
         if (HPNow != _hp)
         {
-            Anim.SetTrigger("Hit");
+            Hit();
         }
 
         foreach (var item in statusWaiting)
@@ -137,7 +213,9 @@ public class UnitController : UnitBase
                 item.status.OnRemove(this);
             }
         }
+        yield return Helper.GetWait(0.5f);
         yield return StartCoroutine(EndTurnAction());
+        BattleManager.Instance.done--;
     }
 
     public virtual IEnumerator EndTurnAction()
@@ -145,13 +223,18 @@ public class UnitController : UnitBase
         yield return null;
     }
 
-    public void Die()
+    public virtual void Die()
     {
         BattleManager.Instance.GainExp(exp);
         BattleManager.Instance.ListTile[pos].unitController = null;
         BattleManager.Instance.listUnit.Remove(this);
         Anim.SetTrigger("Die");
         Destroy(gameObject, 1f);
+    }
+
+    public virtual void Hit()
+    {
+        Anim.SetTrigger("Hit");
     }
 }
 

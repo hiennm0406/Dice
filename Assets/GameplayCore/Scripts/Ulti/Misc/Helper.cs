@@ -375,29 +375,29 @@ public static class Helper
     public static int col = 9; // 9 cột, 0 - 1 - 2 - 3 - 4 - 5 - 6 - 7 - 8
     public static int GetIVector(int _row, int _col)
     {
-        return _row * col + _col;
+        return _row + row * _col;
     }
     public static int GetIVector(Vector2Int vec)
     {
-        return vec.x * col + vec.y;
+        return vec.x + row * vec.y;
     }
 
     public static Vector2Int GetVector(int data)
     {
         // Vector là dòng - cột 
-        // cột = data chia lấy dư cho số lượng trên 1 dòng
-        // dòng = data chia số lượng trên 1 dòng
-        return new Vector2Int(data % col, data / col);
+        // cột = data chia cho số lượng trên 1 cột
+        // dòng = data chia lấy dư số lượng trên 1 cột
+        return new Vector2Int(data % row, data / row);
     }
 
     public static int GetRow(int data)
     {
-        return data / col;
+        return data % row;
     }
 
     public static int GetCol(int data)
     {
-        return data % col;
+        return data / row;
     }
 
 
