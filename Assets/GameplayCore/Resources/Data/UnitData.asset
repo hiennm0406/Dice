@@ -59,7 +59,7 @@ MonoBehaviour:
     Skills: 
     BaseStat:
       Power: 40
-      HP: 80
+      HP: 15
       Moving: 1
       AtkRange: 100
       Luck: 0

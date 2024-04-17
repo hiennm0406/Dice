@@ -6,14 +6,12 @@ using UnityEngine;
 public class HumanArcher : UnitController
 {
     private int move = 0;
-    private int attack = 0;
     private bool _attack = false;
 
     [SerializeField] private GameObject effectToSpawn;
     [SerializeField] private Transform Shooter;
     protected void Start()
     {
-        attack = 0;
         move = 0;
     }
 
@@ -27,18 +25,8 @@ public class HumanArcher : UnitController
             return;
         }
 
-        if (!_attack)
-        {
-            move++;
-            canBack = false;
-            base.MoveUnit();
-        }
-        else
-        {
-            attack++;
-            canBack = true;
-            isMoving = false;
-        }
+        move++;
+        base.MoveUnit();
     }
 
     protected override IEnumerator MoveToPos(bool isMove = true)
@@ -70,7 +58,6 @@ public class HumanArcher : UnitController
             if (move == 2)
             {
                 _attack = true;
-                attack = 0;
                 move = 0;
                 yield return StartCoroutine(AttackSpecial());
             }
@@ -101,10 +88,9 @@ public class HumanArcher : UnitController
 
     public override IEnumerator EndTurnAction()
     {
-        if (_attack && attack == 1)
+        if (_attack)
         {
             yield return Helper.GetWait(0.05f * Random.Range(0, 5));
-            canBack = false;
             _attack = false;
             Anim.SetTrigger("Special_2");
             GameObject vfx = Instantiate(effectToSpawn, Shooter.position, Quaternion.identity);
