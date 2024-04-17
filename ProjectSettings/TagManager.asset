@@ -51,3 +51,9 @@ TagManager:
   - name: VFX
     uniqueID: 1380318419
     locked: 0
+  - name: FrontUI
+    uniqueID: 1798576197
+    locked: 0
+  - name: UIVFX
+    uniqueID: 2758006257
+    locked: 0
