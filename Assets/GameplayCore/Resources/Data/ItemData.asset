@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29cbc01d8ea3db244b34fe209b6d5fb7, type: 3}
+  m_Name: ItemData
+  m_EditorClassIdentifier: 
+  Chest: {fileID: -218140749501768013, guid: d300dd2d83ecab443a19f72562225656, type: 3}
+  ChestOpen: {fileID: -4685547431992939551, guid: d300dd2d83ecab443a19f72562225656, type: 3}
+  itemInfos:
+  - ItemId: 0
+    type: 0
+    ItemName: Soul Fire
+    img: {fileID: 21300000, guid: 2322aae7dd3c45d4eb39f7ef05cb4ecb, type: 3}
+  - ItemId: 1
+    type: 0
+    ItemName: Wood
+    img: {fileID: 4325124283466596480, guid: daacf50a8fb77e64e882ddf7285dde67, type: 3}
+  - ItemId: 2
+    type: 0
+    ItemName: Stone
+    img: {fileID: -6191075629478830695, guid: daacf50a8fb77e64e882ddf7285dde67, type: 3}
+  - ItemId: 3
+    type: 0
+    ItemName: Copper
+    img: {fileID: -6241879220343218651, guid: daacf50a8fb77e64e882ddf7285dde67, type: 3}
+  - ItemId: 4
+    type: 0
+    ItemName: Iron
+    img: {fileID: -6114249783614028587, guid: daacf50a8fb77e64e882ddf7285dde67, type: 3}
+  - ItemId: 5
+    type: 0
+    ItemName: Silver
+    img: {fileID: 4384924324813463217, guid: daacf50a8fb77e64e882ddf7285dde67, type: 3}
+  - ItemId: 6
+    type: 0
+    ItemName: Gold
+    img: {fileID: 787513578043323059, guid: daacf50a8fb77e64e882ddf7285dde67, type: 3}

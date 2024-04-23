@@ -25,6 +25,8 @@ public class BattleManager : LocalSingleton<BattleManager>
     public int done = 0;
     public bool UserBusy = false;
 
+    public List<Item> rewards = new List<Item>();
+
     #region PrivateProperty
     private int diceCount;
     private Camera mainCamera;

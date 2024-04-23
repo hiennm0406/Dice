@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using Sirenix.OdinInspector;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WinLosePanel : MonoBehaviour
 {
@@ -31,22 +33,58 @@ public class WinLosePanel : MonoBehaviour
 
     */
 
+    [Header("REWARD BOX")]
+    public Transform RewardView;
+    public ItemBoxUI prefabRewardBox;
+    public ScrollRect scrollRect;
 
 
 
-
+    [Button]
     public void ShowWin()
     {
-
+        ShowReward();
     }
 
+    [Button]
     public void ShowLose(bool canRetry)
     {
-
+        ShowReward();
     }
 
+    [Button]
     public void Retry()
     {
 
+    }
+
+    public void ShowReward()
+    {
+        foreach (Transform child in RewardView)
+        {
+            Destroy(child.gameObject);
+        }
+        scrollRect.verticalNormalizedPosition = 0;
+
+
+
+        foreach (var item in BattleManager.Instance.rewards)
+        {
+            if (item.ItemId == 0)// soul always first
+            {
+                ItemBoxUI itemBoxUI = Instantiate(prefabRewardBox, RewardView);
+                itemBoxUI.InitItem(item.ItemId, item.Number);
+                break;
+            }
+        }
+
+        foreach (var item in BattleManager.Instance.rewards)
+        {
+            if (item.ItemId != 0)// soul always first
+            {
+                ItemBoxUI itemBoxUI = Instantiate(prefabRewardBox, RewardView);
+                itemBoxUI.InitItem(item.ItemId, item.Number);
+            }
+        }
     }
 }
