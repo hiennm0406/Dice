@@ -7,7 +7,7 @@ public class UIManager : Singleton<UIManager>
 {
     public BattleUIManager battleUI;
     public HomeUI homeUI;
-
+    public WinLosePanel winLosePanel;
 
     private void Start()
     {

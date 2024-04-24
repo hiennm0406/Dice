@@ -75,6 +75,13 @@ public class GodManager : UnitBase
         int _finaldmg = Mathf.CeilToInt(dmg);
         HPNow -= _finaldmg;
         Debug.Log("TAKE DMG FINAL ==> " + _finaldmg);
+
+        if (HPNow <= 0)
+        {
+            // YOU DIE
+
+            UIManager.Instance.winLosePanel.ShowLose();
+        }
     }
 }
 

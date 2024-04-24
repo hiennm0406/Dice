@@ -37,25 +37,57 @@ public class WinLosePanel : MonoBehaviour
     public Transform RewardView;
     public ItemBoxUI prefabRewardBox;
     public ScrollRect scrollRect;
+    public Button WinBtn;
 
+    [Header("LOSE")]
+    public Button LoseBtn;
+    public Button RetryBtn;
+    public Button SurrenderBtn;
 
+    private void Start()
+    {
+        RetryBtn.onClick.AddListener(Retry);
+        UIManager.Instance.winLosePanel = this;
+        gameObject.SetActive(false);
+    }
 
     [Button]
     public void ShowWin()
     {
         ShowReward();
+        WinBtn.gameObject.SetActive(true);
     }
 
     [Button]
-    public void ShowLose(bool canRetry)
+    public void ShowLose()
     {
         ShowReward();
+        if (GameSave.RETRY)
+        {
+            RetryBtn.gameObject.SetActive(true);
+            SurrenderBtn.gameObject.SetActive(true);
+        }
+        else
+        {
+            LoseBtn.gameObject.SetActive(true);
+        }
     }
 
     [Button]
     public void Retry()
     {
+        ClosePopup();
+        BattleManager.Instance.Retry();
+    }
 
+    [Button]
+    public void ClosePopup()
+    {
+        WinBtn.gameObject.SetActive(false);
+        LoseBtn.gameObject.SetActive(false);
+        RetryBtn.gameObject.SetActive(false);
+        SurrenderBtn.gameObject.SetActive(false);
+        gameObject.SetActive(false);
     }
 
     public void ShowReward()

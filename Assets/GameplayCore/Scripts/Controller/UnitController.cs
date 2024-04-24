@@ -113,6 +113,25 @@ public class UnitController : UnitBase
         }
     }
 
+
+    public void PushBack()
+    {
+        isMoving = true;
+        // check pos to go 
+        int lastPos = pos;
+        while (Helper.GetRight(lastPos) != -1 && BattleManager.Instance.ListTile[Helper.GetRight(lastPos)].unitController == null)
+        {
+            lastPos = Helper.GetRight(lastPos);
+        }
+
+        BattleManager.Instance.ListTile[pos].unitController = null;
+        pos = lastPos;
+        BattleManager.Instance.ListTile[pos].unitController = this;
+
+        StartCoroutine(MoveBack(0.5f));
+
+    }
+
     protected virtual IEnumerator MoveToPos(bool isMove = true)
     {
         if (isMove)
@@ -135,18 +154,20 @@ public class UnitController : UnitBase
         isMoving = false;
     }
 
-    public IEnumerator MoveBack()
+    public IEnumerator MoveBack(float e = 1)
     {
         float t = 0;
         Vector3 start = transform.position;
         Vector3 end = BattleManager.Instance.ListTile[pos].transform.position;
-        while (t < 1)
+        while (t < e)
         {
             t += Time.deltaTime * 2;
-            transform.position = Vector3.Lerp(start, end, t);
+            transform.position = Vector3.Lerp(start, end, t / e);
             yield return null;
         }
         transform.position = end;
+
+        isMoving = false;
     }
 
     public virtual IEnumerator Attack()

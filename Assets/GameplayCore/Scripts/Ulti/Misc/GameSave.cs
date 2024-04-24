@@ -248,22 +248,12 @@ return 99999999999;
         }
     }
 
-    public static string InterRemote
+    public static bool RETRY
     {
-        get => PlayerPrefs.GetString(GameSaveKey.INTER_REMOTE, "");
+        get => PlayerPrefsX.GetBool(GameSaveKey.RETRY, false);
         set
         {
-            PlayerPrefs.SetString(GameSaveKey.INTER_REMOTE, value);
-            PlayerPrefs.Save();
-        }
-    }
-
-    public static string AppOpenRemote
-    {
-        get => PlayerPrefs.GetString(GameSaveKey.APP_OPEN_REMOTE, "");
-        set
-        {
-            PlayerPrefs.SetString(GameSaveKey.APP_OPEN_REMOTE, value);
+            PlayerPrefsX.SetBool(GameSaveKey.RETRY, value);
             PlayerPrefs.Save();
         }
     }
@@ -338,8 +328,7 @@ public class GameSaveKey
     public const string ADS_SPIN = "ADS_SPIN";
     public const string GEM_SPIN = "GEM_SPIN";
 
-    public const string INTER_REMOTE = "INTER_REMOTE";
-    public const string APP_OPEN_REMOTE = "APP_OPEN_REMOTE";
+    public const string RETRY = "RETRY";
 
     public const string KEY_INTERN_COUNT = "KEY_INTERN_COUNT";
     public const string KEY_REWARD_COUNT = "KEY_REWARD_COUNT";

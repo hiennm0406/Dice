@@ -44,6 +44,8 @@ public class BattleManager : LocalSingleton<BattleManager>
         InitGame();
     }
 
+    #region GAMEPLAY
+
     [Button]
     public void InitGame()
     {
@@ -244,7 +246,7 @@ public class BattleManager : LocalSingleton<BattleManager>
             switch (Stage)
             {
                 case GAMESTAGE.PREGAME:
-                    StartGame(2);
+                    StartGame(1);
                     break;
                 case GAMESTAGE.STARTURN:
 
@@ -503,6 +505,37 @@ public class BattleManager : LocalSingleton<BattleManager>
             UIManager.Instance.battleUI.ShowMenuImbueChoice();
         }
     }
+
+    #endregion
+
+
+    #region EndGame
+    public void WinGame()
+    {
+
+    }
+
+    [Button]
+    public void Retry()
+    {
+        for (int i = ListTile.Count - 1; i >= 0; i--)
+        {
+            if (ListTile[i].unitController != null)
+            {
+                if (ListTile[i].unitController.HPNow > 0)
+                {
+                    ListTile[i].unitController.PushBack();
+                }
+            }
+        }
+    }
+
+    public void LoseGame()
+    {
+
+    }
+
+    #endregion
 
     #region RollDice
 
