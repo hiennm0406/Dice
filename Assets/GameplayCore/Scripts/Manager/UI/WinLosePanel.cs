@@ -48,7 +48,7 @@ public class WinLosePanel : MonoBehaviour
     {
         RetryBtn.onClick.AddListener(Retry);
         UIManager.Instance.winLosePanel = this;
-        gameObject.SetActive(false);
+        ClosePopup();
     }
 
     [Button]
@@ -62,10 +62,13 @@ public class WinLosePanel : MonoBehaviour
     public void ShowLose()
     {
         ShowReward();
+        BattleManager.Instance.Stage = GAMESTAGE.BREAKPHASE;
         if (GameSave.RETRY)
         {
+            GameSave.RETRY = false;
             RetryBtn.gameObject.SetActive(true);
             SurrenderBtn.gameObject.SetActive(true);
+
         }
         else
         {

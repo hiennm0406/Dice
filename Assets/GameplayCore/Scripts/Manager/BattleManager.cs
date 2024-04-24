@@ -267,6 +267,11 @@ public class BattleManager : LocalSingleton<BattleManager>
                             yield return null;
                         }
                     }
+                    // GOD WILL DIE HERE
+                    if (Stage == GAMESTAGE.BREAKPHASE)
+                    {
+                        continue;
+                    }
                     Stage = GAMESTAGE.ROLLDICE;
                     break;
                 case GAMESTAGE.ROLLDICE:
@@ -386,6 +391,9 @@ public class BattleManager : LocalSingleton<BattleManager>
                         }
                     }
                     Stage = GAMESTAGE.STARTURN;
+                    break;
+
+                case GAMESTAGE.BREAKPHASE:
                     break;
             }
             yield return null;
@@ -603,5 +611,6 @@ public enum GAMESTAGE
     WAITPLAYER,
     BEFORERDICE,
     TRIGGERDICE,
-    ENDTURN
+    ENDTURN,
+    BREAKPHASE
 }

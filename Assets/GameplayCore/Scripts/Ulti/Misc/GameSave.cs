@@ -250,7 +250,7 @@ return 99999999999;
 
     public static bool RETRY
     {
-        get => PlayerPrefsX.GetBool(GameSaveKey.RETRY, false);
+        get => PlayerPrefsX.GetBool(GameSaveKey.RETRY, true);
         set
         {
             PlayerPrefsX.SetBool(GameSaveKey.RETRY, value);

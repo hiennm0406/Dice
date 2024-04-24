@@ -1,3 +1,4 @@
+using Sirenix.OdinInspector;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -52,7 +53,7 @@ public class GodManager : UnitBase
         return false;
     }
 
-
+    [Button]
     public override void TakeDamage(ref int _dmg, Element element, List<DmgTag> tags)
     {
         // check all tag logic here
