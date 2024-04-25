@@ -81,7 +81,7 @@ public class GodManager : UnitBase
         {
             // YOU DIE
 
-            UIManager.Instance.winLosePanel.ShowLose();
+            StartCoroutine(UIManager.Instance.winLosePanel.ShowLose());
         }
     }
 }

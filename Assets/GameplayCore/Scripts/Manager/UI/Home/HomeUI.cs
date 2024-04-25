@@ -5,17 +5,12 @@ using UnityEngine.UI;
 
 public class HomeUI : MonoBehaviour
 {
-    [SerializeField] Button BtnPlay;
+    [SerializeField] private Home_BattleUI home_BattleUI;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         UIManager.Instance.homeUI = this;
-        BtnPlay.onClick.AddListener(OnButtonPlay);
     }
 
-    public void OnButtonPlay()
-    {
-        GameManager.Instance.LoadScene("GamePlay");
-    }
 }

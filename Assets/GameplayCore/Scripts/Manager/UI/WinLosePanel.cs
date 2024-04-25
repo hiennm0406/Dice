@@ -38,15 +38,21 @@ public class WinLosePanel : MonoBehaviour
     public ItemBoxUI prefabRewardBox;
     public ScrollRect scrollRect;
     public Button WinBtn;
+    public Button NextBtn;
 
     [Header("LOSE")]
-    public Button LoseBtn;
-    public Button RetryBtn;
+    public Button RetrynBtn;
+    public Button RebornBtn;
     public Button SurrenderBtn;
+    public GameObject TextLoseDoNothing;
+    private bool retryed = false;
+    public Text TextCountdown;
+    public GameObject ImgCountdown;
+
 
     private void Start()
     {
-        RetryBtn.onClick.AddListener(Retry);
+        RebornBtn.onClick.AddListener(Retry);
         UIManager.Instance.winLosePanel = this;
         ClosePopup();
     }
@@ -59,27 +65,47 @@ public class WinLosePanel : MonoBehaviour
     }
 
     [Button]
-    public void ShowLose()
+    public IEnumerator ShowLose()
     {
-        ShowReward();
         BattleManager.Instance.Stage = GAMESTAGE.BREAKPHASE;
+        gameObject.SetActive(true);
+        StartCoroutine(ShowReward());
+
         if (GameSave.RETRY)
         {
             GameSave.RETRY = false;
-            RetryBtn.gameObject.SetActive(true);
-            SurrenderBtn.gameObject.SetActive(true);
-
+            RebornBtn.gameObject.SetActive(true);
+            RetrynBtn.gameObject.SetActive(false);
+            TextLoseDoNothing.SetActive(true);
+            TextCountdown.gameObject.SetActive(true);
+            ImgCountdown.SetActive(true);
+            float t = 5;
+            while (t >= 0)
+            {
+                t -= Time.deltaTime;
+                if (retryed)
+                {
+                    yield break;
+                }
+                TextCountdown.text = Mathf.CeilToInt(t).ToString();
+                TextCountdown.transform.localScale = Vector3.Lerp(Vector3.one * 1.5f, Vector3.one, Mathf.CeilToInt(t) - t);
+                yield return null;
+            }
         }
-        else
-        {
-            LoseBtn.gameObject.SetActive(true);
-        }
+        GameSave.RETRY = true;
+        TextCountdown.gameObject.SetActive(false);
+        ImgCountdown.SetActive(false);
+        TextLoseDoNothing.SetActive(false);
+        RetrynBtn.gameObject.SetActive(true);
+        RebornBtn.gameObject.SetActive(false);
+        SurrenderBtn.gameObject.SetActive(true);
     }
 
     [Button]
     public void Retry()
     {
         ClosePopup();
+        retryed = true;
         BattleManager.Instance.Retry();
     }
 
@@ -87,13 +113,17 @@ public class WinLosePanel : MonoBehaviour
     public void ClosePopup()
     {
         WinBtn.gameObject.SetActive(false);
-        LoseBtn.gameObject.SetActive(false);
-        RetryBtn.gameObject.SetActive(false);
+        RebornBtn.gameObject.SetActive(false);
         SurrenderBtn.gameObject.SetActive(false);
+        NextBtn.gameObject.SetActive(false);
+        RetrynBtn.gameObject.SetActive(true);
         gameObject.SetActive(false);
+        TextLoseDoNothing.SetActive(false);
+        TextCountdown.gameObject.SetActive(false);
+        ImgCountdown.SetActive(false);
     }
 
-    public void ShowReward()
+    public IEnumerator ShowReward()
     {
         foreach (Transform child in RewardView)
         {
@@ -112,13 +142,14 @@ public class WinLosePanel : MonoBehaviour
                 break;
             }
         }
-
+        yield return Helper.GetWait(0.2f);
         foreach (var item in BattleManager.Instance.rewards)
         {
             if (item.ItemId != 0)// soul always first
             {
                 ItemBoxUI itemBoxUI = Instantiate(prefabRewardBox, RewardView);
                 itemBoxUI.InitItem(item.ItemId, item.Number);
+                yield return Helper.GetWait(0.2f);
             }
         }
     }
