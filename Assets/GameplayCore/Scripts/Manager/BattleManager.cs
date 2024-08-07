@@ -55,19 +55,19 @@ public class BattleManager : LocalSingleton<BattleManager>
         ListDice.Clear();
         godManager.InitGod(PlayerData.Instance.GodId, 0);
 
-        for (int i = 0; i < godManager.godData.dice.Count; i++)
-        {
-            GameObject _go = Instantiate(prefabDice);
-            Type type = Type.GetType(DiceData.instance.GetDice(godManager.godData.dice[i]).ClassName);
-            _go.AddComponent(type);
+        //for (int i = 0; i < godManager.godData.dice.Count; i++)
+        //{
+        //    GameObject _go = Instantiate(prefabDice);
+        //    Type type = Type.GetType(DiceData.instance.GetDice(godManager.godData.dice[i]).ClassName);
+        //    _go.AddComponent(type);
 
-            DiceController _dice = _go.GetComponent<DiceController>();
-            if (_dice != null)
-            {
-                ListDice.Add(_dice);
-                _dice.DiceId = godManager.godData.dice[i];
-            }
-        }
+        //    DiceController _dice = _go.GetComponent<DiceController>();
+        //    if (_dice != null)
+        //    {
+        //        ListDice.Add(_dice);
+        //        _dice.DiceId = godManager.godData.dice[i];
+        //    }
+        //}
 
         IsPlay = true;
         StartCoroutine(GamePlay());
@@ -423,89 +423,90 @@ public class BattleManager : LocalSingleton<BattleManager>
                     _diceChoice.Add(ListDice[_r].DiceId);
                 }
             }
-
-            foreach (var _id in _diceChoice)
-            {
-                DiceInfo _info = DiceData.instance.GetDice(_id);
-
-                // get list imbue can take
-                List<DiceImbue> diceImbues = new List<DiceImbue>();
-                foreach (var _imb in _info.diceImbues)
-                {
-                    if (ListDice[_id].imbued.Contains(_imb.ImbueName))
-                    {
-                        // check can duplicate
-                        if (_imb.maxCount > 0)
+            /*
+                        foreach (var _id in _diceChoice)
                         {
-                            int _count = 0;
-                            foreach (var item in ListDice[_id].imbued)
+                            DiceInfo _info = DiceData.instance.GetDice(_id);
+
+                            // get list imbue can take
+                            List<DiceImbue> diceImbues = new List<DiceImbue>();
+                            foreach (var _imb in _info.diceImbues)
                             {
-                                if (item == _imb.ImbueName)
+                                if (ListDice[_id].imbued.Contains(_imb.ImbueName))
                                 {
-                                    _count++;
+                                    // check can duplicate
+                                    if (_imb.maxCount > 0)
+                                    {
+                                        int _count = 0;
+                                        foreach (var item in ListDice[_id].imbued)
+                                        {
+                                            if (item == _imb.ImbueName)
+                                            {
+                                                _count++;
+                                            }
+                                        }
+                                        if (_imb.maxCount <= _count)
+                                        {
+                                            continue;
+                                        }
+                                    }
+                                    else
+                                    {
+                                        continue;
+                                    }
+                                }
+                                bool havRequired = true;
+                                foreach (var _required in _imb.required)
+                                {
+                                    if (!ListDice[_id].imbued.Contains(_required))
+                                    {
+                                        havRequired = false;
+                                        break;
+                                    }
+                                }
+
+                                if (_imb.GodRequired.Count > 0 && !_imb.GodRequired.Contains(godManager.GodId))
+                                {
+                                    havRequired = false;
+                                }
+
+                                foreach (var _required in _imb.GodTalenRequired)
+                                {
+                                    // TO DO check God Talen
+                                }
+
+                                if (havRequired)
+                                {
+                                    // add to list can random
+                                    diceImbues.Add(_imb);
                                 }
                             }
-                            if (_imb.maxCount <= _count)
+
+                            // tính hệ số
+                            int total = 0;
+                            foreach (var item in diceImbues)
                             {
+                                total += item.Rate;
+                            }
+                            if (diceImbues.Count == 0)
+                            {
+                                UIManager.Instance.battleUI.ShowImbueChoice(0, null);
                                 continue;
                             }
+
+                            int final = Random.Range(0, total);
+                            foreach (var item in diceImbues)
+                            {
+                                final -= item.Rate;
+                                if (final < 0)
+                                {
+                                    UIManager.Instance.battleUI.ShowImbueChoice(item.ImbueName, ListDice[_id]);
+
+                                    break;
+                                }
+                            }
                         }
-                        else
-                        {
-                            continue;
-                        }
-                    }
-                    bool havRequired = true;
-                    foreach (var _required in _imb.required)
-                    {
-                        if (!ListDice[_id].imbued.Contains(_required))
-                        {
-                            havRequired = false;
-                            break;
-                        }
-                    }
-
-                    if (_imb.GodRequired.Count > 0 && !_imb.GodRequired.Contains(godManager.GodId))
-                    {
-                        havRequired = false;
-                    }
-
-                    foreach (var _required in _imb.GodTalenRequired)
-                    {
-                        // TO DO check God Talen
-                    }
-
-                    if (havRequired)
-                    {
-                        // add to list can random
-                        diceImbues.Add(_imb);
-                    }
-                }
-
-                // tính hệ số
-                int total = 0;
-                foreach (var item in diceImbues)
-                {
-                    total += item.Rate;
-                }
-                if (diceImbues.Count == 0)
-                {
-                    UIManager.Instance.battleUI.ShowImbueChoice(0, null);
-                    continue;
-                }
-
-                int final = Random.Range(0, total);
-                foreach (var item in diceImbues)
-                {
-                    final -= item.Rate;
-                    if (final < 0)
-                    {
-                        UIManager.Instance.battleUI.ShowImbueChoice(item.ImbueName, ListDice[_id]);
-
-                        break;
-                    }
-                }
-            }
+                   */
         }
         Messenger.Broadcast(GameConstant.Event.EXP_UP);
         if (Stage == GAMESTAGE.STARTURN)

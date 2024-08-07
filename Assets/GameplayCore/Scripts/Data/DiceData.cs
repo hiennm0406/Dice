@@ -7,8 +7,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "DiceData", menuName = "Data/DiceData", order = 1)]
 public class DiceData : SingletonScriptableObject<DiceData>
 {
-    public List<DiceInfo> listDice = new List<DiceInfo>();
-    public DiceInfo GetDice(int id)
+    public List<Dice> listDice = new List<Dice>();
+    public Dice GetDice(int id)
     {
         foreach (var item in listDice)
         {
@@ -21,34 +21,6 @@ public class DiceData : SingletonScriptableObject<DiceData>
     }
 }
 
-[System.Serializable]
-public class DiceInfo
-{
-    [HorizontalGroup("DiceID", 0.2f, LabelWidth = 100)]
-    public int DiceId;
-    [HorizontalGroup("DiceID", 0.4f, LabelWidth = 100)]
-    public string DiceName;
-    [HorizontalGroup("DiceID", 0.4f, LabelWidth = 100)]
-    public string ClassName;
-    public DiceDirection diceDirection;
-    public Sprite[] SpriteList;
-    [HideLabel]
-    [HorizontalGroup("DiceData", 50)]
-    public bool isTemp = false;
-    [HorizontalGroup("DiceData", 0.4f, LabelWidth = 100)]
-    public int baseDmg = 1;
-    [HorizontalGroup("DiceData", 0.4f, LabelWidth = 100)]
-    public Element element;
-
-    [HorizontalGroup("DiceEffect", 0.45f, LabelWidth = 100)]
-    public GameObject MainEffect;
-
-    [HorizontalGroup("DiceEffect", 0.45f, LabelWidth = 100)]
-    public GameObject SubEffect;
-
-    public List<DmgTag> tags;
-    public List<DiceImbue> diceImbues = new List<DiceImbue>();
-}
 
 [System.Serializable]
 public class DiceDirection
@@ -83,30 +55,113 @@ public enum Direction
     DOWNRIGHT,
     DOWNLEFT
 }
+
+[System.Serializable]
+public class Dice
+{
+    [HorizontalGroup("DiceID", 0.2f, LabelWidth = 100)]
+    public int DiceId;
+    [HorizontalGroup("DiceID", 0.4f, LabelWidth = 100)]
+    public string DiceName;
+    [HorizontalGroup("DiceID", 0.4f, LabelWidth = 100)]
+    public string ClassName;
+    public DiceDirection diceDirection;
+    public Sprite[] SpriteList;
+
+    [HorizontalGroup("DiceData", 0.4f, LabelWidth = 100)]
+    public Element element;
+
+    [HorizontalGroup("DiceEffect", 0.45f, LabelWidth = 100)]
+    public GameObject MainEffect;
+
+    [HorizontalGroup("DiceEffect", 0.45f, LabelWidth = 100)]
+    public GameObject SubEffect;
+
+    public List<DmgTag> tags;
+    public List<DiceImbueMax> diceImbueMax;
+    public List<DiceImbueData> diceImbues = new List<DiceImbueData>();
+
+    private void OnValidate()
+    {
+        foreach (var item in diceImbues)
+        {
+            item.dice = this;
+        }
+    }
+}
+[System.Serializable]
+public class DiceImbueMax
+{
+    [HorizontalGroup("Rate", 200)]
+    [LabelWidth(80)]
+    public string Name;
+    [HorizontalGroup("Rate", 400)]
+    [LabelWidth(80)]
+    public string Des;
+    [HorizontalGroup("Rate", 80)]
+    [LabelWidth(50)]
+    public int max;
+}
+
+[System.Serializable]
+public class DiceImbueData
+{
+    public Dice dice;
+    public string Description;
+    [SerializeReference]
+    public List<DiceImbue> diceImbues = new List<DiceImbue>();
+
+    private void OnValidate()
+    {
+        Description = "";
+
+        foreach (var item in diceImbues)
+        {
+            item.dice = dice;
+            Description += item.GetDes() + " ";
+        }
+        Description += ".";
+    }
+}
+
 [System.Serializable]
 public class DiceImbue
 {
-    public DiceImbued ImbueName; // UNITQUE
-    [HorizontalGroup("Required", 0.3f)]
-    public List<DiceImbued> required = new List<DiceImbued>(); // need id to unlock
-    [HorizontalGroup("Required", 0.3f)]
-    public List<int> GodRequired = new List<int>(); // only for this god
-    [HorizontalGroup("Required", 0.3f)]
-    public List<GodTalen> GodTalenRequired = new List<GodTalen>(); // god need this to unlock
-    [HorizontalGroup("Rate", 0.3f)]
-    public int Rate;
-    [HorizontalGroup("Rate", 0.3f)]
-    [MinValue(1)]
-    public int maxCount = 1;// if > 1 => can reoccus multi time
+    public Dice dice;
+    public virtual string GetDes()
+    {
+        return "";
+    }
 }
 
-
-public enum DiceImbued
+[System.Serializable]
+public class DiceImbueString : DiceImbue
 {
-    NULL,
-    INCREASEDMG_I,
-    INCREASEDMG_II,
-    INCREASEDMG_III,
-    SUN_BURN_I,
-    SUN_BURN_II,
+    public string _text;
+    public override string GetDes()
+    {
+        return "";
+    }
 }
+
+
+[System.Serializable]
+public class DiceImbueValue : DiceImbue
+{
+    public int num;
+    public string _text;
+    public override string GetDes()
+    {
+        if (num == -1)
+        {
+            return "Dice Roll";
+        }
+        else
+        {
+            return dice.diceImbueMax[num].Des;
+        }
+    }
+}
+
+
+

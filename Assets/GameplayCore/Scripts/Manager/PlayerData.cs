@@ -18,5 +18,6 @@ public class PlayerData
     }
 
     public int GodId;
-
+    public int SoulFire;
+    public List<Item> ItemList;
 }

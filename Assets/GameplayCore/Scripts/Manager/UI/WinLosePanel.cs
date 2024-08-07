@@ -60,7 +60,8 @@ public class WinLosePanel : MonoBehaviour
     [Button]
     public void ShowWin()
     {
-        ShowReward();
+        StartCoroutine(ShowReward());
+        ClaimReward();
         WinBtn.gameObject.SetActive(true);
     }
 
@@ -122,6 +123,28 @@ public class WinLosePanel : MonoBehaviour
         TextCountdown.gameObject.SetActive(false);
         ImgCountdown.SetActive(false);
     }
+
+    public void ClaimReward()
+    {
+        foreach (var item in BattleManager.Instance.rewards)
+        {
+            bool hav = false;
+            foreach (var iteamHave in PlayerData.Instance.ItemList)
+            {
+                if (iteamHave.ItemId == item.ItemId)
+                {
+                    hav = true;
+                    iteamHave.Number += item.Number;
+                    break;
+                }
+            }
+            if (!hav)
+            {
+                PlayerData.Instance.ItemList.Add(new Item(item.ItemId, item.Number));
+            }
+        }
+    }
+
 
     public IEnumerator ShowReward()
     {

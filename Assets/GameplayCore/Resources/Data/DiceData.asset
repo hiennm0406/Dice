@@ -51,31 +51,36 @@ MonoBehaviour:
     - {fileID: -7464760887336577109, guid: 191e0183c898f25428481feba2b87051, type: 3}
     - {fileID: -8866378825118310145, guid: 191e0183c898f25428481feba2b87051, type: 3}
     - {fileID: -3287765887320952711, guid: 191e0183c898f25428481feba2b87051, type: 3}
-    isTemp: 0
-    baseDmg: 1
     element: 2
     MainEffect: {fileID: 4406914514903570536, guid: 7058b2f82ab0b2b438369bba616d9d13, type: 3}
     SubEffect: {fileID: 390435669924283646, guid: 53defcd72661d6746a7833fbabffaa3e, type: 3}
     tags: 
+    diceImbueMax:
+    - Name: Burn
+      Des: Burn damage
+      max: 4
+    - Name: Dur
+      Des: Burn duration
+      max: 2
     diceImbues:
-    - ImbueName: 1
-      required: 
-      GodRequired: 
-      GodTalenRequired: 
-      Rate: 15
-      maxCount: 100
-    - ImbueName: 2
-      required: 
-      GodRequired: 
-      GodTalenRequired: 
-      Rate: 10
-      maxCount: 100
-    - ImbueName: 3
-      required: 
-      GodRequired: 
-      GodTalenRequired: 
-      Rate: 5
-      maxCount: 100
+    - dice:
+        DiceId: 0
+        DiceName: 
+        ClassName: 
+        diceDirection:
+          direction: 0
+          isLoop: 0
+          diceDirection: []
+        SpriteList: []
+        element: 0
+        MainEffect: {fileID: 0}
+        SubEffect: {fileID: 0}
+        tags: 
+        diceImbueMax: []
+        diceImbues: []
+      Description: 
+      diceImbues:
+      - id: 0
   - DiceId: 1000
     DiceName: Fire Dice tmp
     ClassName: Dice_SunDice
@@ -114,12 +119,11 @@ MonoBehaviour:
     - {fileID: -7464760887336577109, guid: 191e0183c898f25428481feba2b87051, type: 3}
     - {fileID: -8866378825118310145, guid: 191e0183c898f25428481feba2b87051, type: 3}
     - {fileID: -3287765887320952711, guid: 191e0183c898f25428481feba2b87051, type: 3}
-    isTemp: 0
-    baseDmg: 1
     element: 2
     MainEffect: {fileID: 4406914514903570536, guid: 7058b2f82ab0b2b438369bba616d9d13, type: 3}
     SubEffect: {fileID: 390435669924283646, guid: 53defcd72661d6746a7833fbabffaa3e, type: 3}
     tags: 
+    diceImbueMax: []
     diceImbues: []
   - DiceId: 1
     DiceName: Sun Dice
@@ -159,31 +163,63 @@ MonoBehaviour:
     - {fileID: -7464760887336577109, guid: 191e0183c898f25428481feba2b87051, type: 3}
     - {fileID: -8866378825118310145, guid: 191e0183c898f25428481feba2b87051, type: 3}
     - {fileID: -3287765887320952711, guid: 191e0183c898f25428481feba2b87051, type: 3}
-    isTemp: 0
-    baseDmg: 1
     element: 4
     MainEffect: {fileID: 0}
     SubEffect: {fileID: 0}
     tags: 
+    diceImbueMax: []
     diceImbues:
-    - ImbueName: 1
-      required: 
-      GodRequired: 
-      GodTalenRequired: 
-      Rate: 15
-      maxCount: 100
-    - ImbueName: 2
-      required: 
-      GodRequired: 
-      GodTalenRequired: 
-      Rate: 10
-      maxCount: 100
-    - ImbueName: 3
-      required: 
-      GodRequired: 
-      GodTalenRequired: 
-      Rate: 5
-      maxCount: 100
+    - dice:
+        DiceId: 0
+        DiceName: 
+        ClassName: 
+        diceDirection:
+          direction: 0
+          isLoop: 0
+          diceDirection: []
+        SpriteList: []
+        element: 0
+        MainEffect: {fileID: 0}
+        SubEffect: {fileID: 0}
+        tags: 
+        diceImbueMax: []
+        diceImbues: []
+      Description: 
+      diceImbues: []
+    - dice:
+        DiceId: 0
+        DiceName: 
+        ClassName: 
+        diceDirection:
+          direction: 0
+          isLoop: 0
+          diceDirection: []
+        SpriteList: []
+        element: 0
+        MainEffect: {fileID: 0}
+        SubEffect: {fileID: 0}
+        tags: 
+        diceImbueMax: []
+        diceImbues: []
+      Description: 
+      diceImbues: []
+    - dice:
+        DiceId: 0
+        DiceName: 
+        ClassName: 
+        diceDirection:
+          direction: 0
+          isLoop: 0
+          diceDirection: []
+        SpriteList: []
+        element: 0
+        MainEffect: {fileID: 0}
+        SubEffect: {fileID: 0}
+        tags: 
+        diceImbueMax: []
+        diceImbues: []
+      Description: 
+      diceImbues: []
   - DiceId: 1001
     DiceName: Sun Dice tmp
     ClassName: Dice_FireDice
@@ -222,12 +258,11 @@ MonoBehaviour:
     - {fileID: -7464760887336577109, guid: 191e0183c898f25428481feba2b87051, type: 3}
     - {fileID: -8866378825118310145, guid: 191e0183c898f25428481feba2b87051, type: 3}
     - {fileID: -3287765887320952711, guid: 191e0183c898f25428481feba2b87051, type: 3}
-    isTemp: 0
-    baseDmg: 1
     element: 4
     MainEffect: {fileID: 0}
     SubEffect: {fileID: 0}
     tags: 
+    diceImbueMax: []
     diceImbues: []
   - DiceId: 2
     DiceName: Sky Dice
@@ -255,34 +290,98 @@ MonoBehaviour:
     - {fileID: -7464760887336577109, guid: 191e0183c898f25428481feba2b87051, type: 3}
     - {fileID: -8866378825118310145, guid: 191e0183c898f25428481feba2b87051, type: 3}
     - {fileID: -3287765887320952711, guid: 191e0183c898f25428481feba2b87051, type: 3}
-    isTemp: 0
-    baseDmg: 1
     element: 4
     MainEffect: {fileID: 0}
     SubEffect: {fileID: 0}
     tags: 
+    diceImbueMax: []
     diceImbues:
-    - ImbueName: 1
-      required: 
-      GodRequired: 
-      GodTalenRequired: 
-      Rate: 15
-      maxCount: 100
-    - ImbueName: 2
-      required: 
-      GodRequired: 
-      GodTalenRequired: 
-      Rate: 10
-      maxCount: 100
-    - ImbueName: 3
-      required: 
-      GodRequired: 
-      GodTalenRequired: 
-      Rate: 5
-      maxCount: 100
-    - ImbueName: 4
-      required: 
-      GodRequired: 
-      GodTalenRequired: 
-      Rate: 10
-      maxCount: 1
+    - dice:
+        DiceId: 0
+        DiceName: 
+        ClassName: 
+        diceDirection:
+          direction: 0
+          isLoop: 0
+          diceDirection: []
+        SpriteList: []
+        element: 0
+        MainEffect: {fileID: 0}
+        SubEffect: {fileID: 0}
+        tags: 
+        diceImbueMax: []
+        diceImbues: []
+      Description: 
+      diceImbues: []
+    - dice:
+        DiceId: 0
+        DiceName: 
+        ClassName: 
+        diceDirection:
+          direction: 0
+          isLoop: 0
+          diceDirection: []
+        SpriteList: []
+        element: 0
+        MainEffect: {fileID: 0}
+        SubEffect: {fileID: 0}
+        tags: 
+        diceImbueMax: []
+        diceImbues: []
+      Description: 
+      diceImbues: []
+    - dice:
+        DiceId: 0
+        DiceName: 
+        ClassName: 
+        diceDirection:
+          direction: 0
+          isLoop: 0
+          diceDirection: []
+        SpriteList: []
+        element: 0
+        MainEffect: {fileID: 0}
+        SubEffect: {fileID: 0}
+        tags: 
+        diceImbueMax: []
+        diceImbues: []
+      Description: 
+      diceImbues: []
+    - dice:
+        DiceId: 0
+        DiceName: 
+        ClassName: 
+        diceDirection:
+          direction: 0
+          isLoop: 0
+          diceDirection: []
+        SpriteList: []
+        element: 0
+        MainEffect: {fileID: 0}
+        SubEffect: {fileID: 0}
+        tags: 
+        diceImbueMax: []
+        diceImbues: []
+      Description: 
+      diceImbues: []
+  references:
+    version: 1
+    00000000:
+      type: {class: DiceImbueString, ns: , asm: Assembly-CSharp}
+      data:
+        dice:
+          DiceId: 0
+          DiceName: 
+          ClassName: 
+          diceDirection:
+            direction: 0
+            isLoop: 0
+            diceDirection: []
+          SpriteList: []
+          element: 0
+          MainEffect: {fileID: 0}
+          SubEffect: {fileID: 0}
+          tags: 
+          diceImbueMax: []
+          diceImbues: []
+        _text: 

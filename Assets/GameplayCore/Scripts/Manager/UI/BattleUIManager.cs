@@ -40,22 +40,22 @@ public class BattleUIManager : MonoBehaviour
     }
 
 
-    public void ShowImbueChoice(DiceImbued diceImbued, DiceController dice = null)
-    {
-        //Debug.Log("imbue => count" + count);
-        BattleManager.Instance.UserBusy = true;
-        try
-        {
+    //public void ShowImbueChoice(DiceImbued diceImbued, DiceController dice = null)
+    //{
+    //    //Debug.Log("imbue => count" + count);
+    //    BattleManager.Instance.UserBusy = true;
+    //    try
+    //    {
 
-            choiceBoxes[count].InitDiceImbue(diceImbued, dice);
-        }
-        catch
-        {
-            Debug.LogError(count);
+    //        choiceBoxes[count].InitDiceImbue(diceImbued, dice);
+    //    }
+    //    catch
+    //    {
+    //        Debug.LogError(count);
 
-        }
-        count++;
-    }
+    //    }
+    //    count++;
+    //}
 
     public void ShowMenuImbueChoice()
     {

@@ -10,9 +10,9 @@ public class DiceController : MonoBehaviour
     public List<DmgTag> tags;
     public int DiceId;
     private DiceOnBoardController _diceOnBoard;
-    private DiceInfo diceInfo;
+    private Dice diceInfo;
     private int[] number;
-    public List<DiceImbued> imbued = new List<DiceImbued>();
+    //public List<DiceImbued> imbued = new List<DiceImbued>();
 
     protected float dmgImprove = 1;
 
@@ -26,17 +26,17 @@ public class DiceController : MonoBehaviour
         _diceOnBoard = GetComponent<DiceOnBoardController>();
         diceInfo = DiceData.instance.GetDice(DiceId);
         // set up dice
-        dmg = diceInfo.baseDmg;
+        dmg = 1;
         element = diceInfo.element;
         tags = diceInfo.tags;
 
-        SetupImbue();
+        //SetupImbue();
     }
     public void TriggerDice(int _num)
     {
         // get all tile 
 
-        DiceInfo _dice = DiceData.instance.GetDice(DiceId);
+        Dice _dice = DiceData.instance.GetDice(DiceId);
         int pos = _diceOnBoard.pos;
 
         List<Tile> tiles = new List<Tile>() { BattleManager.Instance.ListTile[pos] };
@@ -75,7 +75,7 @@ public class DiceController : MonoBehaviour
 
     public void ChangePos()
     {
-        DiceInfo _dice = DiceData.instance.GetDice(DiceId);
+        Dice _dice = DiceData.instance.GetDice(DiceId);
         int pos = _diceOnBoard.pos;
 
         List<Tile> tiles = new List<Tile>() { BattleManager.Instance.ListTile[pos] };
@@ -148,30 +148,6 @@ public class DiceController : MonoBehaviour
 
 
     #region IMBUE
-
-    public void AddImbue(DiceImbued imbue)
-    {
-        imbued.Add(imbue);
-    }
-
-    public virtual void SetupImbue()
-    {
-        foreach (var item in imbued)
-        {
-            switch (item)
-            {
-                case DiceImbued.INCREASEDMG_I:
-                    dmgImprove += 0.03f;
-                    break;
-                case DiceImbued.INCREASEDMG_II:
-                    dmgImprove += 0.06f;
-                    break;
-                case DiceImbued.INCREASEDMG_III:
-                    dmgImprove += 0.1f;
-                    break;
-            }
-        }
-    }
 
     #endregion
 

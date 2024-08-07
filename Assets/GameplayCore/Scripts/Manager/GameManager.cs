@@ -16,6 +16,7 @@ public class GameManager : Singleton<GameManager>
         {
             playerData = new PlayerData();
             playerData.GodId = 0;
+            playerData.ItemList = new List<Item>();
         }
     }
 

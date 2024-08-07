@@ -23,9 +23,6 @@ public class GodManager : UnitBase
         Level = level;
         godData = GodData.instance.GetGod(GodId);
         stat = new Stat();
-        stat.CopyStat(godData.BaseStat);
-        stat.Power = godData.BaseStat.Power + (Level + 1) * godData.BaseStatIncrease.Power;
-        stat.HP = godData.BaseStat.HP + (Level + 1) * godData.BaseStatIncrease.HP;
         HPNow = stat.HP;
     }
 
